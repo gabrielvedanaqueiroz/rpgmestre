@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='sidebar'>
+        <img src={logo} alt='pj'/>
+        <img src={logo} alt='npc'/>
+        <img src={logo} alt='monstros'/>
+        <img src={logo} alt='anotacao'/>
+
+        <img src={logo} alt='deslogar'/>
+      </div>
+
+      <div className='conteudo'>chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white</div>
     </div>
   );
 }
