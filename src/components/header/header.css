@@ -1,0 +1,15 @@
+.header{
+  height: auto;
+  padding: 8px;
+  margin-bottom: 4px;
+  background-color: chocolate;
+}
+
+.titulo{
+  display: flex;
+}
+
+.titulo img{
+  height: 28px;
+  margin-right: 4px;
+}
