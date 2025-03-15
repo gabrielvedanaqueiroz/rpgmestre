@@ -5,30 +5,11 @@
   flex-direction: row;
 }
 
-.sidebar{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border-radius: 4px;
-  padding: 4px;
-  width: 56px;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
-  background-color: chocolate;
-  overflow: hidden; /* Evita que o conteúdo vaze */
-}
-
-.sidebar img{
-  width: 48px;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.6);
-  filter: brightness(0);
-}
-
 .conteudo{
   width: 100%;
   padding: 8px;
   height: calc(100vh - 6em);
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
