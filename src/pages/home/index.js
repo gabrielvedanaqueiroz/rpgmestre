@@ -5,15 +5,29 @@ function Home(){
   return(
     <div className='ho-container'>
       <div className='card'>
-        cadr1
+        <ul>
+          <li>campanha (descrição da campanha)</li>
+          <li>fila de iniciativa</li>
+        </ul>
+      
+
       </div>
       
       <div className='card'>
-        cadr1
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
       </div>
       
       <div className='card'>
-        chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+        outras campanhas (divs redendos com uma foto e nome da campanha )
+        
+        <ul>
+          <li>campanha1 </li>
+          <li>campanha2</li>
+          <li>campanha3</li>
+          <li>campanha4</li>
+          <li>campanha5</li>
+        </ul>
+        
       </div>
     </div>
   )
