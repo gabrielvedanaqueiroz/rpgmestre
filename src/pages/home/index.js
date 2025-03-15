@@ -3,7 +3,7 @@ import './home.css';
 function Home(){
 
   return(
-    <div className='container'>
+    <div className='ho-container'>
       <div className='card'>
         cadr1
       </div>

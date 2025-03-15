@@ -7,14 +7,15 @@ import home from '../../res/home.svg';
 import caracteristica from '../../res/caracteristica.svg';
 import logout from '../../res/logout.svg';
 import monstro from '../../res/monstro.svg';
+import {memo} from 'react';
 
-function Sidebar() {
+const Sidebar = memo(()=>{
 
   const [menu, setMenu] = useState(1);  
 
   return (
     
-    <div className='sidebar'>
+    <div className='sd-container'>
       <ul className='sd-div-top'>
         <li key='sdbt1' className={menu===1?'sd-div-item-selecionado': 'sd-div-item'} >
           <img src={home} alt='home' onClick={()=>{setMenu(1)}}/>
@@ -44,6 +45,6 @@ function Sidebar() {
     </div>
 
   );
-}
+});
 
 export default Sidebar;

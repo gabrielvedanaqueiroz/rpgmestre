@@ -1,0 +1,14 @@
+home:
+  campanhas
+  fila de iniciativa
+persoangens
+  ficha
+monstros
+  ficha
+npc
+  ficha
+anotacao
+  anotacoes resgra
+perfil
+  configuracao
+deslogar

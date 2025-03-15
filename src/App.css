@@ -1,5 +1,4 @@
 .App{
-  padding: 8px;
   gap: 8px;
   display: flex;
   flex-direction: row;
@@ -7,7 +6,7 @@
 
 .conteudo{
   width: 100%;
-  height: calc(100vh - 6em);
+  padding: 8px 8px 0px 0px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

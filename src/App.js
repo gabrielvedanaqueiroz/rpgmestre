@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/header';
 import Sidebar from './components/sidebar'; 
-import Home from './pages/home';
+import RoutersApp from './routers';
 
 function App() {
 
@@ -9,10 +9,10 @@ function App() {
     <div>
       <Header/>
       <div className="App">
-        
-        <Home/>
         <Sidebar/>
-        {/* <div className='conteudo'></div> */}
+        <div className='conteudo'>
+          <RoutersApp/>  
+        </div>        
       </div>
     </div>
   );
