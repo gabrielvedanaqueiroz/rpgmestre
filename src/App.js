@@ -7,10 +7,11 @@ function App() {
 
   return (
     <div>
-      <Header/>
-      <div className="App">
+      
+      <div className="app-container">
         <Sidebar/>
-        <div className='conteudo'>
+        <div className='app-conteudo'>
+          <Header/>
           <RoutersApp/>  
         </div>        
       </div>

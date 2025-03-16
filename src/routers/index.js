@@ -1,15 +1,14 @@
-import {BrowserRouter, Routes, Route} from 'react-router';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../pages/home/';
 import Private from './private';
 import NaoEncontrado from '../pages/naoencontrado';
 
 function RoutersApp(){
 
-
   return(
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Private> <Home/> </Private>}/> {/* elemento de validacao de acesso. GV 16-02-2025 */}
+        <Route path='/' element={<Private> <Home/> </Private>}/> 
     
         {/* <Route path='/login' element={<Login/>}/>  */}
         <Route path='*' element={<NaoEncontrado/>}/> 

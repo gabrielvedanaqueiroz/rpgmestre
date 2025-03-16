@@ -1,16 +1,7 @@
 .hd-container{
-  height: auto;
-  padding: 8px;
-  background-color: chocolate;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
-}
-
-.hd-titulo{
-  display: flex;
+  height: 70px;
+  padding: 8px 0 0 0;
+  background-color: chocolate;  
   align-items: center;
-}
-
-.hd-titulo img{
-  height: 28px;
-  margin-right: 4px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
