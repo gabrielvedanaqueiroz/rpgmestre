@@ -9,6 +9,7 @@ import logo from '../../res/logo.svg';
 import logout from '../../res/logout.svg';
 import monstro from '../../res/monstro.svg';
 import {memo} from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = memo(()=>{
 
@@ -21,25 +22,37 @@ const Sidebar = memo(()=>{
    
       <ul className='sd-div-top'>
         <li key='sdbt1' className={menu===1?'sd-div-item-selecionado': 'sd-div-item'} >
-          <img className='sd-container-img' src={home} alt='home' onClick={()=>{setMenu(1)}}/>
+          <Link to='/'> 
+            <img className='sd-container-img' src={home} alt='home' onClick={()=>{setMenu(1)}}/>
+          </Link>
         </li>
         <li key='sdbt2' className={menu===2?'sd-div-item-selecionado': 'sd-div-item'} >
-          <img className='sd-container-img' src={personagem} alt='pj' onClick={()=>{setMenu(2)}}/>
+          <Link to='/personagens'> 
+            <img className='sd-container-img' src={personagem} alt='pj' onClick={()=>{setMenu(2)}}/>
+          </Link>
         </li>
         <li key='sdbt3' className={menu===3?'sd-div-item-selecionado': 'sd-div-item'} >
-          <img className='sd-container-img' src={inc} alt='npc' onClick={()=>{setMenu(3)}}/>
+          <Link to='/npcs'> 
+            <img className='sd-container-img' src={inc} alt='npc' onClick={()=>{setMenu(3)}}/>
+          </Link>
         </li>
         <li key='sdbt4' className={menu===4?'sd-div-item-selecionado': 'sd-div-item'} >
-          <img className='sd-container-img' src={monstro} alt='monstros' onClick={()=>{setMenu(4)}}/>
+          <Link to='/monstros'> 
+            <img className='sd-container-img' src={monstro} alt='monstros' onClick={()=>{setMenu(4)}}/>
+          </Link>
         </li>
         <li key='sdbt5' className={menu===5?'sd-div-item-selecionado': 'sd-div-item'} >
-          <img className='sd-container-img' src={caracteristica} alt='anotacao' onClick={()=>{setMenu(5)}}/>
+          <Link to='/anotacoes'> 
+            <img className='sd-container-img' src={caracteristica} alt='anotacao' onClick={()=>{setMenu(5)}}/>
+          </Link>
         </li>
       </ul>
 
       <ul className='siv-div-bottom'>
         <li key='sdbb1' className={menu===6?'sd-div-item-selecionado': 'sd-div-item'} >
-          <img className='sd-container-img' src={config} alt='perfil' onClick={()=>{setMenu(6)}}/>
+          <Link to='/perfil'> 
+            <img className='sd-container-img' src={config} alt='perfil' onClick={()=>{setMenu(6)}}/>
+          </Link>
         </li>
         <li key='sdbb2' className={menu===7?'sd-div-item-selecionado': 'sd-div-item'} >
           <img className='sd-container-img' src={logout} alt='deslogar' onClick={()=>{setMenu(7)}}/>

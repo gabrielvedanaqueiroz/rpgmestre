@@ -14,7 +14,67 @@
   width: 100%;
   border-radius: 4px;
   border: 0.6px solid rgb(197, 189, 189);
-  background-color: azure;
+  background-color: white;
   padding: 8px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ho-div-iniciativa{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 16px 0 4px 0;
+  padding: 16px 8px 8px 8px;
+  border-radius: 4px;
+  border: 1px solid rgb(180, 177, 177);
+}
+
+.ho-div-iniciativa-titulo{
+  position: absolute;
+  top: -12px; /* Ajusta para cima da borda */
+  left: 68px;
+  background: white; /* Para cobrir a borda */
+  padding: 0 5px;
+  transform: translateX(-50%);
+}
+
+.ho-div-fila{
+  display: flex;
+  gap: 8px;
+}
+
+.ho-iniciativa-item{
+  gap: 2px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid rgb(180, 177, 177);
+  display: flex;
+}
+
+.ho-iniciativa-item-linha1{
+  gap: 2px;
+  display: flex;
+}
+
+.ho-iniciativa-item-linha2{
+  width: 32px;
+  filter: brightness(0) invert(1); 
+  position: absolute;
+  bottom: -14px; /* Ajusta para cima da borda */
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg) ; /* Gira a imagem 45 graus */
+  border-top: 1px solid black;
+  padding: 0;
+  margin: 0;
+}
+
+.ho-iniciativa-item-selecionado{
+  gap: 2px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: chocolate;
+  display: flex;
+  position: relative;  
+  color: white;
 }
