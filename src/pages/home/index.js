@@ -8,9 +8,7 @@ function Home(){
         <ul>
           <li>campanha (descrição da campanha)</li>
           <li>fila de iniciativa</li>
-        </ul>
-      
-
+        </ul>  
       </div>
       
       <div className='card'>
@@ -28,6 +26,37 @@ function Home(){
           <li>campanha5</li>
         </ul>
         
+      </div>
+
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+      </div>
+      <div className='card'>
+      chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
       </div>
     </div>
   )
