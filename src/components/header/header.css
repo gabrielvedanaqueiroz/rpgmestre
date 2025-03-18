@@ -6,4 +6,6 @@
   align-items: center;
   margin-right: 8px;
   border-top-right-radius: 4px;
+  position: sticky;
+  top: 0;
 }

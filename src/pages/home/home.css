@@ -1,10 +1,11 @@
 .ho-container{
-  height: 100%;
-  width: calc(100vw -2em);
+  /* height: 100%; */
+  /* height: calc(100% - 8.7em); */
+  width: auto;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 0 8px 8px 8px;
+  padding: 0px 16px 8px 8px;
   overflow: hidden;
   overflow-y: auto; /* Ativa a rolagem */
 }

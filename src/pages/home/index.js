@@ -38,6 +38,7 @@ function Home(){
 
   return(
     <div className='ho-container'>
+      
       <div className='card'>
         <ul>
           <li>campanha (descrição da campanha)</li>
