@@ -1,6 +1,4 @@
 .ho-container{
-  /* height: 100%; */
-  /* height: calc(100% - 8.7em); */
   width: auto;
   display: flex;
   flex-direction: column;
