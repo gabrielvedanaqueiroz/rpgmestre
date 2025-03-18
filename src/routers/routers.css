@@ -25,7 +25,7 @@
   overflow: hidden;
   position: fixed;
   left: 60px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 @media screen and (max-width: 480px)  {
@@ -35,13 +35,11 @@
   }
 
   .app-paginas{
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
     padding: 78px 16px 8px 4px;
-    overflow: hidden;
-    overflow-y: auto; /* Ativa a rolagem */
+  }
+
+  .app-conteudo{
+    padding-bottom: 16px;
   }
   
 }
