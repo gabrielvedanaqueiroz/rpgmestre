@@ -19,18 +19,20 @@ function RoutersApp(){
       <div >
         <div className="app-container">
           <Sidebar/>
+          <Header/>
           <div className='app-conteudo'>
-            <Header/>
-            <Routes>
-              <Route path='/' element={<Private> <Home/> </Private>}/> 
-              <Route path='/npcs' element={<Private> <NPC/> </Private>}/> 
-              <Route path='/personagens' element={<Private> <Personagens/> </Private>}/> 
-              <Route path='/perfil' element={<Private> <Perfil/> </Private>}/> 
-              <Route path='/anotacoes' element={<Private> <Anotacoes/> </Private>}/> 
-          
-              {/* <Route path='/login' element={<Login/>}/>  */}
-              <Route path='*' element={<NaoEncontrado/>}/> 
-            </Routes>
+            <div className='app-paginas'>
+              <Routes>
+                <Route path='/' element={<Private> <Home/> </Private>}/> 
+                <Route path='/npcs' element={<Private> <NPC/> </Private>}/> 
+                <Route path='/personagens' element={<Private> <Personagens/> </Private>}/> 
+                <Route path='/perfil' element={<Private> <Perfil/> </Private>}/> 
+                <Route path='/anotacoes' element={<Private> <Anotacoes/> </Private>}/> 
+            
+                {/* <Route path='/login' element={<Login/>}/>  */}
+                <Route path='*' element={<NaoEncontrado/>}/> 
+              </Routes>
+            </div>
           </div>        
         </div>
       </div>

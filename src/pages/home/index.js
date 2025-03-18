@@ -93,7 +93,7 @@ function Home(){
       </div>
       <div className='card'>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
+      </div> 
     </div>
   )
 }

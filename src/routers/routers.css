@@ -7,17 +7,19 @@
   height: calc(100vh - 16px);
 }
 
-@media screen and (max-width: 480px)  {
-  /* Regras para telas menores, como celulares */
-  .app-container {
-    height: calc(100vh - 68px);
-  }
+.app-paginas{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 78px 16px 8px 8px;
+  overflow: hidden;
+  overflow-y: auto; /* Ativa a rolagem */
 }
 
 .app-conteudo{
   height: 100%;
   width: calc(100vw - 3.7em);
-  gap: 8px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -26,17 +28,23 @@
   padding-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 480px)  {
+  /* Regras para telas menores, como celulares */
+  .app-container {
+    height: calc(100vh - 68px);
   }
+
+  .app-paginas{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 78px 16px 8px 4px;
+    overflow: hidden;
+    overflow-y: auto; /* Ativa a rolagem */
+  }
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+

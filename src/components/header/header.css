@@ -1,11 +1,11 @@
 .hd-container{
   height: 70px;
-  padding-top: 8px;
-  padding-bottom: 4px;
+  padding: 8px 0px 4px 4px;
   background-color: chocolate;  
   align-items: center;
-  margin-right: 8px;
   border-top-right-radius: 4px;
   position: static;
   top: 0;
+  width: 100%;
+  z-index: 9000;
 }
