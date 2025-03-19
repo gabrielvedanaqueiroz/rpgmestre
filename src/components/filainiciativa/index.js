@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import './filainiciativa.css';
+import { useEffect, useState } from 'react';
 import seta from '../../res/setabaixo.svg'
 
 function FilaIniciativa(){
@@ -25,32 +25,35 @@ function FilaIniciativa(){
   }
 
   return (
-    <div className='fi-container'>
-        <div className='fi-div-iniciativa'>
-          <strong className='fi-div-iniciativa-titulo'>Fila de Iniciativa</strong>
+   
+    <div className='fi-div-iniciativa'>
+      <strong className='fi-div-iniciativa-titulo'>Fila de Iniciativa</strong>
 
-          <div className='fi-div-fila'>
-            {array.map((item, index)=>{
-              return(
-                <div key={index} className={index === posicao? 'fi-iniciativa-item-selecionado': 'fi-iniciativa-item'}>
+      <div className='fi-div-fila'>
+        <ul style={{display: 'flex', gap: '8px'}}>
+          {array.map((item, index)=>{
+            return(
+              <li key={index} className={index === posicao? 'fi-iniciativa-item-selecionado': 'fi-iniciativa-item'}>
 
-                  <div className= {index === posicao? 'fi-div-vida-selecionado': 'fi-div-vida'} > <label>{item.vida}</label> </div>
+                <div className= {index === posicao? 'fi-div-vida-selecionado': 'fi-div-vida'} > <label>{item.vida}</label> </div>
 
-                  <div className='fi-iniciativa-item-linha1'>
-                    <label>{item.nome}</label>
-                    <label>{index % 2 === 0? 'Monstro': 'Personagem' }</label>  
-                  </div>
-
-                  {(index === posicao? <img className='fi-posicao' src={seta} alt='atual'/>: <div/>)}
-                  
+                <div className='fi-iniciativa-item-linha1'>
+                  <label>{item.nome}</label>
+                  <label>{index % 2 === 0? 'Monstro': 'Personagem' }</label>  
                 </div>
-              ) 
-            })}
 
-            <button onClick={onProximo}> Proximo  </button>
-          </div>
-        </div>
-      </div> 
+                {(index === posicao? <img className='fi-posicao' src={seta} alt='atual'/>: <div/>)}
+                
+              </li>
+            ) 
+          })}
+
+          <li><button onClick={onProximo}> Proximo  </button></li>
+
+        </ul>
+      </div>
+    </div>
+   
   )
 }
 

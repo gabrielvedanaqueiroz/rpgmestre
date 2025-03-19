@@ -1,3 +1,9 @@
+:root{
+  --cor-primaria: chocolate;
+  --cor-selecionada: rgb(243, 164, 108);
+  --cor-secundaria: rgb(70, 187, 66); 
+}
+
 *{
   margin: 0;
   padding: 0;

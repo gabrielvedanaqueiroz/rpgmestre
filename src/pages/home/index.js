@@ -1,24 +1,25 @@
 import './home.css';
 import FilaIniciativa from '../../components/filainiciativa';
+import CardExpanssivo from '../../components/cardexpansivo';
+import Card from '../../components/card';
 
 function Home(){
-
 
   return(
     <div className='ho-container'>
       
-      <div className='card'>
+      <CardExpanssivo id='card-1' titulo='Campanha'>
         <ul>
           <li>campanha (descrição da campanha)</li>
           <li>{ <FilaIniciativa/>}</li>
         </ul>  
-      </div>
+      </CardExpanssivo>
       
-      <div className='card'>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
+      </Card>
       
-      <div className='card'>
+      <Card>
         outras campanhas (divs redendos com uma foto e nome da campanha )
         
         <ul>
@@ -29,38 +30,38 @@ function Home(){
           <li>campanha5</li>
         </ul>
         
-      </div>
+      </Card>
 
-      <div className='card'>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div>
-      <div className='card'>
+      </Card>
+      <Card>
       chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
-      </div> 
+      </Card>
     </div>
   )
 }
