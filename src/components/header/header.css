@@ -5,7 +5,7 @@
   align-items: center;
   border-top-right-radius: 4px;
   position: static;
-  top: 0;
+  top: 8px;
   width: 100%;
   z-index: 9000;
 }

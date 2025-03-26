@@ -2,6 +2,9 @@
   --cor-primaria: chocolate;
   --cor-selecionada: rgb(243, 164, 108);
   --cor-secundaria: rgb(70, 187, 66); 
+  --cor-cinzacontorno : rgb(180, 177, 177);
+
+  --bordas-contorno: 1px solid var(--cor-cinzacontorno);
 }
 
 *{

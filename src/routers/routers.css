@@ -1,10 +1,10 @@
 .app-container{
   display: flex;
   flex-direction: row;
-  margin: 8px;
+  margin: 24px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
-  height: calc(100vh - 16px);
+  height: calc(100vh - 48px);
 }
 
 .app-paginas{
@@ -18,13 +18,13 @@
 }
 
 .app-conteudo{
-  height: 100%;
-  width: calc(100vw - 3.7em);
+  height: calc(100vh - 2.2em);
+  width: calc(100vw - 6.4em);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: fixed;
-  left: 60px;
+  left: 86px;
   padding-bottom: 20px;
 }
 

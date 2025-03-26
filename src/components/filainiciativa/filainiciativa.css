@@ -1,11 +1,10 @@
 .fi-div-iniciativa{
 
   /* div item*/
-  --fi-width: 120px;
+  --fi-width: 230px;
   --fi-gap: 2px;
-  --fi-padding: 8px;
-  --fi-border-radius: 10px;
-  --fi-border: 1px solid rgb(180, 177, 177);
+  --fi-padding: 6px;
+  --fi-border-radius: 6px;
   --fi-display: flex;
   --fi-flex-direction: column;
   --fi-justify-content: center;
@@ -26,13 +25,13 @@
   --fi-vida-background-position: center;
 
   position: relative;
+  justify-content: center;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
   margin: 16px 0 4px 0;
   padding: 16px 8px 8px 8px;
   border-radius: 4px;
-  border: 1px solid rgb(180, 177, 177);
+  border: var(--bordas-contorno);
+  width: 250px;
 }
 
 .fi-div-iniciativa-titulo{
@@ -47,8 +46,6 @@
 .fi-div-fila{
   height: auto;
   display: flex;
-  gap: 8px;
-  display: flex;
   overflow: hidden;
   flex-wrap: wrap;
 }
@@ -57,29 +54,29 @@
   width: var(--fi-width);
   gap: var(--fi-gap);
   padding: var(--fi-padding);
-  border-radius: var(--fi-border-radius);
-  border: var(--fi-border);
+  border-bottom: var(--bordas-contorno); 
   display: var(--fi-display);
   flex-direction: var(--fi-flex-direction);
   justify-content: var(--fi-justify-content);
   justify-items: var(--fi-justify-items);
-  align-items: var(--fi-align-items);
 }
 
 .fi-iniciativa-item-selecionado{
   width: var(--fi-width);
   gap: var(--fi-gap);
   padding: var(--fi-padding);
-  border-radius: var(--fi-border-radius);
-  border: var(--fi-border);
+  border-radius: 2px;
   display: var(--fi-display);
   flex-direction: var(--fi-flex-direction);
   justify-content: var(--fi-justify-content);
   justify-items: var(--fi-justify-items);
-  align-items: var(--fi-align-items);
   background-color: chocolate;  
   color: white;  
   position: relative;  
+}
+
+.fi-iniciativa-item-conteudo{
+  display: flex;
 }
 
 .fi-div-vida{
@@ -112,13 +109,14 @@
 }
 
 .fi-iniciativa-item-linha1{
-  gap: 2px;
+  padding: 2px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   text-overflow: ellipsis;
+  justify-items: center;
   width: 100%;
-  text-align: center;
+  margin-left: 4px;
 }
 
 .fi-posicao{
@@ -128,4 +126,34 @@
   bottom: -14px; /* Ajusta para cima da borda */
   left: 50%;
   transform: translateX(-50%) rotate(180deg) ; /* Gira a imagem 45 graus */
+}
+
+.fi-navigator{
+  display: flex;
+  gap: 2px;
+  border: var(--bordas-contorno);
+  padding: 4px;
+  border-radius: 4px;
+  align-items: center;
+  justify-items: center;
+}
+
+.fi-navigator-btn{
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+}
+
+.fi-navigator-btn:active {
+  transform: scale(0.9);
+}
+
+.fi-navigator-div{
+  border: 1px solid var(--cor-cinzacontorno);
+  height: 28px;
+  width: 1px;
+}
+
+.fi-navigator-turno{
+  margin: 4px;
 }
