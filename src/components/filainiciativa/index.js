@@ -5,15 +5,15 @@ import finalizar from '../../res/parar.svg'
 import adicionar from '../../res/adicionar.svg'
 import anterior from '../../res/anterior.svg'
 import proximo from '../../res/proximo.svg'
+import remover from '../../res/delete.svg'
+import {db} from '../../services/firebaseConnection';
+import {collection, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore';
 
 function FilaIniciativa(){
     
   const [posicao, setPosicao] = useState(0);
   const [turno, setTurno] = useState(1);
-
-  const array = [{"nome":"NPC1", "vida": 55, "iniciativa": 3}, {"nome":"JOGADOR8888888888888", "vida": 55, "iniciativa": 4}, {"nome":"RUBAO", "vida": 55, "iniciativa": 4},
-    {"nome":"NPC1", "vida": 55, "iniciativa": 3}, {"nome":"JOGADOR", "vida": 55, "iniciativa": 4}, {"nome":"RUBAO", "vida": 55, "iniciativa": 4}
-  ];
+  const [lista, setLista] = useState([]);
 
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
@@ -22,6 +22,40 @@ function FilaIniciativa(){
     let tur = Number(localStorage.getItem('rm@filainiturno'));
     tur = (tur === 0? 1: tur);
     setTurno(tur);
+
+    const q = query(collection(db, "tb_fila"), where("fi_idcampanha", "==", 'xpto'));//pegar id da campanha
+    const querySnapshot = await getDocs(q); 
+    let lista = [];
+
+    try {
+      let i = 0;
+      querySnapshot.forEach((doc)=>{
+        
+        lista.push({
+          fi_id: doc.id.trim(),
+          fi_ca: doc.data().fi_ca,
+          fi_idpersonagem: doc.data().fi_idpersonagem.trim(),
+          fi_iniciativa: doc.data().fi_iniciativa,
+          fi_nome: doc.data().fi_nome.trim(),
+          fi_tipo: doc.data().fi_tipo,
+          fi_vida: doc.data().fi_vida,
+          fi_idcampanha : doc.data().fi_idcampanha.trim(),
+          fi_posicao : i,
+        });
+
+        i++;
+      });
+      lista.sort((a, b)=> a.fi_iniciativa < b.fi_iniciativa);
+      lista.forEach((item, index) => {
+        item.fi_posicao = index; // Posição começa em 1
+      });
+      
+      setLista(lista);
+      
+    } catch (error) {
+      // toast.error('Erro ao carregar inventario'+error); 
+      console.log('Erro ao carregar fila iniciativa: '+error);
+    }
   }
 
   useEffect(()=>{
@@ -31,7 +65,7 @@ function FilaIniciativa(){
   function onProximo(){
     let pos = 0;
 
-    if(posicao < (array.length -1 ))
+    if(posicao < (lista.length -1 ))
       pos = posicao+1;
 
     setPosicao(pos);
@@ -42,6 +76,21 @@ function FilaIniciativa(){
       tur++;
       setTurno(tur);
       localStorage.setItem('rm@filainiturno', tur);
+
+      let lbl = document.getElementById("lblturno");
+
+      // Salva os estilos originais
+      let corFundoOriginal = lbl.style.backgroundColor;
+      let corTextoOriginal = lbl.style.color;
+
+      // Aplica a nova cor
+      lbl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-primaria'); 
+      lbl.style.color           = "white";
+
+      setTimeout(() => {
+        lbl.style.backgroundColor = corFundoOriginal;
+        lbl.style.color = corTextoOriginal;
+      }, 1000);
     }
       
   }
@@ -80,6 +129,16 @@ function FilaIniciativa(){
     */ 
   }
 
+  async function onRemover(aId){
+    const docRef = doc(db, "tb_fila", aId);
+    await deleteDoc(docRef)
+    .then(()=>{})
+    .catch((error)=>{
+      // toast.error('Erro ao excluir');
+      console.log('erro ao buscar '+error);
+    });  
+  }
+
   return (
    
     <div className='fi-div-iniciativa'>
@@ -88,8 +147,8 @@ function FilaIniciativa(){
       <div className='fi-div-fila'>
         
         <ul style={{display: 'flex', flexDirection:'column'}}>
-        {/* <ul style={{display: 'flex', gap: '8px'}}> */}
-          
+
+          {/* navigator */ }
           <li> 
             <div className='fi-navigator'>
               <img className='fi-navigator-btn' src={adicionar} alt='adicionar' onClick={onAdicionar}/>
@@ -98,26 +157,28 @@ function FilaIniciativa(){
               <img className='fi-navigator-btn' src={anterior} alt='anterior' onClick={onAnterior}/>
               <img className='fi-navigator-btn' src={proximo} alt='proximo' onClick={onProximo}/>
               <div className='fi-navigator-div'/>
-              <label className='fi-navigator-turno'>Turno: {turno}</label>
+              <label className='fi-navigator-turno' id="lblturno">Turno: {turno}</label>
             </div> 
           </li>
 
-          {array.map((item, index)=>{
+          {/* lista de iniciativa */ }
+          {lista.map((item)=>{
             return(
-              <li key={index} className={index === posicao? 'fi-iniciativa-item-selecionado': 'fi-iniciativa-item'}>
+              <li key={item.fi_id} className={Number(item.fi_posicao) === posicao? 'fi-iniciativa-item-selecionado': 'fi-iniciativa-item'}>
                 <div className='fi-iniciativa-item-conteudo'>
-                  <div className= {index === posicao? 'fi-div-vida-selecionado': 'fi-div-vida'} > <label>{item.vida}</label> </div>
+                  <div className= { Number(item.fi_posicao) === posicao? 'fi-div-vlriniciativa-selecionado': 'fi-div-vlriniciativa'} > <label>{item.fi_iniciativa}</label> </div>
                   <div className='fi-iniciativa-item-linha1'>
-                    <label>{item.nome}</label>
-                    <label>{index % 2 === 0? 'Monstro': 'Personagem' }</label>  
+                    <strong>{item.fi_nome}</strong>
+                    <label className='fi-iniciativa-item-sublinha'>CA: {item.fi_ca} HP: {item.fi_vida} Ini: {item.fi_iniciativa}</label>
                   </div>
+                  <img className={ Number(item.fi_posicao) === posicao? 'fi-btnremover-selecionado': 'fi-navigator-btn'} src={remover} alt='apagar' onClick={onRemover}/>
                 </div>  
-                {(index === posicao? <img className='fi-posicao' src={seta} alt='atual'/>: <div/>)}
+                {(Number(item.fi_posicao) === posicao? <img className='fi-posicao' src={seta} alt='atual'/>: <div/>)}
                 
               </li>
             ) 
-          })}          
-          
+          })}   
+
         </ul>
       </div>
     </div>

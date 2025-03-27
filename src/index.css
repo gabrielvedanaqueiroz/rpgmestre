@@ -1,16 +1,19 @@
 :root{
-  --cor-primaria: chocolate;
-  --cor-selecionada: rgb(243, 164, 108);
-  --cor-secundaria: rgb(70, 187, 66); 
+  --cor-backgroud: #282c34;
+  --cor-primaria:#004953;
+  --cor-selecionada: #0b707e;
+  --cor-secundaria: #F9F07E; 
   --cor-cinzacontorno : rgb(180, 177, 177);
 
   --bordas-contorno: 1px solid var(--cor-cinzacontorno);
+  --invert-svg-cor-secundaria: invert(70%) sepia(45%) saturate(400%) hue-rotate(20deg);
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body {
@@ -20,7 +23,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: ghostwhite;
+  /* background-color: ghostwhite; */
+  background-color: var(--cor-backgroud);
 }
 
 ul{
@@ -40,6 +44,5 @@ button{
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

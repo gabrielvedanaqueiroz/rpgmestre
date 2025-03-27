@@ -8,4 +8,5 @@
   top: 8px;
   width: 100%;
   z-index: 9000;
+  color: var(--cor-secundaria);
 }

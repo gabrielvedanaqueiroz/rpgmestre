@@ -1,7 +1,7 @@
 .fi-div-iniciativa{
 
   /* div item*/
-  --fi-width: 230px;
+  --fi-width: 220px;
   --fi-gap: 2px;
   --fi-padding: 6px;
   --fi-border-radius: 6px;
@@ -17,12 +17,8 @@
   --fi-vida-justify-items: center;
   --fi-vida-justify-content: center;
   --fi-vida-display: flex;
-  --fi-vida-background-image: url('../../res/vida.svg');
-  --fi-vida-background-repeat: no-repeat;
   --fi-vida-width: 50px;
   --fi-vida-height: 50px;
-  --fi-vida-background-size: contain;
-  --fi-vida-background-position: center;
 
   position: relative;
   justify-content: center;
@@ -38,7 +34,7 @@
   position: absolute;
   top: -12px; /* Ajusta para cima da borda */
   left: 68px;
-  background: white; /* Para cobrir a borda */
+  background: whitesmoke; /* Para cobrir a borda */
   padding: 0 5px;
   transform: translateX(-50%);
 }
@@ -70,42 +66,39 @@
   flex-direction: var(--fi-flex-direction);
   justify-content: var(--fi-justify-content);
   justify-items: var(--fi-justify-items);
-  background-color: chocolate;  
+  background-color: var(--cor-primaria) ;  
   color: white;  
   position: relative;  
 }
 
 .fi-iniciativa-item-conteudo{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.fi-div-vida{
+.fi-div-vlriniciativa{
   padding: var(--fi-vida-padding);
   align-items: var(--fi-vida-align-items);
   justify-items: var(--fi-vida-justify-items);
   justify-content: var(--fi-vida-justify-content);
   display: var(--fi-vida-display);
-  background-image: var(--fi-vida-background-image);
-  background-repeat: var(--fi-vida-background-repeat);
+  border: 4px solid black;
+  border-radius: 25px;
   width: var(--fi-vida-width);
   height: var(--fi-vida-height);
-  background-size: var(--fi-vida-background-size);
-  background-position: var(--fi-vida-background-position);
 }
 
-.fi-div-vida-selecionado{
-  filter: brightness(0) invert(1); 
+.fi-div-vlriniciativa-selecionado{
   padding: var(--fi-vida-padding);
   align-items: var(--fi-vida-align-items);
   justify-items: var(--fi-vida-justify-items);
   justify-content: var(--fi-vida-justify-content);
   display: var(--fi-vida-display);
-  background-image: var(--fi-vida-background-image);
-  background-repeat: var(--fi-vida-background-repeat);
+  border: 4px solid white;
+  border-radius: 25px;
   width: var(--fi-vida-width);
   height: var(--fi-vida-height);
-  background-size: var(--fi-vida-background-size);
-  background-position: var(--fi-vida-background-position);
 }
 
 .fi-iniciativa-item-linha1{
@@ -136,6 +129,7 @@
   border-radius: 4px;
   align-items: center;
   justify-items: center;
+  margin-bottom: 8px;
 }
 
 .fi-navigator-btn{
@@ -155,5 +149,21 @@
 }
 
 .fi-navigator-turno{
-  margin: 4px;
+  padding: 2px;
+  margin: 2px 0 2px 2px;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s; /* Efeito suave */
+}
+
+.fi-btnremover-selecionado{
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  filter: brightness(0) invert(1); 
+}
+
+.fi-iniciativa-item-sublinha{
+  font-size: 13px;
 }
