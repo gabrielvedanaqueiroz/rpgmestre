@@ -7,11 +7,14 @@ import proximo from '../../res/proximo.svg'
 import remover from '../../res/delete.svg'
 import ca from '../../res/ca.svg'
 import vida from '../../res/vida.svg'
-import iniciaiva from '../../res/iniciativa.svg'
+import iniciativa from '../../res/iniciativa.svg'
+import mais from '../../res/expandir_mais.svg'
+import menos from '../../res/expandir_menos.svg'
 import {db} from '../../services/firebaseConnection';
-import {collection, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import {collection, query, where, getDocs, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { getImagem } from '../../utils';
 import ModalFila from '../modalfila';
+import { toast } from 'react-toastify';
 
 
 function FilaIniciativa(){
@@ -60,14 +63,14 @@ function FilaIniciativa(){
       setLista(lista);
       
     } catch (error) {
-      // toast.error('Erro ao carregar inventario'+error); 
+      toast.error('Erro ao carregar fila de iniciativa'+error); 
       console.log('Erro ao carregar fila iniciativa: '+error);
     }
   }
 
   useEffect(()=>{
     buscar();
-  },[]);
+  },[lista]);
 
   function onProximo(){
     let pos = 0;
@@ -138,14 +141,50 @@ function FilaIniciativa(){
       setShowModal(true);
   }
 
+  async function onVidaInc(aId, aVida){
+
+    let lvida = aVida;
+    lvida++;
+
+    const docRef = doc(db, "tb_fila", aId);
+      await updateDoc(docRef, {
+        fi_vida: lvida,
+      }
+    )
+    .then(()=>{ })
+    .catch((error)=>{
+      console.log('Erro ao editar: '+error);
+      toast.error('Erro ao editar');
+    });
+  }
+
+  async function onVidaDec(aId, aVida){
+    let lvida = aVida;
+    lvida--;
+
+    if(lvida < 0)
+      lvida = 0;
+
+    const docRef = doc(db, "tb_fila", aId);
+      await updateDoc(docRef, {
+        fi_vida: lvida,
+      }
+    )
+    .then(()=>{ })
+    .catch((error)=>{
+      console.log('Erro ao editar: '+error);
+      toast.error('Erro ao editar');
+    });
+  }
+
   async function onRemover(aId){
-    // const docRef = doc(db, "tb_fila", aId);
-    // await deleteDoc(docRef)
-    // .then(()=>{})
-    // .catch((error)=>{
-    //   // toast.error('Erro ao excluir');
-    //   console.log('erro ao buscar '+error);
-    // });  
+    const docRef = doc(db, "tb_fila", aId);
+    await deleteDoc(docRef)
+    .then(()=>{})
+    .catch((error)=>{
+      toast.error('Erro ao excluir');
+      console.log('erro ao buscar '+error);
+    });  
   }
 
   return (
@@ -186,12 +225,23 @@ function FilaIniciativa(){
                     <div className='fi-item-sublinha'>
                       <div className='fi-div-sublinha'> <img src={vida} alt='vida'/> {item.fi_vida} </div>
                       <div className='fi-div-sublinha'> <img src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
-                      <div className='fi-div-sublinha'> <img src={iniciaiva} alt='iniciaiva'/> {item.fi_iniciativa} </div>
+                      <div className='fi-div-sublinha'> <img src={iniciativa} alt='iniciaiva'/> {item.fi_iniciativa} </div>
+                      
+                      { Number(item.fi_posicao) === posicao? 
+                        (
+                          <div className='fi-div-vida'>
+                            <img src={mais} alt='aumentar vida' onClick={()=>{onVidaInc(item.fi_id, item.fi_vida)}}/>
+                            <div className='fi-navigator-div'/>
+                            <img src={menos} alt='diminuir vida' onClick={()=>{onVidaDec(item.fi_id, item.fi_vida)}}/>
+                          </div>
+                        ): <div/>
+                      }
                     </div>
+                   
                   </div>            
 
                   <div className='fi-item-right'>
-                    <img src={remover} alt='apagar' onClick={onRemover}/>  
+                    <img src={remover} alt='apagar' onClick={()=>{onRemover(item.fi_id)} }/>  
                   </div>            
                 </li>
               ) 
@@ -200,7 +250,12 @@ function FilaIniciativa(){
           </ul>
         </div>
       </div>
-      {showModal && (<ModalFila onOcultar={()=>{setShowModal(false)}}/>)}
+      {showModal && (
+        <ModalFila onOcultar={()=>{
+          buscar();
+          setShowModal(false);
+        }}/>
+      )}
     </div>
    
   )

@@ -1,7 +1,7 @@
 .fi-div-iniciativa{
 
   /* div item*/
-  --fi-width: 220px;
+  --fi-width: 320px;
   --fi-gap: 2px;
   --fi-padding: 6px;
   --fi-border-radius: 6px;
@@ -27,7 +27,7 @@
   padding: 16px 8px 8px 8px;
   border-radius: 4px;
   border: var(--bordas-contorno);
-  width: 250px;
+  width: 340px;
 }
 
 .fi-div-iniciativa-titulo{
@@ -114,6 +114,8 @@
   background-color: whitesmoke;
   color: black;
   border-radius: 4px;
+  width: 100%;
+  text-align: center;
   transition: background-color 0.3s, color 0.3s; /* Efeito suave */
 }
 
@@ -197,4 +199,31 @@
 
 .fi-item-right img:active {
   transform: scale(0.9);
+}
+
+.fi-div-vida{
+  display: flex;
+  width: 55px; 
+  margin-left: 25px;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 4px;
+  filter: brightness(0) invert(1);
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.fi-div-vida img {
+  height: 14px;
+  width: 14px;
+}
+
+.fi-div-vida img:active {
+  transform: scale(0.9);
+}
+
+.fi-div-vida div{
+  height: 18px;
+  margin: 0 4px 0 4px;
 }

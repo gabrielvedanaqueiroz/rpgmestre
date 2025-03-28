@@ -1,10 +1,13 @@
 import './modalfila.css';
 import { useRef } from 'react';
-// import BtnSalvarForm from '../btnsalvarform';
+import BtnSalvar from '../btnsalvar';
 import {db} from '../../services/firebaseConnection';
-import {doc, updateDoc} from 'firebase/firestore';
+import {addDoc, collection} from 'firebase/firestore';
+import { toast } from 'react-toastify';
 
 function ModalFila(props){
+
+  const tipoArr = ['Monstro', 'Barbaro', 'Bardo', 'Bruxo', 'Clérigo', 'Druida', 'Feiticeiro', 'Guerreiro', 'Ladino', 'Mago', 'Monge', 'Paladino', 'Guardião'];
 
   const nome = useRef('');
   const ca = useRef(0);
@@ -14,47 +17,79 @@ function ModalFila(props){
   
   async function onSalvar(e) {
 
-    // let num = numero.current.value;
-    // if(num > 0){
-    //   //salvar banco 
+    let lnome = nome.current.value;
+    let lca   = ca.current.value;
+    let lvida = vida.current.value;
+    let lini  = iniciativa.current.value;
+    let ltipo = tipo.current.value;
 
-    //   const docRef = doc(db, "tb_personagem", props.pe_id.trim());
-    //   await updateDoc(docRef, {
-    //     pe_catotal: num,
-    //   });
+    console.log(lnome);
+    console.log(lca);
+    console.log(lvida);
+    console.log(lini);
+    console.log(ltipo);
+
+    let valido = lnome !== '';
+    valido = valido && lca > 0;
+    valido = valido && lvida > 0;
+    valido = valido && lini > 0;
+
+    if(valido){
+      //salvar banco 
+
+      await addDoc(collection(db, 'tb_fila'),{
+        fi_idcampanha: 'xpto',
+        fi_idpersonagem: 'xpto2', 
+        fi_nome: lnome.trim(),
+        fi_ca: lca,
+        fi_vida: lvida,
+        fi_iniciativa: lini,
+        fi_tipo: ltipo,
+      })
+      .then(()=>{
+        props.onOcultar();
+      })
+      .catch((error)=>{
+        console.log('Erro ao inserir; '+error);
+        toast.error('Erro ao inserir');
+      });
       
-      props.onOcultar();
-    // }
-    // else
-    //   // toast.error('Campo obrigatório não pode ficar vazio')
+    }
+    else
+      console.log('Campos obrigatórios não podem ficar vazio');
+      toast.error('Campo obrigatório não pode ficar vazio')
   }
 
   return(
     <div className='overlay' key={props.pe_id}>
-      <div className='mcat_container'>
-        <div className='mcat_titulo'>
+      <div className='mfi-container'>
+        <div className='mfi-titulo'>
           <strong>Adicionar na fila de iniciativa</strong>
         </div>
-        <form className='mcat_form' action={(e)=>{onSalvar(e)}} >
+        <form className='mfi-form' action={(e)=>{onSalvar(e)}} >
 
           <label>Tipo</label>
-          <input className='mcat_edit' type='number' ref={tipo} />
+          <select className='mfi-sel' ref={tipo} >
+            {tipoArr.map((item, index)=>{
+               return <option key={index} value={index}>{item}</option>
+            })}
+          </select>
 
           <label>Nome</label>
-          <input className='mcat_edit' ref={nome} />
+          <input className='mfi-edit' ref={nome} />
 
           <label>Classe de Armadura</label>
-          <input className='mcat_edit' type='number' ref={ca} />
+          <input className='mfi-edit' type='number' ref={ca} />
 
           <label>Vida</label>
-          <input className='mcat_edit' type='number' ref={vida} />
+          <input className='mfi-edit' type='number' ref={vida} />
 
           <label>Iniciativa</label>
-          <input className='mcat_edit' type='number' ref={iniciativa} />
+          <input className='mfi-edit' type='number' ref={iniciativa} />
 
-          <div className='mcat_botoes'>
-            <button className='mcat_btn-cancelar' onClick={()=>{props.onOcultar()}}>Voltar</button>
-            <button className='mcat_btn-cancelar' onClick={()=>{props.onOcultar()}}>Salvar</button>
+          <div className='mfi-botoes'>
+            <button className='mfi-btn-cancelar' onClick={()=>{props.onOcultar()}}>Voltar</button>
+            <BtnSalvar esperando='Salvando...' inicial='Salvar' />
           </div>
         </form>
       </div>

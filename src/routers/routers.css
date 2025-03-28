@@ -34,8 +34,8 @@
 @media screen and (max-width: 480px)  {
   /* Regras para telas menores, como celulares */
   .app-container {
-    height: calc(100vh - 76px);
-    margin: 22px;
+    height: calc(100vh - 55px);
+    margin:0px;
   }
 
   .app-paginas{
@@ -44,8 +44,8 @@
 
   .app-conteudo{
     padding-bottom: 28px;
-    left: 78px;
-    width: calc(100vw - 6.3em);
+    left: 57px;
+    width: calc(100vw - 3.8em);
   }
   
 }
