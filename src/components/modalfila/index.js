@@ -23,12 +23,6 @@ function ModalFila(props){
     let lini  = iniciativa.current.value;
     let ltipo = tipo.current.value;
 
-    console.log(lnome);
-    console.log(lca);
-    console.log(lvida);
-    console.log(lini);
-    console.log(ltipo);
-
     let valido = lnome !== '';
     valido = valido && lca > 0;
     valido = valido && lvida > 0;

@@ -56,9 +56,7 @@ function FilaIniciativa(){
         i++;
       });
       lista.sort((a, b)=> a.fi_iniciativa < b.fi_iniciativa);
-      lista.forEach((item, index) => {
-        item.fi_posicao = index; // Posição começa em 1
-      });
+      lista.forEach((item, index) => item.fi_posicao = index); // Posição começa em 1
       
       setLista(lista);
       
@@ -73,53 +71,52 @@ function FilaIniciativa(){
   },[lista]);
 
   function onProximo(){
-    let pos = 0;
 
-    if(posicao < (lista.length -1 ))
-      pos = posicao+1;
+    if(lista.length > 0){
+      let pos = 0;
 
-    setPosicao(pos);
-    localStorage.setItem('rm@filainiposicao', pos);
+      if(posicao < (lista.length -1 ))
+        pos = posicao+1;
 
-    if(pos === 0 ){
-      let tur = turno;
-      tur++;
-      setTurno(tur);
-      localStorage.setItem('rm@filainiturno', tur);
+      setPosicao(pos);
+      localStorage.setItem('rm@filainiposicao', pos);
 
-      let lbl = document.getElementById("lblturno");
+      if(pos === 0 ){
+        let tur = turno;
+        tur++;
+        setTurno(tur);
+        localStorage.setItem('rm@filainiturno', tur);
 
-      // Salva os estilos originais
-      let corFundoOriginal = lbl.style.backgroundColor;
-      let corTextoOriginal = lbl.style.color;
+        let lbl = document.getElementById("lblturno");
 
-      // Aplica a nova cor
-      lbl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-primaria'); 
-      lbl.style.color           = "white";
+        // Salva os estilos originais
+        let corFundoOriginal = lbl.style.backgroundColor;
+        let corTextoOriginal = lbl.style.color;
 
-      setTimeout(() => {
-        lbl.style.backgroundColor = corFundoOriginal;
-        lbl.style.color = corTextoOriginal;
-      }, 1000);
+        // Aplica a nova cor
+        lbl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-primaria'); 
+        lbl.style.color           = "white";
+
+        setTimeout(() => {
+          lbl.style.backgroundColor = corFundoOriginal;
+          lbl.style.color = corTextoOriginal;
+        }, 1000);
+      }
     }
       
   }
 
   function onAnterior(){
-    let pos = posicao;
 
-    if (posicao > 0)
-      pos = posicao-1;
+    if(lista.length > 0){
+      let pos = posicao;
 
-    setPosicao(pos);
-    localStorage.setItem('rm@filainiposicao', pos);
+      if (posicao > 0)
+        pos = posicao-1;
 
-    // if(pos === 0 ){
-    //   let tur = turno;
-    //   tur++;
-    //   setTurno(tur);
-    //   localStorage.setItem('rm@filainiturno', tur);
-    // }
+      setPosicao(pos);
+      localStorage.setItem('rm@filainiposicao', pos);
+    }
       
   }
 

@@ -3,8 +3,9 @@
 
   //metodo para mostrar uma imagem dependendo da classe do personagem
   export function getImagem(aClasse){
+
     let url = '';
-    switch (aClasse) {
+    switch (Number(aClasse)) {
       case 1:
         url = require('../res/cl-barbaro.svg').default;
       break;

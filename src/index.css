@@ -23,7 +23,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: ghostwhite; */
   background-color: var(--cor-backgroud);
 }
 
