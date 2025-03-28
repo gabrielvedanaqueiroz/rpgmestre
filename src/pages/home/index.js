@@ -10,8 +10,16 @@ function Home(){
       
       <CardExpanssivo id='card-1' titulo='Campanha'>
         <ul>
-          <li>campanha (descrição da campanha)</li>
           <li>{ <FilaIniciativa/>}</li>
+          <li>
+            <p>
+              campanha (descrição da campanha)
+              chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+              chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+              chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+              chat, no react quero fazer um item suspenso com o fundo da tela ghostwhite e o item com o fundo white
+            </p>
+          </li>
         </ul>  
       </CardExpanssivo>
       

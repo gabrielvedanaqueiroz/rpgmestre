@@ -35,8 +35,6 @@ function ModalFila(props){
     valido = valido && lini > 0;
 
     if(valido){
-      //salvar banco 
-
       await addDoc(collection(db, 'tb_fila'),{
         fi_idcampanha: 'xpto',
         fi_idpersonagem: 'xpto2', 
@@ -55,9 +53,10 @@ function ModalFila(props){
       });
       
     }
-    else
+    else{
       console.log('Campos obrigatórios não podem ficar vazio');
       toast.error('Campo obrigatório não pode ficar vazio')
+    }
   }
 
   return(

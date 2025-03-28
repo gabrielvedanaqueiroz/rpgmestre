@@ -67,13 +67,17 @@
 
 .mfi-btn-cancelar{
   text-decoration: none;
-  background: #ea541c;
+  background: #fff;
   border: 0px;
   padding: 8px;
   margin: 8px;
   border-radius: 4px;
-  color: #fff;
+  color: #000;
   font-size: 18px;
+}
+
+.mfi-btn-cancelar:hover{
+  background-color: var(--cor-cinzacontorno);
 }
 
 .mfi-sel{
