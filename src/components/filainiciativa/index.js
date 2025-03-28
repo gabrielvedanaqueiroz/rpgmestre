@@ -1,11 +1,14 @@
 import './filainiciativa.css';
 import { useEffect, useState } from 'react';
-import seta from '../../res/setabaixo.svg'
 import finalizar from '../../res/parar.svg'
 import adicionar from '../../res/adicionar.svg'
 import anterior from '../../res/anterior.svg'
 import proximo from '../../res/proximo.svg'
 import remover from '../../res/delete.svg'
+import ca from '../../res/ca.svg'
+import vida from '../../res/vida.svg'
+import iniciaiva from '../../res/iniciativa.svg'
+
 import {db} from '../../services/firebaseConnection';
 import {collection, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore';
 
@@ -130,13 +133,60 @@ function FilaIniciativa(){
   }
 
   async function onRemover(aId){
-    const docRef = doc(db, "tb_fila", aId);
-    await deleteDoc(docRef)
-    .then(()=>{})
-    .catch((error)=>{
-      // toast.error('Erro ao excluir');
-      console.log('erro ao buscar '+error);
-    });  
+    // const docRef = doc(db, "tb_fila", aId);
+    // await deleteDoc(docRef)
+    // .then(()=>{})
+    // .catch((error)=>{
+    //   // toast.error('Erro ao excluir');
+    //   console.log('erro ao buscar '+error);
+    // });  
+  }
+
+  //metodo para mostrar uma imagem dependendo da classe do personagem
+  function getImagem(aClasse){
+    let url = '';
+    switch (aClasse) {
+      case 1:
+        url = require('../../res/cl-barbaro.svg').default;
+      break;
+      case 2:
+        url = require('../../res/cl-bardo.svg').default;
+      break;
+      case 3:
+        url = require('../../res/cl-bruxo.svg').default;
+      break;
+      case 4:
+        url = require('../../res/cl-clerigo.svg').default;
+      break;
+      case 5:
+        url = require('../../res/cl-druida.svg').default;
+      break;
+      case 6:
+        url = require('../../res/cl-feiticeiro.svg').default;
+      break;
+      case 7:
+        url = require('../../res/cl-guerreiro.svg').default;
+      break;
+      case 8:
+        url = require('../../res/cl-ladino.svg').default;
+      break;
+      case 9:
+        url = require('../../res/cl-mago.svg').default;
+      break;
+      case 10:
+        url = require('../../res/cl-monge.svg').default;  
+      break;
+      case 11:
+        url = require('../../res/cl-paladino.svg').default;
+      break;
+      case 12:
+        url = require('../../res/cl-guardiao.svg').default; 
+        break;
+      default:
+        url = require('../../res/monstro.svg').default; 
+        break;
+    }
+    return url;
   }
 
   return (
@@ -164,17 +214,26 @@ function FilaIniciativa(){
           {/* lista de iniciativa */ }
           {lista.map((item)=>{
             return(
-              <li key={item.fi_id} className={Number(item.fi_posicao) === posicao? 'fi-iniciativa-item-selecionado': 'fi-iniciativa-item'}>
-                <div className='fi-iniciativa-item-conteudo'>
-                  <div className= { Number(item.fi_posicao) === posicao? 'fi-div-vlriniciativa-selecionado': 'fi-div-vlriniciativa'} > <label>{item.fi_iniciativa}</label> </div>
-                  <div className='fi-iniciativa-item-linha1'>
-                    <strong>{item.fi_nome}</strong>
-                    <label className='fi-iniciativa-item-sublinha'>CA: {item.fi_ca} HP: {item.fi_vida} Ini: {item.fi_iniciativa}</label>
-                  </div>
-                  <img className={ Number(item.fi_posicao) === posicao? 'fi-btnremover-selecionado': 'fi-navigator-btn'} src={remover} alt='apagar' onClick={onRemover}/>
-                </div>  
-                {(Number(item.fi_posicao) === posicao? <img className='fi-posicao' src={seta} alt='atual'/>: <div/>)}
+              <li key={item.fi_id} className={Number(item.fi_posicao) === posicao? 'fi-item-selecionado': 'fi-item'}>
                 
+                <div className='fi-item-left'>
+                  <div className ={ Number(item.fi_posicao) === posicao? 'fi-div-tipo-selecionado': 'fi-div-tipo'}>
+                    <img className='pri_img-esquerda' src={getImagem(item.fi_tipo)} alt='personagem'/> 
+                  </div>
+                </div>            
+
+                <div className='fi-item-center'>
+                  <strong>{item.fi_nome}</strong> 
+                  <div className='fi-item-sublinha'>
+                    <div className='fi-div-sublinha'> <img src={vida} alt='vida'/> {item.fi_vida} </div>
+                    <div className='fi-div-sublinha'> <img src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
+                    <div className='fi-div-sublinha'> <img src={iniciaiva} alt='iniciaiva'/> {item.fi_iniciativa} </div>
+                  </div>
+                </div>            
+
+                <div className='fi-item-right'>
+                  <img src={remover} alt='apagar' onClick={onRemover}/>  
+                </div>            
               </li>
             ) 
           })}   
