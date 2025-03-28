@@ -34,15 +34,18 @@
 @media screen and (max-width: 480px)  {
   /* Regras para telas menores, como celulares */
   .app-container {
-    height: calc(100vh - 68px);
+    height: calc(100vh - 76px);
+    margin: 22px;
   }
 
   .app-paginas{
-    padding: 78px 16px 8px 4px;
+    padding: 78px 8px 8px 8px;
   }
 
   .app-conteudo{
-    padding-bottom: 16px;
+    padding-bottom: 28px;
+    left: 78px;
+    width: calc(100vw - 6.3em);
   }
   
 }

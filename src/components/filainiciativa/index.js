@@ -8,15 +8,19 @@ import remover from '../../res/delete.svg'
 import ca from '../../res/ca.svg'
 import vida from '../../res/vida.svg'
 import iniciaiva from '../../res/iniciativa.svg'
-
 import {db} from '../../services/firebaseConnection';
 import {collection, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import { getImagem } from '../../utils';
+import ModalFila from '../modalfila';
+
 
 function FilaIniciativa(){
     
   const [posicao, setPosicao] = useState(0);
   const [turno, setTurno] = useState(1);
   const [lista, setLista] = useState([]);
+
+  const [showModal, setShowModal] = useState(false);
 
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
@@ -130,6 +134,8 @@ function FilaIniciativa(){
       modal
       filtrar os nao adicionado
     */ 
+
+      setShowModal(true);
   }
 
   async function onRemover(aId){
@@ -142,104 +148,59 @@ function FilaIniciativa(){
     // });  
   }
 
-  //metodo para mostrar uma imagem dependendo da classe do personagem
-  function getImagem(aClasse){
-    let url = '';
-    switch (aClasse) {
-      case 1:
-        url = require('../../res/cl-barbaro.svg').default;
-      break;
-      case 2:
-        url = require('../../res/cl-bardo.svg').default;
-      break;
-      case 3:
-        url = require('../../res/cl-bruxo.svg').default;
-      break;
-      case 4:
-        url = require('../../res/cl-clerigo.svg').default;
-      break;
-      case 5:
-        url = require('../../res/cl-druida.svg').default;
-      break;
-      case 6:
-        url = require('../../res/cl-feiticeiro.svg').default;
-      break;
-      case 7:
-        url = require('../../res/cl-guerreiro.svg').default;
-      break;
-      case 8:
-        url = require('../../res/cl-ladino.svg').default;
-      break;
-      case 9:
-        url = require('../../res/cl-mago.svg').default;
-      break;
-      case 10:
-        url = require('../../res/cl-monge.svg').default;  
-      break;
-      case 11:
-        url = require('../../res/cl-paladino.svg').default;
-      break;
-      case 12:
-        url = require('../../res/cl-guardiao.svg').default; 
-        break;
-      default:
-        url = require('../../res/monstro.svg').default; 
-        break;
-    }
-    return url;
-  }
-
   return (
-   
-    <div className='fi-div-iniciativa'>
-      <strong className='fi-div-iniciativa-titulo'>Fila de Iniciativa</strong>
+    <div>
+      <div className='fi-div-iniciativa'>
+        <strong className='fi-div-iniciativa-titulo'>Fila de Iniciativa</strong>
 
-      <div className='fi-div-fila'>
-        
-        <ul style={{display: 'flex', flexDirection:'column'}}>
+        <div className='fi-div-fila'>
+          
+          <ul style={{display: 'flex', flexDirection:'column'}}>
 
-          {/* navigator */ }
-          <li> 
-            <div className='fi-navigator'>
-              <img className='fi-navigator-btn' src={adicionar} alt='adicionar' onClick={onAdicionar}/>
-              <img className='fi-navigator-btn' src={finalizar} alt='finalizar combate' onClick={onFinalizarCombate}/>
-              <div className='fi-navigator-div'/>
-              <img className='fi-navigator-btn' src={anterior} alt='anterior' onClick={onAnterior}/>
-              <img className='fi-navigator-btn' src={proximo} alt='proximo' onClick={onProximo}/>
-              <div className='fi-navigator-div'/>
-              <label className='fi-navigator-turno' id="lblturno">Turno: {turno}</label>
-            </div> 
-          </li>
+            {/* navigator */ }
+            <li> 
+              <div className='fi-navigator'>
+                <img className='fi-navigator-btn' src={adicionar} alt='adicionar' onClick={onAdicionar}/>
+                <img className='fi-navigator-btn' src={finalizar} alt='finalizar combate' onClick={onFinalizarCombate}/>
+                <div className='fi-navigator-div'/>
+                <img className='fi-navigator-btn' src={anterior} alt='anterior' onClick={onAnterior}/>
+                <img className='fi-navigator-btn' src={proximo} alt='proximo' onClick={onProximo}/>
+                <div className='fi-navigator-div'/>
+                <label className='fi-navigator-turno' id="lblturno">Turno: {turno}</label>
+              </div> 
+            </li>
 
-          {/* lista de iniciativa */ }
-          {lista.map((item)=>{
-            return(
-              <li key={item.fi_id} className={Number(item.fi_posicao) === posicao? 'fi-item-selecionado': 'fi-item'}>
-                
-                <div className='fi-item-left'>
-                  <div className ={ Number(item.fi_posicao) === posicao? 'fi-div-tipo-selecionado': 'fi-div-tipo'}>
-                    <img className='pri_img-esquerda' src={getImagem(item.fi_tipo)} alt='personagem'/> 
-                  </div>
-                </div>            
+            {/* lista de iniciativa */ }
+            {lista.map((item)=>{
+              return(
+                <li key={item.fi_id} className={Number(item.fi_posicao) === posicao? 'fi-item-selecionado': 'fi-item'}>
+                  
+                  <div className='fi-item-left'>
+                    <div className ={ Number(item.fi_posicao) === posicao? 'fi-div-tipo-selecionado': 'fi-div-tipo'}>
+                      <img className='pri_img-esquerda' src={getImagem(item.fi_tipo)} alt='personagem'/> 
+                    </div>
+                  </div>            
 
-                <div className='fi-item-center'>
-                  <strong>{item.fi_nome}</strong> 
-                  <div className='fi-item-sublinha'>
-                    <div className='fi-div-sublinha'> <img src={vida} alt='vida'/> {item.fi_vida} </div>
-                    <div className='fi-div-sublinha'> <img src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
-                    <div className='fi-div-sublinha'> <img src={iniciaiva} alt='iniciaiva'/> {item.fi_iniciativa} </div>
-                  </div>
-                </div>            
+                  <div className='fi-item-center'>
+                    <strong>{item.fi_nome}</strong> 
+                    <div className='fi-item-sublinha'>
+                      <div className='fi-div-sublinha'> <img src={vida} alt='vida'/> {item.fi_vida} </div>
+                      <div className='fi-div-sublinha'> <img src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
+                      <div className='fi-div-sublinha'> <img src={iniciaiva} alt='iniciaiva'/> {item.fi_iniciativa} </div>
+                    </div>
+                  </div>            
 
-                <div className='fi-item-right'>
-                  <img src={remover} alt='apagar' onClick={onRemover}/>  
-                </div>            
-              </li>
-            ) 
-          })}   
+                  <div className='fi-item-right'>
+                    <img src={remover} alt='apagar' onClick={onRemover}/>  
+                  </div>            
+                </li>
+              ) 
+            })}   
 
-        </ul>
+          </ul>
+        </div>
       </div>
+      {showModal && (<ModalFila onOcultar={()=>{setShowModal(false)}}/>)}
     </div>
    
   )
