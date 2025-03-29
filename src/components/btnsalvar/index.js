@@ -6,6 +6,7 @@ function BtnSalvar(props){
   const { pending } = useFormStatus(); 
 
   return(
+    
     <button className='btn-salvar' type='submmit' disabled={pending}>
        {pending ? props.esperando : props.inicial}
     </button>

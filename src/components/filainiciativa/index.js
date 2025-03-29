@@ -22,6 +22,7 @@ function FilaIniciativa(){
   const [posicao, setPosicao] = useState(0);
   const [turno, setTurno] = useState(1);
   const [lista, setLista] = useState([]);
+  const [idCampanha, setIdCampanha] = useState(''); 
 
   const [showModal, setShowModal] = useState(false);
 
@@ -33,7 +34,10 @@ function FilaIniciativa(){
     tur = (tur === 0? 1: tur);
     setTurno(tur);
 
-    const q = query(collection(db, "tb_fila"), where("fi_idcampanha", "==", 'xpto'));//pegar id da campanha
+    let idCamp= localStorage.getItem('rm@idcampanha');
+    setIdCampanha(idCamp);
+
+    const q = query(collection(db, "tb_fila"), where("fi_idcampanha", "==", idCamp));//pegar id da campanha
     const querySnapshot = await getDocs(q); 
     let lista = [];
 
