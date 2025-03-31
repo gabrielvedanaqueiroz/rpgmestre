@@ -31,7 +31,7 @@
   border-top-right-radius: 4px;
 }
 
-@media screen and (max-width: 480px)  {
+@media screen and (max-width: 600px)  {
   /* Regras para telas menores, como celulares */
   .app-container {
     height: calc(100vh - 55px);

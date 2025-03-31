@@ -1,7 +1,8 @@
 .fi-div-iniciativa{
 
   /* div item*/
-  --fi-width: 320px;
+  --fi-width: 430px;
+  --fi-width-mobile: 320px;
   --fi-gap: 2px;
   --fi-padding: 6px;
   --fi-border-radius: 6px;
@@ -27,7 +28,7 @@
   padding: 16px 8px 8px 8px;
   border-radius: 4px;
   border: var(--bordas-contorno);
-  width: 340px;
+  width: 450px;
 }
 
 .fi-div-iniciativa-titulo{
@@ -77,8 +78,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  margin-left: 8px;
-  
+  margin-left: 8px;  
 }
 
 .fi-navigator{
@@ -204,14 +204,14 @@
 .fi-div-vida{
   display: flex;
   width: 55px; 
-  margin-left: 25px;
   justify-content: center;
   align-items: center;
   height: 20px;
   padding: 4px;
-  filter: brightness(0) invert(1);
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 8px;
+  position: absolute;
+  left: calc(68%);
 }
 
 .fi-div-vida img {
@@ -223,7 +223,49 @@
   transform: scale(0.9);
 }
 
-.fi-div-vida div{
+.fi-div-vida-div{
   height: 18px;
   margin: 0 4px 0 4px;
+  border: 1px solid;
+}
+
+.fi-div-vida-selecionado{
+  display: flex;
+  width: 55px; 
+  margin-left: 25px;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 4px;
+  border: 1px solid white;
+  border-radius: 8px;
+  position: absolute;
+  left: calc(63%);
+}
+
+.fi-div-vida-selecionado img{
+  height: 14px;
+  width: 14px;
+}
+
+.fi-div-vida-selecionado img:active {
+  transform: scale(0.9);
+}
+
+@media screen and (max-width: 600px)  {
+  .fi-div-iniciativa{
+    width: 340px;
+  }
+
+  .fi-item{
+    width: var(--fi-width-mobile);
+  }
+
+  .fi-item-selecionado{
+    width: var(--fi-width-mobile);
+  }
+
+  .fi-div-vida-selecionado{
+    left: calc(61%);
+  }
 }

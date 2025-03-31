@@ -7,12 +7,15 @@
   overflow: hidden; 
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;  
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .sd-container-img{
-  width: 52px;
+  width: 50px;
   height: 50px;
-  padding: 4px 4px 4px 0;
+  padding: 4px;
   filter: var(--invert-svg-cor-secundaria);
 }
 
@@ -25,9 +28,6 @@
 }
 
 .sd-container-img:hover {
-  /* background-color: var(--cor-selecionada); */
-   /* rgba(255, 255, 255, 0.1); */
-  /* border-radius: 5px; */
   transform: scale(1.1);
 }
 
@@ -38,6 +38,7 @@
 .sd-div-item{
   align-items: center;
   justify-content: center;
+  justify-items: center;
   width: 100%;
   display: flex;
   margin-bottom: 2px;
@@ -46,6 +47,7 @@
 .sd-div-item-selecionado{
   align-items: center;
   justify-content: center;
+  justify-items: center;
   width: 100%;
   display: flex;
   margin-bottom: 2px;

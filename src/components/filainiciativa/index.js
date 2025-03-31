@@ -22,7 +22,7 @@ function FilaIniciativa(){
   const [posicao, setPosicao] = useState(0);
   const [turno, setTurno] = useState(1);
   const [lista, setLista] = useState([]);
-  const [idCampanha, setIdCampanha] = useState(''); 
+  // const [idCampanha, setIdCampanha] = useState(''); 
 
   const [showModal, setShowModal] = useState(false);
 
@@ -35,7 +35,7 @@ function FilaIniciativa(){
     setTurno(tur);
 
     let idCamp= localStorage.getItem('rm@idcampanha');
-    setIdCampanha(idCamp);
+    // setIdCampanha(idCamp);
 
     const q = query(collection(db, "tb_fila"), where("fi_idcampanha", "==", idCamp));//pegar id da campanha
     const querySnapshot = await getDocs(q); 
@@ -59,7 +59,7 @@ function FilaIniciativa(){
 
         i++;
       });
-      lista.sort((a, b)=> a.fi_iniciativa < b.fi_iniciativa);
+      lista.sort((a, b)=> Number(a.fi_iniciativa) < Number(b.fi_iniciativa));
       lista.forEach((item, index) => item.fi_posicao = index); // Posição começa em 1
       
       setLista(lista);
@@ -227,16 +227,13 @@ function FilaIniciativa(){
                       <div className='fi-div-sublinha'> <img src={vida} alt='vida'/> {item.fi_vida} </div>
                       <div className='fi-div-sublinha'> <img src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
                       <div className='fi-div-sublinha'> <img src={iniciativa} alt='iniciaiva'/> {item.fi_iniciativa} </div>
-                      
-                      { Number(item.fi_posicao) === posicao? 
-                        (
-                          <div className='fi-div-vida'>
-                            <img src={mais} alt='aumentar vida' onClick={()=>{onVidaInc(item.fi_id, item.fi_vida)}}/>
-                            <div className='fi-navigator-div'/>
-                            <img src={menos} alt='diminuir vida' onClick={()=>{onVidaDec(item.fi_id, item.fi_vida)}}/>
-                          </div>
-                        ): <div/>
-                      }
+                     
+                      <div className= { Number(item.fi_posicao) === posicao? 'fi-div-vida-selecionado': 'fi-div-vida'} >
+                        <img src={mais} alt='aumentar vida' onClick={()=>{onVidaInc(item.fi_id, item.fi_vida)}}/>
+                        <div className='fi-div-vida-div'/>
+                        <img className='fi-div-vida-img' src={menos} alt='diminuir vida' onClick={()=>{onVidaDec(item.fi_id, item.fi_vida)}}/>
+                      </div>
+                     
                     </div>
                    
                   </div>            
