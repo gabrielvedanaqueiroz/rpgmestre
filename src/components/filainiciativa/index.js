@@ -11,7 +11,7 @@ import iniciativa from '../../res/iniciativa.svg'
 import mais from '../../res/expandir_mais.svg'
 import menos from '../../res/expandir_menos.svg'
 import {db} from '../../services/firebaseConnection';
-import {collection, query, where, getDocs, doc, deleteDoc, updateDoc } from 'firebase/firestore';
+import {collection, query, where, getDocs, doc, deleteDoc, updateDoc, orderBy } from 'firebase/firestore';
 import { getImagem } from '../../utils';
 import ModalFila from '../modalfila';
 import { toast } from 'react-toastify';
@@ -22,9 +22,10 @@ function FilaIniciativa(){
   const [posicao, setPosicao] = useState(0);
   const [turno, setTurno] = useState(1);
   const [lista, setLista] = useState([]);
-  // const [idCampanha, setIdCampanha] = useState(''); 
 
   const [showModal, setShowModal] = useState(false);
+
+  
 
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
@@ -35,9 +36,8 @@ function FilaIniciativa(){
     setTurno(tur);
 
     let idCamp= localStorage.getItem('rm@idcampanha');
-    // setIdCampanha(idCamp);
 
-    const q = query(collection(db, "tb_fila"), where("fi_idcampanha", "==", idCamp));//pegar id da campanha
+    const q = query(collection(db, "tb_fila"), where("fi_idcampanha", "==", idCamp), orderBy("fi_iniciativa", "desc"));
     const querySnapshot = await getDocs(q); 
     let lista = [];
 
@@ -49,7 +49,7 @@ function FilaIniciativa(){
           fi_id: doc.id.trim(),
           fi_ca: doc.data().fi_ca,
           fi_idpersonagem: doc.data().fi_idpersonagem.trim(),
-          fi_iniciativa: doc.data().fi_iniciativa,
+          fi_iniciativa: Number(doc.data().fi_iniciativa),
           fi_nome: doc.data().fi_nome.trim(),
           fi_tipo: doc.data().fi_tipo,
           fi_vida: doc.data().fi_vida,
@@ -59,8 +59,6 @@ function FilaIniciativa(){
 
         i++;
       });
-      lista.sort((a, b)=> Number(a.fi_iniciativa) < Number(b.fi_iniciativa));
-      lista.forEach((item, index) => item.fi_posicao = index); // Posição começa em 1
       
       setLista(lista);
       

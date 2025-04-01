@@ -1,8 +1,8 @@
 import './modalfila.css';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState, useTransition  } from 'react';
 import BtnSalvar from '../btnsalvar';
 import {db} from '../../services/firebaseConnection';
-import {addDoc, collection} from 'firebase/firestore';
+import {addDoc, collection, query, where, getDocs} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 function ModalFila(props){
@@ -15,12 +15,11 @@ function ModalFila(props){
   const [ca, setCA]     = useState(0);
   const [vida, setVida] = useState(0);
   const [iniciativa, setIniciativa] = useState(0);
-  // const ca          = useRef(0);
-  // const vida        = useRef(0);
-  // const iniciativa  = useRef(0);
-  // const tipo        = useRef(0);
   const [idCampanha, setIdCampanha] = useState(''); 
   const [idJogador, setIdJogador]   = useState(''); 
+  const [listaPersonagem, setListaPersonagem] = useState([]);
+  const [listaPersonagemFiltrado, setListaPersonagemFiltrado] = useState([]);
+  const [isPending, startTransition] = useTransition();
 
   const [index, setIndex] = useState(0);
 
@@ -28,20 +27,70 @@ function ModalFila(props){
     setIndex((Number(aClasse) === 0 ? 0 : 1)); // Alterna entre 0 e 1
   };
 
+  async function buscarPersonagem(aIdCampanha) {
+  
+    const q = query(collection(db, "tb_personagem"), where("pe_idcampanha", "==", aIdCampanha));
+    const querySnapshot = await getDocs(q); 
+    let lista = [];
+
+    try {
+      querySnapshot.forEach((doc)=>{
+        
+        lista.push({
+          pe_id: doc.id.trim(),
+          pe_catotal: doc.data().pe_catotal,
+          pe_nome: doc.data().pe_nome.trim(),
+          pe_idclasse: doc.data().pe_idclasse,
+          pe_classe: doc.data().pe_classe.trim(),
+          pe_vidaatual: doc.data().pe_vidaatual,
+        });
+
+      });
+      
+      setListaPersonagem(lista);
+      
+    } catch (error) {
+      toast.error('Erro ao carregar personagens'+error); 
+      console.log('Erro ao carregar personagens: '+error);
+    }
+      
+  }
+
   useEffect(()=>{
     let idCamp= localStorage.getItem('rm@idcampanha');
     setIdCampanha(idCamp);
 
     let idJog= localStorage.getItem('rm@idjogador');
     setIdJogador(idJog);
+
+    startTransition(() => {
+      buscarPersonagem(idCamp);
+    });
+
   }, []);
   
-  async function onBuscarJogador(aNome) {
-    
+  async function onBuscarJogador(aValue) {
+
+    if(isPending)
+      console.log('ainda buscando jogador');
+
+    console.log('entrou');
+
+    const value = aValue;
+    if (value.trim() === "") {
+      setListaPersonagemFiltrado([]);
+    } 
+    else {
+      setListaPersonagemFiltrado(
+        listaPersonagem.filter((item) =>{
+          item.pe_nome.toLowerCase().includes(value.toLowerCase());
+        })
+      );
+    }  
+
   }
 
   async function onSalvar(e) {
-
 
     let lnome = nome.trim();
     let lca   = ca;
@@ -54,21 +103,15 @@ function ModalFila(props){
     valido = valido && lvida > 0;
     valido = valido && lini > 0;
 
-    console.log(lnome);
-    console.log(lca);
-    console.log(lvida);
-    console.log(lini);
-    console.log(ltipo);
-
     if(valido){
       await addDoc(collection(db, 'tb_fila'),{
         fi_idcampanha: idCampanha,
         fi_idpersonagem: idJogador, 
         fi_nome: lnome.trim(),
-        fi_ca: lca,
-        fi_vida: lvida,
-        fi_iniciativa: lini,
-        fi_tipo: ltipo,
+        fi_ca: Number(lca),
+        fi_vida: Number(lvida),
+        fi_iniciativa: Number(lini),
+        fi_tipo: Number(ltipo),
       })
       .then(()=>{
         props.onOcultar();
@@ -109,12 +152,7 @@ function ModalFila(props){
 
               <div className='mfi-div-edit'>
                 <label>Nome</label>
-                <input className='mfi-edit' value={nome} 
-                  onChange={(e)=>{
-                    setNome(e.target.value);
-                    onBuscarJogador(e.target.value);
-                  }} 
-                />
+                <input className='mfi-edit' value={nome} onChange={(e)=>{setNome(e.target.value)}} />
               </div>              
               <div className='mfi-div-edit'>
                 <label>Classe de Armadura</label>
@@ -132,9 +170,37 @@ function ModalFila(props){
             </div>
 
             <div className="mfi-slide mfi-slide2">
-              <div className='mfi-div-edit'>
-                <label>Nome</label>
-                <input className='mfi-edit' value={nome} onChange={(e)=>{setNome(e.target.value)}}/>
+
+              <div className='mfi-div-busca'>
+                <div className='mfi-div-edit'>
+                  <label>Nome</label>
+                  <input className='mfi-edit' value={nome} onChange={(e)=>{
+                      setNome(e.target.value);
+                      onBuscarJogador(e.target.value);
+                    }} 
+                  />
+                </div>
+                {listaPersonagemFiltrado.length > 0 && (
+                    <ul className="mmg-lista-busca">
+                      {listaPersonagemFiltrado.map((item) => (
+                    
+                        <li className='mmg-lista-busca-item'
+                          key={item.pe_id}
+                          onClick={() => {
+                            setNome(item.pe_nome);
+                            setTipo(item.pe_idclasse);
+                            setVida(item.pe_vidaatual);
+                            setListaPersonagemFiltrado([]);
+                          }}
+                        >
+                          <h4>{item.pe_nome}<br/></h4>
+                          {item.pe_catotal}, {item.pe_classe}
+                          <hr/>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                  )}
               </div>
               <div className='mfi-div-edit'>
                 <label>Classe de Armadura</label>
