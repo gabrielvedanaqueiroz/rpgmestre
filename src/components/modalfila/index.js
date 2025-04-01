@@ -6,9 +6,6 @@ import {addDoc, collection, query, where, getDocs} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 function ModalFila(props){
-
-  const tipoArr = ['Monstro', 'Barbaro', 'Bardo', 'Bruxo', 'Clérigo', 'Druida', 'Feiticeiro', 'Guerreiro', 'Ladino', 'Mago', 'Monge', 'Paladino', 'Guardião'];
-
   
   const [tipo, setTipo] = useState(0);
   const [nome, setNome] = useState('');
@@ -25,6 +22,15 @@ function ModalFila(props){
 
   function nextSlide(aClasse){
     setIndex((Number(aClasse) === 0 ? 0 : 1)); // Alterna entre 0 e 1
+
+    let slide1  = document.getElementById("mfi-slide1");
+    let slide2  = document.getElementById("mfi-slide2");
+
+    if(slide1 !== null)
+      slide1.style.visibility = (Number(aClasse) === 0 ? 'visible' : 'hidden') ;
+      
+    if(slide2 !== null)
+      slide2.style.visibility = (Number(aClasse) === 1 ? 'visible' : 'hidden') ;
   };
 
   async function buscarPersonagem(aIdCampanha) {
@@ -71,22 +77,32 @@ function ModalFila(props){
   
   async function onBuscarJogador(aValue) {
 
-    if(isPending)
+    if(isPending){
       console.log('ainda buscando jogador');
+      setListaPersonagemFiltrado({
+        pe_id: '-1',
+        pe_catotal: -1,
+        pe_nome: 'Carregando...',
+        pe_idclasse: -1,
+        pe_classe: 'aguarde...',
+        pe_vidaatual: -1,
+      });
+    }
+    // else {
 
-    console.log('entrou');
-
-    const value = aValue;
-    if (value.trim() === "") {
-      setListaPersonagemFiltrado([]);
-    } 
-    else {
-      setListaPersonagemFiltrado(
-        listaPersonagem.filter((item) =>{
-          item.pe_nome.toLowerCase().includes(value.toLowerCase());
-        })
-      );
-    }  
+      const value = aValue;
+      if (value.trim() === "") {
+        setListaPersonagemFiltrado([]);
+      } 
+      else {
+        setListaPersonagemFiltrado(
+          listaPersonagem.filter((item) =>
+            item.pe_nome.toLowerCase().includes(value.toLowerCase())
+          )
+        );
+      }  
+      
+      // }
 
   }
 
@@ -142,13 +158,13 @@ function ModalFila(props){
               nextSlide(e.target.value);
               setTipo(e.target.value);
             }}>
-            {tipoArr.map((item, index)=>{
-              return <option key={index} value={index}>{item}</option>
-            })}
+              <option key='tipo0' value='0'>Monstro</option>
+              <option key='tipo1' value='1'>Jogador</option>
+  
           </select>
      
           <div className="mfi-slider" style={{ transform: `translateX(-${index * 50}%)` }}>
-            <div className="mfi-slide mfi-slide1">
+            <div id='mfi-slide1' className="mfi-slide mfi-slide1">
 
               <div className='mfi-div-edit'>
                 <label>Nome</label>
@@ -169,7 +185,7 @@ function ModalFila(props){
 
             </div>
 
-            <div className="mfi-slide mfi-slide2">
+            <div id='mfi-slide2' className="mfi-slide mfi-slide2">
 
               <div className='mfi-div-busca'>
                 <div className='mfi-div-edit'>
@@ -181,38 +197,37 @@ function ModalFila(props){
                   />
                 </div>
                 {listaPersonagemFiltrado.length > 0 && (
-                    <ul className="mmg-lista-busca">
+                    <ul className="mfi-lista-busca">
                       {listaPersonagemFiltrado.map((item) => (
                     
-                        <li className='mmg-lista-busca-item'
+                        <li className='mfi-lista-busca-item'
                           key={item.pe_id}
                           onClick={() => {
                             setNome(item.pe_nome);
+                            setCA(item.pe_catotal);
                             setTipo(item.pe_idclasse);
                             setVida(item.pe_vidaatual);
                             setListaPersonagemFiltrado([]);
                           }}
                         >
-                          <h4>{item.pe_nome}<br/></h4>
-                          {item.pe_catotal}, {item.pe_classe}
-                          <hr/>
+                          <h4> {item.pe_nome} </h4>
+                          {item.pe_classe}    <hr/>
                         </li>
                       ))}
                     </ul>
-                    
                   )}
               </div>
               <div className='mfi-div-edit'>
                 <label>Classe de Armadura</label>
-                <input className='mfi-edit' type='number' onChange={(e)=>{setCA(e.target.value)}}/>
+                <input className='mfi-edit' type='number' value={ca}/>
               </div>
               <div className='mfi-div-edit'>
                 <label>Vida</label>
-                <input className='mfi-edit' type='number' onChange={(e)=>{setVida(e.target.value)}}/>
+                <input className='mfi-edit' type='number' value={vida}/>
               </div>
               <div className='mfi-div-edit'>
                 <label>Iniciativa</label>
-                <input className='mfi-edit' type='number' onChange={(e)=>{setIniciativa(e.target.value)}} />
+                <input className='mfi-edit' type='number' value={iniciativa} onChange={(e)=>{setIniciativa(e.target.value)}} />
               </div>
             </div>
           </div>

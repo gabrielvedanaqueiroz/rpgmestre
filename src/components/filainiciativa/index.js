@@ -25,8 +25,6 @@ function FilaIniciativa(){
 
   const [showModal, setShowModal] = useState(false);
 
-  
-
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
     setPosicao(pos);
@@ -126,18 +124,13 @@ function FilaIniciativa(){
     
     localStorage.setItem('rm@filainiturno', '0');
     localStorage.setItem('rm@filainiposicao', '0');
-
-    buscar()
+    setPosicao(0);
+    setTurno(0);
+    // buscar()
   }
 
   function onAdicionar(){
-     /*
-      selectionar de dos personagens e mosntros existentes 
-      modal
-      filtrar os nao adicionado
-    */ 
-
-      setShowModal(true);
+    setShowModal(true);
   }
 
   async function onVidaInc(aId, aVida){
@@ -179,7 +172,7 @@ function FilaIniciativa(){
   async function onRemover(aId){
     const docRef = doc(db, "tb_fila", aId);
     await deleteDoc(docRef)
-    .then(()=>{})
+    .then(()=>{ })
     .catch((error)=>{
       toast.error('Erro ao excluir');
       console.log('erro ao buscar '+error);

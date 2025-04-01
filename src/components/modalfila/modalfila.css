@@ -110,7 +110,7 @@
   display: flex;
   width: 200%; /* Duas telas lado a lado */
   transition: transform 0.5s ease-in-out;
-  gap: 16px;
+  gap: 0px;
 }
 
 .mfi-slide {
@@ -123,10 +123,9 @@
   flex-direction: column;
 }
 
-.mfi-slide2 {
-  background-color: lightcoral;
-  
+.mfi-slide2 {  
   display: flex;
+  visibility: hidden;
   flex-direction: column;
 }
 
