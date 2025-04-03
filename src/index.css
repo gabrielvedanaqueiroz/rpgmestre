@@ -1,20 +1,24 @@
 :root{
   --cor-backgroud: #282c34;
-  --cor-primaria:#004953;
-  --cor-selecionada: #0b707e;
-  --cor-secundaria: #F9F07E; 
+  --cor-elementos: rgb(78, 78, 78);
+  --cor-selecionada: rgb(37, 37, 37);
+
+  --cor-overlay: rgba(0, 0, 0, 0.5);
+
+  --cor-secundaria:#004953;
+  --cor-secundaria-selecionada: #0b707e;
   --cor-cinzacontorno : rgb(180, 177, 177);
 
   --bordas-contorno: 1px solid var(--cor-cinzacontorno);
-  --invert-svg-cor-secundaria: invert(70%) sepia(45%) saturate(400%) hue-rotate(20deg);
-  --invert-svg-cor-primaria: invert(22%) sepia(150%) saturate(375%) hue-rotate(135deg);;
+  --invert-svg-cor-secundaria: brightness(0) invert(1); 
+  /* --invert-svg-cor-primaria: invert(22%) sepia(150%) saturate(375%) hue-rotate(135deg); */
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+  color: #fff;
 }
 
 body {

@@ -1,12 +1,11 @@
 .hd-container{
   height: 70px;
   padding: 8px 0px 4px 4px;
-  background-color: var(--cor-primaria);  
+  background-color: var(--cor-secundaria);  
   align-items: center;
   border-top-right-radius: 4px;
   position: static;
   top: 8px;
   width: 100%;
   z-index: 9000;
-  color: var(--cor-secundaria);
 }

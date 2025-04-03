@@ -164,12 +164,17 @@ function ModalFila(props){
           </select>
      
           <div className="mfi-slider" style={{ transform: `translateX(-${index * 50}%)` }}>
+           
             <div id='mfi-slide1' className="mfi-slide mfi-slide1">
 
               <div className='mfi-div-edit'>
                 <label>Nome</label>
                 <input className='mfi-edit' value={nome} onChange={(e)=>{setNome(e.target.value)}} />
-              </div>              
+              </div>    
+              <div className='mfi-div-edit'>
+                <label>Iniciativa</label>
+                <input className='mfi-edit' type='number' onChange={(e)=>{setIniciativa(e.target.value)}}/>
+              </div>          
               <div className='mfi-div-edit'>
                 <label>Classe de Armadura</label>
                 <input className='mfi-edit' type='number' onChange={(e)=>{setCA(e.target.value)}} />
@@ -177,11 +182,7 @@ function ModalFila(props){
               <div className='mfi-div-edit'>
                 <label>Vida</label>
                 <input className='mfi-edit' type='number' onChange={(e)=>{setVida(e.target.value)}} />
-              </div>
-              <div className='mfi-div-edit'>
-                <label>Iniciativa</label>
-                <input className='mfi-edit' type='number' onChange={(e)=>{setIniciativa(e.target.value)}}/>
-              </div>
+              </div>              
 
             </div>
 
@@ -218,6 +219,10 @@ function ModalFila(props){
                   )}
               </div>
               <div className='mfi-div-edit'>
+                <label>Iniciativa</label>
+                <input className='mfi-edit' type='number' value={iniciativa} onChange={(e)=>{setIniciativa(e.target.value)}} />
+              </div>
+              <div className='mfi-div-edit'>
                 <label>Classe de Armadura</label>
                 <input className='mfi-edit' type='number' value={ca}/>
               </div>
@@ -225,11 +230,9 @@ function ModalFila(props){
                 <label>Vida</label>
                 <input className='mfi-edit' type='number' value={vida}/>
               </div>
-              <div className='mfi-div-edit'>
-                <label>Iniciativa</label>
-                <input className='mfi-edit' type='number' value={iniciativa} onChange={(e)=>{setIniciativa(e.target.value)}} />
-              </div>
+              
             </div>
+          
           </div>
 
           <div className='mfi-botoes'>

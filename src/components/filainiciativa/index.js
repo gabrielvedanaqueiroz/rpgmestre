@@ -94,7 +94,7 @@ function FilaIniciativa(){
         let corTextoOriginal = lbl.style.color;
 
         // Aplica a nova cor
-        lbl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-primaria'); 
+        lbl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-selecionada'); 
         lbl.style.color           = "white";
 
         setTimeout(() => {
@@ -207,8 +207,8 @@ function FilaIniciativa(){
                 <li key={item.fi_id} className={Number(item.fi_posicao) === posicao? 'fi-item-selecionado': 'fi-item'}>
                   
                   <div className='fi-item-left'>
-                    <div className ={ Number(item.fi_posicao) === posicao? 'fi-div-tipo-selecionado': 'fi-div-tipo'}>
-                      <img className='pri_img-esquerda' src={getImagem(item.fi_tipo)} alt='personagem'/> 
+                    <div className ='fi-div-tipo'>
+                      <img src={getImagem(item.fi_tipo)} alt='personagem'/> 
                     </div>
                   </div>            
 
@@ -219,7 +219,7 @@ function FilaIniciativa(){
                       <div className='fi-div-sublinha'> <img src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
                       <div className='fi-div-sublinha'> <img src={iniciativa} alt='iniciaiva'/> {item.fi_iniciativa} </div>
                      
-                      <div className= { Number(item.fi_posicao) === posicao? 'fi-div-vida-selecionado': 'fi-div-vida'} >
+                      <div className='fi-div-vida'>
                         <img src={mais} alt='aumentar vida' onClick={()=>{onVidaInc(item.fi_id, item.fi_vida)}}/>
                         <div className='fi-div-vida-div'/>
                         <img className='fi-div-vida-img' src={menos} alt='diminuir vida' onClick={()=>{onVidaDec(item.fi_id, item.fi_vida)}}/>

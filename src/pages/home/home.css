@@ -2,5 +2,5 @@
   gap: 8px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--cor-backgroud);
 }

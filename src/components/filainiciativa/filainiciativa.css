@@ -35,7 +35,7 @@
   position: absolute;
   top: -12px; /* Ajusta para cima da borda */
   left: 68px;
-  background: white; /* Para cobrir a borda */
+  background:var(--cor-elementos);/* Para cobrir a borda */
   padding: 0 5px;
   transform: translateX(-50%);
 }
@@ -53,22 +53,14 @@
   justify-items: var(--fi-tipo-justify-items);
   justify-content: var(--fi-tipo-justify-content);
   display: var(--fi-tipo-display);
-  border: 3px solid black;
+  border: 3px solid white;
   border-radius: 25px;
   width: var(--fi-tipo-width);
   height: var(--fi-tipo-height);
 }
 
-.fi-div-tipo-selecionado{
-  padding: var(--fi-tipo-padding);
-  align-items: var(--fi-tipo-align-items);
-  justify-items: var(--fi-tipo-justify-items);
-  justify-content: var(--fi-tipo-justify-content);
-  display: var(--fi-tipo-display);
-  border: 3px solid white;
-  border-radius: 25px;
-  width: var(--fi-tipo-width);
-  height: var(--fi-tipo-height);
+img{  
+  filter: brightness(0) invert(1); 
 }
 
 .fi-iniciativa-item-linha{
@@ -96,6 +88,7 @@
   width: 32px;
   height: 32px;
   padding: 4px;
+  filter: brightness(0) invert(1); 
 }
 
 .fi-navigator-btn:active {
@@ -111,8 +104,7 @@
 .fi-navigator-turno{
   padding: 2px;
   margin: 2px 0 2px 2px;
-  background-color: white;
-  color: black;
+  color: white;
   border-radius: 4px;
   width: 100%;
   text-align: center;
@@ -141,7 +133,6 @@
 .fi-item img{
   height: 24px;
   width: 24px;
-  filter: brightness(0); 
 }
 
 .fi-item-selecionado{
@@ -154,16 +145,14 @@
   justify-items: var(--fi-justify-items);
   
   border-radius: 2px;  
-  color: white;  
   position: relative;    
-  background-color: var(--cor-primaria);  
+  background-color: var(--cor-selecionada);  
   height: 65px;
 }
 
 .fi-item-selecionado img{
   height: 24px;
   width: 24px;
-  filter: brightness(0) invert(1); 
 }
 
 .fi-div-sublinha{
@@ -208,7 +197,8 @@
   align-items: center;
   height: 20px;
   padding: 4px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border: 1px solid white;
   border-radius: 8px;
   position: absolute;
   left: calc(68%);
@@ -219,37 +209,10 @@
   width: 14px;
 }
 
-.fi-div-vida img:active {
-  transform: scale(0.9);
-}
-
 .fi-div-vida-div{
   height: 18px;
   margin: 0 4px 0 4px;
   border: 1px solid;
-}
-
-.fi-div-vida-selecionado{
-  display: flex;
-  width: 55px; 
-  margin-left: 25px;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  padding: 4px;
-  border: 1px solid white;
-  border-radius: 8px;
-  position: absolute;
-  left: calc(63%);
-}
-
-.fi-div-vida-selecionado img{
-  height: 14px;
-  width: 14px;
-}
-
-.fi-div-vida-selecionado img:active {
-  transform: scale(0.9);
 }
 
 @media screen and (max-width: 600px)  {
