@@ -5,10 +5,11 @@ persoangens
   ficha
 monstros
   ficha
+  calculadora de encontro
 npc
   ficha
 anotacao
-  anotacoes resgra
+  anotacoes regra
 perfil
   configuracao
 deslogar
