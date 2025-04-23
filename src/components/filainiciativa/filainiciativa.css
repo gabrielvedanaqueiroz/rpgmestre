@@ -1,0 +1,235 @@
+.fi-div-iniciativa{
+
+  /* div item*/
+  --fi-width: 430px;
+  --fi-width-mobile: 320px;
+  --fi-gap: 2px;
+  --fi-padding: 6px;
+  --fi-border-radius: 6px;
+  --fi-display: flex;
+  --fi-flex-direction: row;
+  --fi-justify-content: center;
+  --fi-justify-items: center;
+  --fi-align-items: center; 
+
+  /* div tipo*/
+  --fi-tipo-padding: 8px;
+  --fi-tipo-align-items: center;
+  --fi-tipo-justify-items: center;
+  --fi-tipo-justify-content: center;
+  --fi-tipo-display: flex;
+  --fi-tipo-width: 40px;
+  --fi-tipo-height: 40px;
+
+  position: relative;
+  justify-content: center;
+  display: flex;
+  margin: 16px 0 4px 0;
+  padding: 16px 8px 8px 8px;
+  border-radius: 4px;
+  border: var(--bordas-contorno);
+  width: 450px;
+  color: white;
+}
+
+.fi-div-iniciativa-titulo{
+  position: absolute;
+  top: -12px; /* Ajusta para cima da borda */
+  left: 68px;
+  background:var(--cor-elementos);/* Para cobrir a borda */
+  padding: 0 5px;
+  transform: translateX(-50%);
+}
+
+.fi-div-fila{
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.fi-div-tipo{
+  padding: var(--fi-tipo-padding);
+  align-items: var(--fi-tipo-align-items);
+  justify-items: var(--fi-tipo-justify-items);
+  justify-content: var(--fi-tipo-justify-content);
+  display: var(--fi-tipo-display);
+  border: 3px solid white;
+  border-radius: 25px;
+  width: var(--fi-tipo-width);
+  height: var(--fi-tipo-height);
+}
+
+img{  
+  filter: brightness(0) invert(1); 
+}
+
+.fi-iniciativa-item-linha{
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  margin-left: 8px;  
+}
+
+.fi-navigator{
+  display: flex;
+  gap: 2px;
+  border: var(--bordas-contorno);
+  padding: 4px;
+  border-radius: 4px;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 8px;
+}
+
+.fi-navigator-btn{
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  filter: brightness(0) invert(1); 
+}
+
+.fi-navigator-btn:active {
+  transform: scale(0.9);
+}
+
+.fi-navigator-div{
+  border: 1px solid var(--cor-cinzacontorno);
+  height: 28px;
+  width: 1px;
+}
+
+.fi-navigator-turno{
+  padding: 2px;
+  margin: 2px 0 2px 2px;
+  color: white;
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s; /* Efeito suave */
+}
+
+.fi-item-sublinha{
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-items: center;
+}
+
+.fi-item{
+  width: var(--fi-width);
+  gap: var(--fi-gap);
+  padding: var(--fi-padding);
+  border-bottom: var(--bordas-contorno); 
+  display: var(--fi-display);
+  flex-direction: var(--fi-flex-direction);
+  justify-content: var(--fi-justify-content);
+  justify-items: var(--fi-justify-items);
+  height: 65px;
+}
+
+.fi-item img{
+  height: 24px;
+  width: 24px;
+}
+
+.fi-item-selecionado{
+  width: var(--fi-width);
+  gap: var(--fi-gap);
+  padding: var(--fi-padding);
+  display: var(--fi-display);
+  flex-direction: var(--fi-flex-direction);
+  justify-content: var(--fi-justify-content);
+  justify-items: var(--fi-justify-items);
+  
+  border-radius: 2px;  
+  position: relative;    
+  background-color: var(--cor-selecionada);  
+  height: 65px;
+}
+
+.fi-item-selecionado img{
+  height: 24px;
+  width: 24px;
+}
+
+.fi-div-sublinha{
+  gap: 2px;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.fi-item-left{
+  display: flex;
+  width: 25%;
+  height: 100%;
+  align-items: center;
+}
+
+.fi-item-center{
+  display: flex;
+  padding: 0 4px 4px 4px;
+  width: 100%;
+  height: 100%;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fi-item-right{
+  display: flex;
+  width: 15%;
+  height: 100%;
+  align-items: center;
+}
+
+.fi-item-right img:active {
+  transform: scale(0.9);
+}
+
+.fi-div-vida{
+  display: flex;
+  width: 55px; 
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 4px;
+  /* border: 1px solid black; */
+  border: 1px solid white;
+  border-radius: 8px;
+  position: absolute;
+  left: calc(68%);
+}
+
+.fi-div-vida img {
+  height: 14px;
+  width: 14px;
+}
+
+.fi-div-vida-div{
+  height: 18px;
+  margin: 0 4px 0 4px;
+  border: 1px solid;
+}
+
+@media screen and (max-width: 600px)  {
+  .fi-div-iniciativa{
+    width: 340px;
+  }
+
+  .fi-item{
+    width: var(--fi-width-mobile);
+  }
+
+  .fi-item-selecionado{
+    width: var(--fi-width-mobile);
+  }
+
+  .fi-div-vida-selecionado{
+    left: calc(61%);
+  }
+}

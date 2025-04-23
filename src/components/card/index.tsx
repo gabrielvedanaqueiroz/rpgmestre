@@ -1,0 +1,18 @@
+
+import './card.css';
+import { ReactNode } from 'react';
+
+interface CardProps {
+  children: ReactNode;
+}
+
+function Card({children }:CardProps){
+  
+  return(
+    <div className="card-container" >
+      {children}
+    </div>
+  );
+}
+
+export default Card;

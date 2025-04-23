@@ -1,0 +1,15 @@
+carta
+  -criatura:
+    campos edicao;
+  -magia:
+    campos edicao
+    titulo diminuir width (centralizada no div)
+    orintacao do texto começar na esquerda
+  -item:
+    campos edicao      
+	  posso aumentar tamanho da fonte da descricao 
+	
+home:
+perfil:
+personagens:
+anotacoes:

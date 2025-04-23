@@ -1,0 +1,31 @@
+.ca-div-cartas{
+  margin-top: 8px;
+  display: flex;
+  gap: 4px;
+}
+
+.ca-carta{
+  display: flex;
+  flex-direction: column;
+  height: 75px;
+  width: 60px;
+  padding: 2;
+  border-radius: 2px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(104, 102, 102, 0.1);
+  color: white;
+
+}
+
+.ca-magia{
+  background-color: #065f46;
+}
+
+.ca-item{
+  background-color: #92400e;
+}
+
+.ca-criatura{
+  background-color: #292524;
+}

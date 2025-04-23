@@ -1,0 +1,156 @@
+/* Estiliza o fundo escuro quando o modal está aberto */
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--cor-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mfi-container{
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  padding: 0;
+  width: 350px;
+  background-color: var(--cor-elementos);
+  border-radius: 4px;
+  margin-top: 45px;
+}
+
+.mfi-titulo{
+  background-color: #000;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 8px;
+  padding: 8px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height: 48px;
+  color: white;
+}
+
+.mfi-form{
+  margin: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.mfi-edit{
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Contorno suave */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px 15px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: all 0.3s ease-in-out; /* Suaviza transições */
+  width: 100%;
+  margin-top: 2px;
+  font-size: 16px;  
+  background-color: var(--cor-backgroud);
+  color: white;
+}
+
+.mfi-edit:focus {
+  border-color:  var(--cor-primaria); /* Cor do contorno ao focar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
+}
+
+.mfi-botoes{
+  display: flex;
+  justify-content: end;
+}
+
+.mfi-btn-cancelar{
+  text-decoration: none;
+  background:var(--cor-elementos);
+  border: 0px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+  font-size: 18px;
+  color: white;
+}
+
+.mfi-btn-cancelar:hover{
+  background-color: var(--cor-cinzacontorno);
+}
+
+.mfi-sel{
+  background-color: var(--cor-backgroud);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px 15px; /* Espaçamento interno */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: all 0.3s ease-in-out; /* Suaviza transições */
+  width: 100%;
+  margin: 2px 0 8px 0;
+  color: white;
+}
+
+.mfi-sel:focus {
+  border-color:  var(--cor-primaria); /* Cor do contorno ao focar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
+}
+
+.mfi-div-edit{
+  width: 100%;
+  height: 55px;
+  margin-bottom: 10px;
+}
+
+.mfi-slider {
+  display: flex;
+  width: 200%; /* Duas telas lado a lado */
+  transition: transform 0.5s ease-in-out;
+  gap: 0px;
+}
+
+.mfi-slide {
+  width: 100%;
+  display: flex;
+}
+
+.mfi-slide1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.mfi-slide2 {  
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+}
+
+.mfi-div-busca{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mfi-lista-busca{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--cor-backgroud);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 9000;
+  padding: 4px;
+  color: white;
+}

@@ -1,0 +1,12 @@
+.pg-page{
+  width: 100%;
+}
+
+.pg-container{
+  padding: 8px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}

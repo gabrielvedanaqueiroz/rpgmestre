@@ -1,0 +1,204 @@
+.cc-div-carta{  
+  width: 13cm;
+  height: 17cm;
+  display: flex;
+  flex-direction: row;
+
+  --cor-fundo :#292524;
+  --cor-fundo-verso: #44403c;
+
+}
+
+hr{
+  color: white;
+}
+
+.cc-carta{
+  flex-direction: column;
+  display: flex;
+  width: var(--carta-largura);
+  height: var(--carta-altura);
+  background-color: var(--cor-fundo);
+  border-radius: var(--carta-arrendamento);
+  gap: 2px;
+}
+
+.cc-topo{
+  background-color: #1c1917;
+  width: 100%;
+  height: 12%;
+  border-top-right-radius: var(--carta-arrendamento);
+  border-top-left-radius: var(--carta-arrendamento);
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+}
+
+.cc-meio{
+  padding: 2px;
+  width: 100%;
+  height: 47%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cc-div-imagem{
+  position: relative;
+  height: 136px;
+  width: 136px;
+}
+
+.cc-imagem{
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cc-rodape{
+  width: 100%;
+  height: 40%;
+  padding: var(--carta-padding);
+  border-bottom-right-radius: var(--carta-arrendamento);
+  border-bottom-left-radius: var(--carta-arrendamento);
+}
+
+.cc-meta{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, #57534e, #78716c);
+  border-bottom-right-radius: var(--carta-arrendamento);
+  border-bottom-left-radius: var(--carta-arrendamento);
+  padding: 0 4px 0 4px;
+}
+
+.cc-meta-topo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 25px 6px 25px;
+}
+
+.cc-meta-topo-item{
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  gap: 2px;  
+}
+
+.cc-meta-texto{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-size: 9px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: none;
+  margin-top: 4px;
+  text-align: justify;
+}
+
+.cc-botao{
+  background-color: rgb(0, 0, 255);
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.cc-botao:hover{
+  background-color: #1e40af
+}
+
+.cc-edit-oculto{
+  visibility: hidden;
+}
+
+.cc-carta-verso{
+  background-color: var(--cor-fundo-verso);
+  padding: var(--carta-padding);
+  width: var(--carta-largura);
+  height: var(--carta-altura);
+  border-radius: var(--carta-arrendamento);
+}
+
+.cc-verso-interno{
+  background-color: var(--cor-fundo);
+  height: 100%;
+  width: 100%;
+  border-radius: var(--carta-arrendamento);
+  font-size: 9px;
+  padding: var(--carta-padding);  
+}
+
+.cc-vi-atributos{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cc-viat-item{
+  display: flex;
+  flex-direction: column;
+  width: 36px;
+  align-items: center;
+}
+
+.cc-linha{
+  margin: 2px 0 2px 0;
+}
+
+.cc-verso-texto{
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: none;
+}
+
+.cc-div-botao{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cc-div-edicao{
+  background-color: var(--cor-elementos);
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  border-radius: 4px;
+  gap: 4px;
+  width: 13cm;
+}
+
+.cc-div-edit{
+  width: 100%;
+}
+
+.cc-edit{
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Contorno suave */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px 15px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: all 0.3s ease-in-out; /* Suaviza transições */
+  width: 100%;
+  margin-top: 2px;
+  font-size: 16px;  
+  background-color: var(--cor-backgroud);
+  color: white;
+}
+
+.cc-textearea{
+  height: 80px;
+}
+
+.cc-edit:focus {
+  border-color:  var(--cor-primaria); /* Cor do contorno ao focar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
+}
