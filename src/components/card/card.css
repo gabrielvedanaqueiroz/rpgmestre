@@ -1,9 +1,0 @@
-.card-container{
-  height: auto;
-  width: 100%;
-  padding: 8px;
-  border-radius: 4px;
-  background-color: var(--cor-elementos);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
-
-}
