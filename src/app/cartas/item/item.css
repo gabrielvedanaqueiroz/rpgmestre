@@ -117,6 +117,13 @@
 .ci-rodape{
   width: 100%;
   height: 35%;
+  border: 2px solid var(--cor-600);
+  background-color: orange;
+  /* background-image: linear-gradient(to right, #fbbf24, orange); */
+  overflow: hidden;
+  padding: 2px;
+  border-bottom-right-radius: var(--carta-arrendamento);
+  border-bottom-left-radius: var(--carta-arrendamento);
 }
 
 .ci-div-imagem{
@@ -130,15 +137,6 @@
   border-radius: 4px;
 }
 
-.ci-rp-fundo{
-  width: 100%;
-  height: 100%;
-  background-color: var(--cor-600);
-  padding: 4px;
-  border-bottom-right-radius: var(--carta-arrendamento);
-  border-bottom-left-radius: var(--carta-arrendamento);
-}
-
 .ci-rp-texto{
   width: 100%;
   height: 100%;
@@ -146,10 +144,6 @@
   font-size: 12px;
   overflow: hidden;
   white-space: pre-wrap;
-  padding: 4px;
-  background-image: linear-gradient(to right, #fbbf24, orange);
-  border-bottom-right-radius: var(--carta-arrendamento);
-  border-bottom-left-radius: var(--carta-arrendamento);
 }
 
 .ci-me-fundo{

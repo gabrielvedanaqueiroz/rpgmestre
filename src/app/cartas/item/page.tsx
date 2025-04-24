@@ -135,11 +135,11 @@ export default function CartaItem(){
           </div>
 
           <div className='ci-rodape'>
-            <div className='ci-rp-fundo'>
+            {/* <div className='ci-rp-fundo'> */}
               <article className='ci-rp-texto texto-script'>
                 {descricao}
               </article>
-            </div>
+            {/* </div> */}
           </div>
 
         </div>

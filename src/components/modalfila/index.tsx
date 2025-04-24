@@ -6,6 +6,7 @@ import BtnSalvar from '../btnsalvar';
 import {db} from '../../services/firebaseConnection';
 import {addDoc, collection, query, where, getDocs} from 'firebase/firestore';
 import { toast } from 'react-toastify';
+import Input from '../input';
 
 interface PersonagemProps{
   pe_id: string;
@@ -182,23 +183,11 @@ function ModalFila({ onOcultar }: ModalFilaProps){
           <div className="mfi-slider" style={{ transform: `translateX(-${index * 50}%)` }}>
            
             <div id='mfi-slide1' className="mfi-slide mfi-slide1">
-
-              <div className='mfi-div-edit'>
-                <label>Nome</label>
-                <input className='mfi-edit' value={nome} onChange={(e)=>{setNome(e.target.value)}} />
-              </div>    
-              <div className='mfi-div-edit'>
-                <label>Iniciativa</label>
-                <input className='mfi-edit' type='number' onChange={(e)=>{setIniciativa(Number(e.target.value))}}/>
-              </div>          
-              <div className='mfi-div-edit'>
-                <label>Classe de Armadura</label>
-                <input className='mfi-edit' type='number' onChange={(e)=>{setCA(Number(e.target.value))}} />
-              </div>
-              <div className='mfi-div-edit'>
-                <label>Vida</label>
-                <input className='mfi-edit' type='number' onChange={(e)=>{setVida(Number(e.target.value))}} />
-              </div>              
+        
+              <Input titulo='Nome' value={nome} onChange={setNome} placeholder='Nome' name='mdinome'/>
+              <Input titulo='Iniciativa' type='number' value={iniciativa} onChange={setIniciativa} name='mdiiniciativa'/>
+              <Input titulo='Classe de Armadura' type='number' value={ca} onChange={setCA} name='mdica'/>
+              <Input titulo='Vida' type='number' value={vida} onChange={setVida} name='mdivida'/>
 
             </div>
 
@@ -234,18 +223,10 @@ function ModalFila({ onOcultar }: ModalFilaProps){
                     </ul>
                   )}
               </div>
-              <div className='mfi-div-edit'>
-                <label>Iniciativa</label>
-                <input className='mfi-edit' type='number' value={iniciativa} onChange={(e)=>{setIniciativa(Number(e.target.value))}} />
-              </div>
-              <div className='mfi-div-edit'>
-                <label>Classe de Armadura</label>
-                <input className='mfi-edit' type='number' value={ca} readOnly />
-              </div>
-              <div className='mfi-div-edit'>
-                <label>Vida</label>
-                <input className='mfi-edit' type='number' value={vida} readOnly />
-              </div>
+
+              <Input titulo='Iniciativa' type='number' value={iniciativa} onChange={setIniciativa} name='mdipiniciativa'/>
+              <Input titulo='Classe de Armadura' type='number' value={ca} name='mdipca' readOnly={true}/>
+              <Input titulo='Vida' type='number' value={vida} name='mdipiniciativa' readOnly={true}/>
               
             </div>
           

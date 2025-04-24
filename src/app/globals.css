@@ -88,6 +88,18 @@ code {
   border-top-right-radius: 4px;
 }
 
+.flag-spear-right {
+  clip-path: polygon(
+    0% 0%,       /* topo esquerdo */
+    90% 0%,      /* topo direito */
+    100% 0%,    /* ponto superior da ponta direita */
+    90% 50%,     /* meio da base da ponta */
+    100% 100%,    /* ponto inferior da ponta direita */
+    90% 100%,    /* base direita */
+    0% 100%      /* base esquerda */
+  );
+}
+
 @layer utilities {
   
   .texto-script{

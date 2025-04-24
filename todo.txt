@@ -10,6 +10,9 @@ carta
 	  posso aumentar tamanho da fonte da descricao 
 	
 home:
+  criar camapanha
 perfil:
 personagens:
+  listar personagens
 anotacoes:
+  lançar anotacoes

@@ -1,0 +1,27 @@
+
+.ip-div-edit{
+  width: 100%;
+  height: 55px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ip-edit{
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Contorno suave */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px 15px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: all 0.3s ease-in-out; /* Suaviza transições */
+  width: 100%;
+  margin-top: 2px;
+  font-size: 16px;  
+  background-color: var(--cor-backgroud);
+  color: white;
+}
+
+.ip-edit:focus {
+  border-color:  var(--cor-primaria); /* Cor do contorno ao focar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
+}
