@@ -54,7 +54,7 @@ async function getCarregarPersonagem(aIdCampanha:string) {
 
 export default async function Personagem() {
 
-  const lista : PersonagemProps[] = await getCarregarPersonagem('FixTbjH5BXP0s2EG89Cb');
+  const lista : PersonagemProps[] = await getCarregarPersonagem(process.env.NEXT_PUBLIC_IDCAMPANHA as string);
 
   return (
     <Pagina subtitulo='Personagens da campanha'>

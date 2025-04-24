@@ -47,9 +47,8 @@ function FilaIniciativa(){
     tur = (tur === 0? 1: tur);
     setTurno(tur);
 
-    let idCamp = localStorage.getItem('rm@idcampanha');
-    idCamp = 'FixTbjH5BXP0s2EG89Cb';
-
+    let idCamp = localStorage.getItem('rm@idcampanha') ?? process.env.NEXT_PUBLIC_IDCAMPANHA as string;
+    
     const q = query(collection(db, "tb_fila"), where("fi_idcampanha", "==", idCamp), orderBy("fi_iniciativa", "desc"));
     const querySnapshot = await getDocs(q); 
     let lista: FilaProps[] = [];

@@ -79,10 +79,10 @@ function ModalFila({ onOcultar }: ModalFilaProps){
   }
 
   useEffect(()=>{
-    let idCamp: string = localStorage.getItem('rm@idcampanha') ?? '';
+    let idCamp: string = localStorage.getItem('rm@idcampanha') ?? process.env.NEXT_PUBLIC_IDCAMPANHA as string;
     setIdCampanha(idCamp);
 
-    let idJog: string = localStorage.getItem('rm@idjogador') ?? '';
+    let idJog: string = localStorage.getItem('rm@idjogador') ?? process.env.NEXT_PUBLIC_IDJOGADOR as string;
     setIdJogador(idJog);
 
     startTransition(() => {

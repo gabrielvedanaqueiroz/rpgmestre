@@ -23,7 +23,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* color: #fff; */
 }
 
 body {
@@ -104,11 +103,6 @@ code {
 @layer utilities {
   
   .texto-script{
-    /* font-family: "Vujahday Script", cursive; */
-    /* font-family: "Nothing You Could Do", cursive; */
-    /* font-family: "Kaushan Script", cursive; */
-    /* font-family: "Seaweed Script", cursive; */
-    /* font-family: "Just Another Hand", cursive; */
     font-family: "Julee", cursive;
     font-weight: 400;
     font-style: normal;

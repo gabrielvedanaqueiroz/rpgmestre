@@ -16,12 +16,6 @@ function Sidebar() {
 
   const [menu, setMenu] = useState<number>(1); 
 
-  /* remover */
-  useEffect(()=>{
-    localStorage.setItem('rm@idcampanha', 'FixTbjH5BXP0s2EG89Cb');
-    localStorage.setItem('rm@idjogador', 'ZQjnWZxVdhQTfyMq3zTQmq901He2');
-  },[]); 
-
   return(
     <div className='sd-container'>
       <Image className='sd_logo'src={logo} alt='RPGMestre'/>
