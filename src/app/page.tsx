@@ -18,7 +18,7 @@ export default function Home() {
         </CardExpansivo>
         
         <Card>
-          <strong>Informação da campanha ativa  </strong>
+          <strong>Informação da campanha ativa  <h1>8 jogadores</h1>  </strong>
           <strong>Criar campanha</strong>          
         </Card>
         
