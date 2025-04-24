@@ -176,11 +176,12 @@
   height: 100%; 
   width: 88%;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: flex-start;
   display: flex;
   position: absolute;
   z-index: 88;
-  padding: 2px 0 2px 24px;
+  padding: 2px 0 2px 25px;
 }
 
 .ci-me-valor{

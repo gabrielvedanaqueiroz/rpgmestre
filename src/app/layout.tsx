@@ -8,11 +8,7 @@ export const metadata: Metadata = {
   description: "Organizador do mestre de RPG",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({  children, }: Readonly<{  children: React.ReactNode; }>) {
   return (
     <html lang="pt-br">
       <head>

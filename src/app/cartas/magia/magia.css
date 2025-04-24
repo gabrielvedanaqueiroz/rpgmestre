@@ -104,21 +104,11 @@
   background-color: aliceblue;
   border-top: 4px solid var(--cor-fundo);
   border-bottom: 4px solid var(--cor-fundo);
-  padding: 4px 0 4px 25px ;
+  padding: 4px 0 4px 25px;
   align-items: center;
-  justify-content: center;
+  justify-content:flex-start;
   display: flex;
   color: var(--cor-fundo);
-}
-
-.cm-titulo-frente{
-  width: 100%;
-  height: 100%;
-  background-color: aliceblue;
-  color: #065f46;
-  padding-left: 20px;
-  align-items: center;
-  display: flex;
 }
 
 .cm-me-article{
@@ -217,7 +207,7 @@
 }
 
 .ci-me-titulo-ponta{
-  transform: rotate(-46deg); /* Rotação em graus */
+  transform: rotate(-45deg); /* Rotação em graus */
   height: 26px;
   width: 26px;
   background-color: var(--cor-interno);
@@ -226,5 +216,6 @@
   border-right: 3px solid var(--cor-600);
   position: absolute;
   right: -13px;
+  top: 9px;
   z-index: 100;
 }

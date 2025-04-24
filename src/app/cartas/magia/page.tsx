@@ -54,7 +54,7 @@ export default function CartaMagia(){
                 <div className='ci-me-div-titulo'>
 
                   <div className='cm-titulo-fundo texto-script '>
-                    {titulo}
+                    <label>{titulo}</label>
                   </div>
 
                   <div className='ci-me-titulo-ponta'/>
