@@ -9,9 +9,9 @@ interface CardProps {
 function Card({children }:CardProps){
   
   return(
-    <div className="card-container" >
+    <section className="card-container" >
       {children}
-    </div>
+    </section>
   );
 }
 

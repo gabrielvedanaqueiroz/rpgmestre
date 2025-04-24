@@ -44,7 +44,7 @@ function CardExpansivo({ id, titulo, children }: CardExpansivoProps){
   }
 
   return(
-    <div key={id} id={id} className="ce-container expanded" >
+    <section key={id} id={id} className="ce-container expanded" >
 
       <div className='ce-titulo'> <strong onClick={()=>{toggleCard()}}>{titulo}</strong> </div>
 
@@ -53,7 +53,7 @@ function CardExpansivo({ id, titulo, children }: CardExpansivoProps){
       <div className="content" style={{display: "block"}}>
         {children}
       </div> 
-    </div>
+    </section>
 
   );
 }

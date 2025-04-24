@@ -13,9 +13,9 @@ export default function Pagina({children, subtitulo }:PaginaProps) {
     <div className='pg-page'>
       <Header subtitulo={subtitulo} />
       
-      <div className='pg-container'>
+      <main className='pg-container'>
         {children}
-      </div>
+      </main>
       
     </div>
   );

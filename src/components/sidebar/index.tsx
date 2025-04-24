@@ -1,7 +1,7 @@
 "use client";
 
 import './sidebar.css';
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import { useState } from 'react';
 import logo from '@/res/logo.svg';
 import Image from 'next/image';
@@ -17,7 +17,7 @@ function Sidebar() {
   const [menu, setMenu] = useState<number>(1); 
 
   return(
-    <div className='sd-container'>
+    <nav className='sd-container'>
       <Image className='sd_logo'src={logo} alt='RPGMestre'/>
       <ul className='sd-div-top'>
         <li key='sdbt1' className={menu===1?'sd-div-item-selecionado': 'sd-div-item'} >
@@ -56,7 +56,7 @@ function Sidebar() {
           <BiLogOutCircle size={45} color='#fff'  className='sd-container-img' onClick={()=>{setMenu(6)}}/>
         </li>
       </ul>     
-    </div>
+    </nav>
   )
 }
 

@@ -1,5 +1,5 @@
   //metodo para mostrar uma imagem dependendo da classe do personagem
-  export function getImagem(aClasse){
+  export function getImagem(aClasse: number){
 
     let url = '';
     switch (Number(aClasse)) {
@@ -81,7 +81,7 @@ const jMultiplicadorEncontro = [
   {"monstro": "15", "multiplicador":4 }
 ]
 
-export function buscarMultiplicadorEncontro(monstroQnt) {
+export function buscarMultiplicadorEncontro(monstroQnt : number) {
 
   if(monstroQnt >= 15)
     return 4;
@@ -97,3 +97,27 @@ export function buscarMultiplicadorEncontro(monstroQnt) {
   }
 
 }
+
+export interface PersonagemProps{
+  pe_id: string;
+  pe_nome:string;
+  pe_idclasse:number;
+  pe_classe:string;
+  pe_catotal:number;
+  pe_vidaatual:number;
+  pe_nivel?:number;
+  pe_raca?:string;
+  pe_subraca?:string;
+  pe_subclasse?:string;
+  pe_tendencia?: string;
+  pe_antecedente?: string;
+  pe_ativo?: boolean;
+  pe_experiencia?:string;
+}
+
+export interface CampanhaProps{
+  cp_id:string;
+  cp_ativa:boolean;
+  cp_descricao: string;
+  cp_nome:string;
+};

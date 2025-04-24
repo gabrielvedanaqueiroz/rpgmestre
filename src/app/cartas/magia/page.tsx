@@ -62,12 +62,14 @@ export default function CartaMagia(){
               </div>
 
               <div className='cm-meio'>
-                <article className='cm-me-article texto-script'>
-                  {descricao}
-                </article>
+                <div className='ce-meio-interno'>
+                  <article className='cm-me-article texto-script'>
+                    {descricao}
+                  </article>
+                </div>
               </div>
               <div className='cm-rodape'>
-                {/* <div className='cm-rp-interno texto-script'> */}
+                <div className='cm-rodape-interno texto-script'>
                   <div className='cm-rp-item'>
                     <AiFillSignal size={14}/>
                     <label>Nível: {nivel}</label>
@@ -89,8 +91,7 @@ export default function CartaMagia(){
                     <AiOutlineClockCircle size={14}/>
                     <label>Duração:{duracao}</label>
                   </div>
-
-                {/* </div> */}
+                </div>
               </div>
             </div>
           </div>

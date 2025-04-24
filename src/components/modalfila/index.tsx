@@ -7,15 +7,7 @@ import {db} from '../../services/firebaseConnection';
 import {addDoc, collection, query, where, getDocs} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import Input from '../input';
-
-interface PersonagemProps{
-  pe_id: string;
-  pe_catotal: number;
-  pe_nome: string;
-  pe_idclasse: number;
-  pe_classe: string;
-  pe_vidaatual: number;
-}
+import { PersonagemProps } from '@/utils';
 
 interface ModalFilaProps {
   onOcultar: () => void;

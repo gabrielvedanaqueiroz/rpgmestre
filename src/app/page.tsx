@@ -7,13 +7,8 @@ import Pagina from '@/components/pagina';
 import { collection, getCountFromServer, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/services/firebaseConnection';
 import Link from 'next/link';
+import { CampanhaProps } from '@/utils';
 
-interface CampanhaProps{
-  cp_id:string;
-  cp_ativa:boolean;
-  cp_descricao: string;
-  cp_nome:string;
-};
 
 async function getContarPersonagem(aIdCampanha:string) {
   
@@ -74,17 +69,15 @@ export default async function Home() {
                 <strong>{campanhaAtiva.cp_nome}</strong><br/>
                 <article>{campanhaAtiva.cp_descricao}</article><br/>
                 <Link href='/personagens'> <h1>{countPersonagem} jogadores</h1> </Link>
+                <strong>Encerrar campanha</strong><br/>       
+                <strong>Apagar campanha</strong> <label>pedir pra digiar para confirmar</label>  <br/>      
+                <strong>Editar campanha</strong>  <br/>        
+                <hr/>
               </div>
             )
             : <div/>
           }
-          {/* <strong>Nome campanha</strong><br/>
-          <article>Informação da campanha ativa</article><br/>
-          <Link href='/personagens'> <h1>{countPersonagem} jogadores</h1> </Link> */}
-          <strong>Encerrar campanha</strong><br/>       
-          <strong>Apagar campanha</strong> <label>pedir pra digiar para confirmar</label>  <br/>      
-          <strong>Editar campanha</strong>  <br/>        
-          <hr/>
+          
           <strong>Lista de campanhas</strong>   <br/>    
           <ul>
           {

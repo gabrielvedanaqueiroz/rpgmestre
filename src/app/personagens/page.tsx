@@ -2,23 +2,7 @@ import Card from '@/components/card';
 import Pagina from '@/components/pagina';
 import { db } from '@/services/firebaseConnection';
 import {collection, query, where, getDocs } from 'firebase/firestore';
-
-interface PersonagemProps{
-  pe_id: string;
-  pe_nome:string;
-  pe_nivel:number;
-  pe_catotal:number;
-  pe_vidaatual:number;
-  pe_raca:string;
-  pe_subraca:string;
-  pe_classe:string;
-  pe_subclasse:string;
-  pe_tendencia: string;
-  pe_antecedente: string;
-  pe_ativo: boolean;
-  pe_experiencia:string;
-  pe_idclasse:string;
-}
+import {PersonagemProps} from '@/utils';
 
 async function getCarregarPersonagem(aIdCampanha:string) {
 
@@ -65,7 +49,7 @@ export default async function Personagem() {
               return(
                 <li key={item.pe_id}>
                   {item.pe_nome}<br/>
-                  <a href='/'>link da ficha</a>
+                  <a href={`/personagens/${item.pe_id}`}>link da ficha</a>
                   <hr/>
                 </li>
               )
