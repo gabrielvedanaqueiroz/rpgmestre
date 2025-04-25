@@ -3,7 +3,6 @@ import Pagina from "@/components/pagina";
 import { db } from "@/services/firebaseConnection";
 import { PersonagemProps } from "@/utils";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { Metadata } from "next";
 
 // async function getCarregarPersonagem(aIdPersonagem:string) {
 
@@ -37,12 +36,8 @@ import { Metadata } from "next";
 //   return {};
 // }
 
-type Props = {
-  params: {id:string};
-}
-
-// export default async function Page({ params:{id}}: Props){
-export default async function Page(){
+export default async function Page({ params:{id}}: { params: {id:string} }){
+// export default async function Page(){
 
   const subtitulo: string = `Personagens da campanha - `;
 
@@ -50,7 +45,7 @@ export default async function Page(){
       <Pagina subtitulo={subtitulo}>
         <Card>
           oi
-          {/* <strong>{id}</strong> */}
+          <strong>{id}</strong>
         </Card>
       </Pagina>
   )
