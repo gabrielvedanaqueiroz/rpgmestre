@@ -41,14 +41,16 @@ type Props = {
   params: {id:string};
 }
 
-export default async function Page({ params:{id}}: Props){
+// export default async function Page({ params:{id}}: Props){
+export default async function Page(){
 
-  const subtitulo: string = `Personagens da campanha - ${id}`;
+  const subtitulo: string = `Personagens da campanha - `;
 
   return(
       <Pagina subtitulo={subtitulo}>
         <Card>
-            <strong>{id}</strong>
+          oi
+          {/* <strong>{id}</strong> */}
         </Card>
       </Pagina>
   )
