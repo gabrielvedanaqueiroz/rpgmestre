@@ -41,7 +41,7 @@ type Props = {
    params: {id:string};
 }
 
-export default function PersonagemFicha({ params:{id}}: Props){
+export default function Page({ params:{id}}: Props){
 
   const subtitulo: string = `Personagens da campanha - ${id}`;
 
