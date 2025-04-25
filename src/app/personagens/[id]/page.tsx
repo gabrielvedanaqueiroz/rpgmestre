@@ -38,7 +38,7 @@ import { Metadata } from "next";
 // }
 
 type Props = {
-   params: {id:string};
+  params: {id:string};
 }
 
 export default async function Page({ params:{id}}: Props){
