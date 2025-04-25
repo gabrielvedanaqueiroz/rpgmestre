@@ -3,6 +3,7 @@ import Pagina from "@/components/pagina";
 import { db } from "@/services/firebaseConnection";
 import { PersonagemProps } from "@/utils";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { Metadata } from "next";
 
 // async function getCarregarPersonagem(aIdPersonagem:string) {
 
@@ -36,7 +37,11 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 //   return {};
 // }
 
-export default function PersonagemFicha({ params:{id}}: { params: {id:string}}){
+type Props = {
+   params: {id:string};
+}
+
+export default function PersonagemFicha({ params:{id}}: Props){
 
   const subtitulo: string = `Personagens da campanha - ${id}`;
 
