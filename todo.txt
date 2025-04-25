@@ -20,8 +20,8 @@ home:
   
 perfil:
 
-personagens:
-  listar personagens
+personagens/id:
+
 
 anotacoes:
   lançar anotacoes

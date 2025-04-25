@@ -1,0 +1,19 @@
+.tc-container{
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tc-navigator{
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  border: var(--bordas-contorno);
+  padding: 8px;
+  gap: 4px;
+}
+
+.tc-navigator hr{
+  color: whitesmoke;
+}

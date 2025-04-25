@@ -1,0 +1,49 @@
+/* components/HintButton.module.css */
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.hintModal {
+  position: absolute;
+  z-index: 1000;
+  bottom: 100%;
+  left: 100px;
+  transform: translateX(-50%);
+  margin-bottom: 4px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hintContent {
+  background-color: #fff;
+  color: #333;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  max-width: 300px;
+  border: 1px solid #ddd;
+}
+
+.container:hover .hintModal {
+  opacity: 1;
+  pointer-events: auto;
+}

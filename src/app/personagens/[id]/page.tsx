@@ -1,5 +1,6 @@
 'use client';
 
+import HintButton from '@/components/btnhint';
 import './personagem.css';
 import Card from "@/components/card";
 import Pagina from "@/components/pagina";
@@ -65,6 +66,10 @@ export default function Page(){
         <div className="infinite-circular-progress">
           <div className="spinner"/>
         </div>
+
+        <HintButton hintContent='hint legenda do botao' bgcor='#000' cor='white'>
+          <strong>teste </strong>
+        </HintButton>
       </Card>
     </Pagina>
   )

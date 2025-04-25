@@ -5,6 +5,8 @@ import { db } from '@/services/firebaseConnection';
 import {collection, query, where, getDocs } from 'firebase/firestore';
 import {getImagem, PersonagemProps} from '@/utils';
 import Image from 'next/image';
+import Link from 'next/link';
+import { AiOutlineRight } from 'react-icons/ai';
 
 async function getCarregarPersonagem(aIdCampanha:string) {
 
@@ -86,7 +88,13 @@ export default async function Personagem() {
                   </div>
 
                   <hr/>
-                  <a href={`/personagens/${item.pe_id}`} style={{ alignSelf: 'flex-end', marginTop: 4} }>Ficha</a>
+                  <Link href={`/personagens/${item.pe_id}`} style={{ alignSelf: 'flex-end', marginTop: 4} }>
+                    <div className='pe-link'>
+                      <label>Ficha</label>
+                      <AiOutlineRight size={12} color='white'/>
+                    </div>
+                    
+                  </Link>
                 </li>
               )
             })

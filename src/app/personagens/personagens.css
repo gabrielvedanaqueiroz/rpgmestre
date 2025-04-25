@@ -9,7 +9,7 @@
   width: 450px;
   height: auto;
   border: 1px solid whitesmoke;
-  padding: 8px;
+  padding: 8px 8px 2px 8px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -83,4 +83,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.pe-link{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.pe-link label{  
+  cursor: pointer;
+}
+
+.pe-link:hover{
+  background-color: rgb(99, 99, 99);
+  transform: scale(1.1);
+}
+
+.pe-link:active {
+  transform: scale(0.9);
 }
