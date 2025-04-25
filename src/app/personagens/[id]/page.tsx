@@ -1,8 +1,11 @@
+'use client';
+
 import Card from "@/components/card";
 import Pagina from "@/components/pagina";
 import { db } from "@/services/firebaseConnection";
 import { PersonagemProps } from "@/utils";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useParams } from 'next/navigation';
 
 // async function getCarregarPersonagem(aIdPersonagem:string) {
 
@@ -37,7 +40,10 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 // }
 
 // export default async function Page({ params:{id}}: { params: {id:string} }){
-export default async function Page(){
+export default function Page(){
+
+  const params = useParams();
+  const id = params?.id as string;
 
   const subtitulo: string = `Personagens da campanha - `;
 
