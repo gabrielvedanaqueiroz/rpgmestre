@@ -57,7 +57,7 @@
   border: 1px solid var(--cor-fundo);
   border-radius: 2px;
   padding: 2px;  
-  background-color: #3B7F47;
+  background-color: var(--cor-interno);
 }
 
 .ce-meio-interno{

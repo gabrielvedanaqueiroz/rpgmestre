@@ -8,9 +8,10 @@
   --cor-600: #d97706;
   --cor-700: #b45309;
   --cor-900: #78350f;
-  --cor-950: #451a03;
 
-  --cor-fundo: #92400e;
+  --cor-fundo: #A2531C;
+  --cor-interno: #F0982C;
+
 }
 
 .ci-carta{
@@ -28,7 +29,7 @@
 }
 
 .ci-cor-verso{
-  background-color: var(--cor-600); 
+  background-color: var(--cor-interno);
 }
 
 .ci-interno-verso{
@@ -49,7 +50,8 @@
   height: 50%;
   display: flex;
   flex-direction: row;
-  gap: 4px;  
+  gap: 4px;    
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(235, 160, 66, 0.3);
 }
 
 .ci-tp-interno{
@@ -61,41 +63,45 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: 4px;
-  gap: 4px;
+  padding: 2px;
+  gap: 2px;
+  border: 1px solid var(--cor-900);
 }
 
 .ci-tpi-imagem{
   width: 100%;
   height: 100%;
-  background-color: orange;
+  background-color: var(--cor-interno);
   border-top-right-radius: var(--carta-arrendamento);
   border-top-left-radius: var(--carta-arrendamento);
   align-items: center;
   justify-content: center;
   display: flex;
+  border: 1px solid var(--cor-900);
 }
 
 .ci-tpi-imagem-comcarga{
   width: 90%;
   height: 100%;
-  background-color: orange;
+  background-color: var(--cor-interno);
   border-top-left-radius: var(--carta-arrendamento);
   align-items: center;
   justify-content: center;
-  display: flex;
+  display: flex;  
+  border: 1px solid var(--cor-900);
 }
 
 .ci-tpi-carga{
   width: 10%;
   height: 100%;
-  background-color: orange;
+  background-color: var(--cor-interno);
   border-top-right-radius: var(--carta-arrendamento);
   align-items: center;
   display: flex;
   padding: 2px;
   flex-direction: column-reverse;
-  gap: 2px;
+  gap: 2px;  
+  border: 1px solid var(--cor-900);
 }
 
 .ci-carga{
@@ -117,13 +123,23 @@
 .ci-rodape{
   width: 100%;
   height: 35%;
-  border: 2px solid var(--cor-600);
-  background-color: orange;
-  /* background-image: linear-gradient(to right, #fbbf24, orange); */
-  overflow: hidden;
+  background-color: var(--cor-600);
   padding: 2px;
   border-bottom-right-radius: var(--carta-arrendamento);
   border-bottom-left-radius: var(--carta-arrendamento);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(235, 160, 66, 0.3);  
+  border: 1px solid var(--cor-900);
+}
+
+.ci-rp-interno{
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor-interno);
+  overflow: hidden;
+  padding: 2px;
+  border-bottom-right-radius: var(--carta-arrendamento);
+  border-bottom-left-radius: var(--carta-arrendamento); 
+  border: 1px solid var(--cor-900);
 }
 
 .ci-div-imagem{
@@ -155,12 +171,13 @@
   transform: rotate(45deg); /* Rotação em graus */
   margin-left: 10px;
   z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(235, 160, 66, 0.3);
 }
 
 .ci-me-frente{
   width: 100%;
   height: 100%;
-  background-color: orange;
+  background-color: var(--cor-interno);
   padding: 4px;
   border-radius: 4px;
   display: flex;
@@ -170,13 +187,12 @@
 }
 
 .ci-me-titulo{
-  background-color: orange;
+  background-color: var(--cor-interno);
   border-top: 4px solid var(--cor-600);
   border-bottom: 4px solid var(--cor-600);
   height: 100%; 
   width: 88%;
   align-items: center;
-  /* justify-content: center; */
   justify-content: flex-start;
   display: flex;
   position: absolute;
@@ -256,7 +272,7 @@
   font-size: 12px;  
   height: 33px;
   width: 31px;
-  background-color: orange;
+  background-color: var(--cor-interno);
   border-bottom-right-radius:  2px;
   border-bottom: 3px solid var(--cor-600); ;
   border-right: 3px solid var(--cor-600);

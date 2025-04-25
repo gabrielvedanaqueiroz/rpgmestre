@@ -135,9 +135,12 @@ export default function CartaItem(){
           </div>
 
           <div className='ci-rodape'>
-            <article className='ci-rp-texto texto-script'>
-              {descricao}
-            </article>
+            <div className='ci-rp-interno'>
+              <article className='ci-rp-texto texto-script'>
+                {descricao}
+              </article>
+            </div>
+
           </div>
 
         </div>

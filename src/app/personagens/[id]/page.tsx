@@ -4,55 +4,63 @@ import Card from "@/components/card";
 import Pagina from "@/components/pagina";
 import { db } from "@/services/firebaseConnection";
 import { PersonagemProps } from "@/utils";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { doc, getDoc} from "firebase/firestore";
 import { useParams } from 'next/navigation';
+import { useEffect, useState } from "react"
 
-// async function getCarregarPersonagem(aIdPersonagem:string) {
-
-//   const q = query(collection(db, "tb_personagem"), where("pe_idcampanha", "==", aIdPersonagem));
-//   const querySnapshot = await getDocs(q);
-//   let item: PersonagemProps;
-
-//   querySnapshot.forEach((doc)=>{
-//     if(doc){
-//       if(doc.data().pe_ativo){
-//         item = {
-//           pe_id: doc.id.trim(),
-//           pe_nome: doc.data().pe_nome.trim(),
-//           pe_nivel: doc.data().pe_nivel,
-//           pe_catotal: doc.data().pe_catotal,
-//           pe_vidaatual: doc.data().pe_vidaatual,
-//           pe_raca: doc.data().pe_raca.trim(),
-//           pe_subraca: doc.data().pe_subraca.trim(),
-//           pe_classe: doc.data().pe_classe.trim(),
-//           pe_subclasse: doc.data().pe_subclasse.trim(),      
-//           pe_tendencia: doc.data().pe_tendencia.trim(),      
-//           pe_antecedente: doc.data().pe_antecedente.trim(),
-//           pe_ativo : doc.data().pe_ativo,
-//           pe_experiencia : doc.data().pe_experiencia,
-//           pe_idclasse: doc.data().pe_idclasse,
-//         };
-//       }              
-//     }
-//   });
-
-//   return {};
-// }
-
-// export default async function Page({ params:{id}}: { params: {id:string} }){
 export default function Page(){
-
+    
   const params = useParams();
   const id = params?.id as string;
+  const [personagem, setPersonagem] = useState<PersonagemProps>();
 
-  const subtitulo: string = `Personagens da campanha - `;
+  useEffect(()=>{
+
+    async function getCarregarPersonagem(aIdPersonagem:string){
+
+      const docRef = doc(db, "tb_personagem", aIdPersonagem);
+      const snapshot = await getDoc(docRef);
+      
+      let item: PersonagemProps;
+      
+      if(snapshot.exists()){
+ 
+        if(snapshot.data().pe_ativo){
+          item = {
+              pe_id: snapshot.id.trim(),
+              pe_nome: snapshot.data().pe_nome.trim(),
+              pe_nivel: snapshot.data().pe_nivel,
+              pe_catotal: snapshot.data().pe_catotal,
+              pe_vidaatual: snapshot.data().pe_vidaatual,
+              pe_raca: snapshot.data().pe_raca.trim(),
+              pe_subraca: snapshot.data().pe_subraca.trim(),
+              pe_classe: snapshot.data().pe_classe.trim(),
+              pe_subclasse: snapshot.data().pe_subclasse.trim(),      
+              pe_tendencia: snapshot.data().pe_tendencia.trim(),      
+              pe_antecedente: snapshot.data().pe_antecedente.trim(),
+              pe_ativo : snapshot.data().pe_ativo,
+              pe_experiencia : snapshot.data().pe_experiencia,
+              pe_idclasse: snapshot.data().pe_idclasse,
+          };
+
+          setPersonagem(item);
+        }                      
+      }    
+     
+    }
+
+    getCarregarPersonagem(id);
+
+  }, []);
+
+  const subtitulo: string = `Personagens da campanha - ${personagem?.pe_nome}`;
 
   return(
-      <Pagina subtitulo={subtitulo}>
-        <Card>
-          oi
-          <strong>{id}</strong>
-        </Card>
-      </Pagina>
+    <Pagina subtitulo={subtitulo}>
+      <Card>
+        {personagem?.pe_nome}<br/>
+        <strong>{id}</strong>
+      </Card>
+    </Pagina>
   )
 }
