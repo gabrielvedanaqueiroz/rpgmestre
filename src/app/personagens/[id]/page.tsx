@@ -1,5 +1,6 @@
 'use client';
 
+import './personagem.css';
 import Card from "@/components/card";
 import Pagina from "@/components/pagina";
 import { db } from "@/services/firebaseConnection";
@@ -60,6 +61,10 @@ export default function Page(){
       <Card>
         {personagem?.pe_nome}<br/>
         <strong>{id}</strong>
+
+        <div className="infinite-circular-progress">
+          <div className="spinner"/>
+        </div>
       </Card>
     </Pagina>
   )

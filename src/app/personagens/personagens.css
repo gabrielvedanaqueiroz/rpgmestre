@@ -1,0 +1,86 @@
+
+.pe-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas com largura igual */
+  gap: 8px; /* Espaço entre os itens */  
+}
+
+.pe-grid-item{
+  width: 450px;
+  height: auto;
+  border: 1px solid whitesmoke;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pe-grid-informacao{
+  padding: 8px 0 8px 0;
+  display: grid;
+  grid-template-columns: 15% 55% 30%;
+  gap: 8px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.pe-div-esquerda{
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid white;
+}
+
+.pe-es-classe{
+  width: 100%;
+  height: 100%; 
+  filter: brightness(0) invert(1);
+  padding: 4px;
+}
+
+.pe-div-centro{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pe-ce-linha3{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.pe-div-direita{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  color:white;
+}
+
+.pe-dr-vida{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-image: url('../../res/vida.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  color:white;
+  filter: brightness(0) invert(1);
+}
+
+.pe-dr-nivel{
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  border: 4px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

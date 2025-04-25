@@ -1,0 +1,34 @@
+.infinite-circular-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8px solid #e0e0e0; /* Cor do fundo */
+  border-top: 8px solid var(--cor-elementos); /* Cor da barra */
+  animation: spin 1.5s linear infinite; /* Animação infinita */
+}
+
+.inner {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: white;
+  top: 15px;
+  left: 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

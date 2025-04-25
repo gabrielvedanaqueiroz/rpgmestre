@@ -1,8 +1,10 @@
+import './personagens.css';
 import Card from '@/components/card';
 import Pagina from '@/components/pagina';
 import { db } from '@/services/firebaseConnection';
 import {collection, query, where, getDocs } from 'firebase/firestore';
-import {PersonagemProps} from '@/utils';
+import {getImagem, PersonagemProps} from '@/utils';
+import Image from 'next/image';
 
 async function getCarregarPersonagem(aIdCampanha:string) {
 
@@ -42,15 +44,49 @@ export default async function Personagem() {
 
   return (
     <Pagina subtitulo='Personagens da campanha'>
-      <Card>
-        <ul>
+      <Card >
+        <ul className='pe-grid'>
           {
             lista.map((item)=>{
               return(
-                <li key={item.pe_id}>
-                  {item.pe_nome}<br/>
-                  <a href={`/personagens/${item.pe_id}`}>link da ficha</a>
+                <li key={item.pe_id} className='pe-grid-item'>
+                  <strong>{item.pe_nome}<br/></strong>
+                  
+                  <div className='pe-grid-informacao'>
+
+                    <div className='pe-div-esquerda'>
+                      <Image src={getImagem(item.pe_idclasse)} className='pe-es-classe' unoptimized alt='personagem'/> 
+                    </div>
+                    
+                    <div className='pe-div-centro'>
+                      <label>{item.pe_classe} - {item.pe_subclasse}</label>
+                      <label>{item.pe_raca} {item.pe_subraca}</label>
+                      <div className='pe-ce-linha3'>
+                        <div>
+                          <label>{item.pe_antecedente}</label>
+                          <hr/>
+                          <label>Antecedente</label>
+                        </div>
+                        <div>
+                          <label>{item.pe_tendencia}</label>
+                          <hr/>
+                          <label>Tendência</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='pe-div-direita'>
+                      <div className='pe-dr-vida'>
+                        {item.pe_vidaatual}
+                      </div>
+                      <div className='pe-dr-nivel'>
+                        <label>{item.pe_nivel}</label>
+                        <label>Nível</label>
+                      </div>
+                    </div>
+                  </div>
+
                   <hr/>
+                  <a href={`/personagens/${item.pe_id}`} style={{ alignSelf: 'flex-end', marginTop: 4} }>Ficha</a>
                 </li>
               )
             })
