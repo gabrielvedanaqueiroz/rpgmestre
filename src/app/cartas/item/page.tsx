@@ -6,6 +6,7 @@ import { GiAncientSword } from "react-icons/gi";
 import Image from "next/image";
 import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
+import borda from '@/res/borda_item.png';
 
 export default function CartaItem(){
 
@@ -93,23 +94,25 @@ export default function CartaItem(){
 
     <Pagina subtitulo='Gerador de carta - Item'>
       <div className="ci-div-carta" id='cartas'>
-
+        
         <div className='ci-carta ci-cor'>
-          
           <div className='ci-topo'>
-          <div className='ci-tp-interno'>
-            <div className= {carga >= 1? 'ci-tpi-imagem-comcarga':'ci-tpi-imagem'}>
-              {imagePreview ? (
-                  <div className="ci-div-imagem">
-                    <Image src={imagePreview} alt="Preview" className="ci-imagem" fill unoptimized/>
-                  </div>
-                ):
-                (<GiAncientSword size={120}/> )
-              }           
-            </div>
             
-            {carga >= 1 && (onGergarCargas())}  
-          </div>
+            <Image src={borda} alt='borda' unoptimized className='ci-borda-topo'/>    
+            
+            <div className='ci-tp-interno'>
+              <div className= {carga >= 1? 'ci-tpi-imagem-comcarga':'ci-tpi-imagem'}>
+                {imagePreview ? (
+                    <div className="ci-div-imagem">
+                      <Image src={imagePreview} alt="Preview" className="ci-imagem" fill unoptimized/>
+                    </div>
+                  ):
+                  (<GiAncientSword size={120}/> )
+                }           
+              </div>
+              
+              {carga >= 1 && (onGergarCargas())}  
+            </div>
             
           </div>
 
@@ -135,6 +138,8 @@ export default function CartaItem(){
           </div>
 
           <div className='ci-rodape'>
+            
+            <Image src={borda} alt='borda' unoptimized className='ci-borda-rodape'/>    
             <div className='ci-rp-interno'>
               <article className='ci-rp-texto texto-script'>
                 {descricao}

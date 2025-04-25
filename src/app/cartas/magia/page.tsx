@@ -6,6 +6,8 @@ import { AiFillExperiment, AiFillHourglass, AiFillOpenAI, AiFillSignal, AiOutlin
 import { SiAeromexico } from "react-icons/si";
 import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
+import Image from 'next/image';
+import borda from '@/res/borda_magia.png';
 
 export default function CartaMagia(){
 
@@ -45,6 +47,8 @@ export default function CartaMagia(){
 
               <div className='cm-topo'>
                 
+                <Image src={borda} alt='borda' unoptimized className='cm-borda-topo'/>  
+                
                 <div className='cm-icone-fundo'>
                   <div className='cm-icone-frente'>
                     <SiAeromexico size={35} color="#11661c"/>
@@ -69,6 +73,9 @@ export default function CartaMagia(){
                 </div>
               </div>
               <div className='cm-rodape'>
+
+                <Image src={borda} alt='borda' unoptimized className='cm-borda-rodape'/>  
+
                 <div className='cm-rodape-interno texto-script'>
                   <div className='cm-rp-item'>
                     <AiFillSignal size={14}/>
