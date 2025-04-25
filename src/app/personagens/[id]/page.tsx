@@ -36,8 +36,8 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 //   return {};
 // }
 
-export default async function Page({ params:{id}}: { params: {id:string} }){
-// export default async function Page(){
+// export default async function Page({ params:{id}}: { params: {id:string} }){
+export default async function Page(){
 
   const subtitulo: string = `Personagens da campanha - `;
 
