@@ -1,8 +1,7 @@
 "use client";
 
-// components/HintButton.js
-import { ReactNode, useState } from 'react';
 import './btnhint.css'; 
+import { ReactNode, useState } from 'react';
 
 interface BtnHintProps{
    children: ReactNode;
@@ -11,7 +10,7 @@ interface BtnHintProps{
    cor:string;
 }
 
-export default function HintButton({ children = null, hintContent, bgcor = 'red', cor = 'green' }: BtnHintProps) {
+export default function BtnHint({ children = null, hintContent, bgcor = 'red', cor = 'green' }: BtnHintProps) {
 
   const [isHovered, setIsHovered] = useState(false);
 

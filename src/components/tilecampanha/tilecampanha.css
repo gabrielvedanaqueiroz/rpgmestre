@@ -1,4 +1,4 @@
-.tc-container{
+.tc-ativa-container{
   gap: 8px;
   display: flex;
   flex-direction: column;
@@ -16,4 +16,31 @@
 
 .tc-navigator hr{
   color: whitesmoke;
+}
+
+.tc-ativa-topotitulo{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tc-nova{
+  width: fit-content;
+  margin-top: 8px;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tc-nova:hover{
+  background-color: rgb(99, 99, 99);
+  transform: scale(1);
+  padding: 4px;
+}
+
+.tc-nova:active {
+  transform: scale(0.8);
 }

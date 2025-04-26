@@ -5,7 +5,6 @@
 }
 
 .button {
-  padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -21,12 +20,11 @@
 
 .hintModal {
   position: absolute;
-  z-index: 1000;
-  bottom: 100%;
-  left: 100px;
+  z-index: 100099;
+  top: 60%;  /* bottom: 100%; */
+  left: 50px;
   transform: translateX(-50%);
   margin-bottom: 4px;
-
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -35,12 +33,13 @@
 .hintContent {
   background-color: #fff;
   color: #333;
-  padding: 15px;
+  padding: 4px;
   border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  min-width: 200px;
+  min-width: 100px;
   max-width: 300px;
   border: 1px solid #ddd;
+  font-size: small;
 }
 
 .container:hover .hintModal {

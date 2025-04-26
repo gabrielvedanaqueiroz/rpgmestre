@@ -4,6 +4,12 @@ import './tilecampanha.css';
 import { CampanhaProps } from '@/utils';
 import { collection, getCountFromServer, getDocs, query, where } from 'firebase/firestore';
 import Link from 'next/link';
+import { CiEdit } from 'react-icons/ci';
+import { MdArrowOutward, MdDeleteOutline } from 'react-icons/md';
+import { GoIssueClosed } from 'react-icons/go';
+import { RiDeleteBin5Line } from 'react-icons/ri';
+import BtnHint from '../btnhint';
+import { FaPlus } from 'react-icons/fa6';
 
 async function getContarPersonagem(aIdCampanha:string) {
   
@@ -52,26 +58,49 @@ export default async function TileCampanha( ){
       {
         campanhaAtiva ?
           (
-            <section key={campanhaAtiva?.cp_id} className='tc-container'>
-              <strong>Campanha: {campanhaAtiva?.cp_nome}</strong>
-              <article>{campanhaAtiva?.cp_descricao}</article>
-              <div className='tc-navigator'>
-                <div >
-                <Link href='/personagens'> {countPersonagem} personagens </Link>
+            <section key={campanhaAtiva?.cp_id} className='tc-ativa-container'>
+
+              <div className='tc-ativa-topotitulo'>
+                <strong>Campanha: {campanhaAtiva?.cp_nome}</strong>
+
+                <div className='tc-navigator'>
+                  <Link href='/editar'>
+                    <BtnHint bgcor='var(--cor-elementos)' cor='white' hintContent='Editar campanha'>
+                      <CiEdit size={25}/>
+                    </BtnHint>
+                  </Link>
+                  <hr/>
+                  <Link href='/visualizar'>
+                    <BtnHint bgcor='var(--cor-elementos)' cor='white' hintContent='Visualizar campanha'>
+                      <MdArrowOutward size={25}/>
+                    </BtnHint>
+                  </Link>
+                  <hr/>
+                  <Link href='/encerrar'>
+                    <BtnHint bgcor='var(--cor-elementos)' cor='white' hintContent='Encerrar campanha'>
+                      <GoIssueClosed size={25}/>
+                    </BtnHint>
+                  </Link>
+                  <hr/>
+                  <Link href='/apagar'>
+                    <BtnHint bgcor='var(--cor-elementos)' cor='white' hintContent='Apagar'>
+                      <MdDeleteOutline  size={25}/> 
+                    </BtnHint>   
+                  </Link> {/* pedir pra digiatr para confirmar */}
+                  <hr/>
+                  <div >
+                  <Link href='/personagens'> {countPersonagem} personagens </Link>
+                  </div>
                 </div>
-                <hr/>
-                <Link href='/editar'>Editar</Link>
-                <hr/>
-                <Link href='/visualizar'>Visualizar</Link>
-                <hr/>
-                <Link href='/editar'>Encerrar</Link>
-                <hr/>
-                <Link href='/editar'>Apagar</Link> {/* pedir pra digiatr para confirmar */}
               </div>
+              
+              <article>{campanhaAtiva?.cp_descricao}</article>              
+
             </section>
           )
           :<div/>
       }
+      <hr/>
       <strong>Lista de campanhas</strong>   <br/>    
       <ul>
       {
@@ -79,14 +108,16 @@ export default async function TileCampanha( ){
           return(
             <li key={item.cp_id}>
               {item.cp_nome}<br/>
-              {/* <a href='/'>link da ficha</a> */}
               <hr/>
             </li>
           )
         })
       }
       </ul> 
-      <strong>Criar campanha</strong>   <br/>     
+      <Link href='/nova' className='tc-nova'>
+        <FaPlus size={15}/>
+        Criar uma campanha
+      </Link>    
 
     </div>
   );
