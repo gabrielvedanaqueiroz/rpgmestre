@@ -21,7 +21,7 @@
 .tc-ativa-topotitulo{
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 10px;
   align-items: center;
   margin-bottom: 8px;
 }
