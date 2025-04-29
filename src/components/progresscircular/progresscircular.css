@@ -1,16 +1,14 @@
-.infinite-circular-progress {
+.pc-circular-progress{
   position: relative;
-  width: 100px;
-  height: 100px;
-  margin: 20px;
+  margin: 20%;
 }
 
-.spinner {
+.pc-spinner{
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 8px solid #e0e0e0; /* Cor do fundo */
-  border-top: 8px solid var(--cor-elementos); /* Cor da barra */
+  border: 4px solid #e0e0e0; /* Cor do fundo */
+  border-top: 4px solid var(--cor-elementos); /* Cor da barra */
   animation: spin 1.5s linear infinite; /* Animação infinita */
 }
 

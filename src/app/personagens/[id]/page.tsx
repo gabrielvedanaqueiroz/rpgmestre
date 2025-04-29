@@ -1,9 +1,9 @@
 'use client';
 
-import BtnHint from '@/components/btnhint';
 import './personagem.css';
 import Card from "@/components/card";
 import Pagina from "@/components/pagina";
+import ProgressCircular from '@/components/progresscircular';
 import { db } from "@/services/firebaseConnection";
 import { PersonagemProps } from "@/utils";
 import { doc, getDoc} from "firebase/firestore";
@@ -55,21 +55,13 @@ export default function Page(){
 
   }, []);
 
-  const subtitulo: string = `Personagens da campanha - ${personagem?.pe_nome}`;
-
   return(
-    <Pagina subtitulo={subtitulo}>
+    <Pagina subtitulo='Personagens da campanha'>
       <Card>
         {personagem?.pe_nome}<br/>
         <strong>{id}</strong>
 
-        <div className="infinite-circular-progress">
-          <div className="spinner"/>
-        </div>
-
-        <BtnHint hintContent='hint legenda do botao' bgcor='#000' cor='white'>
-          <strong>teste </strong>
-        </BtnHint>
+        <ProgressCircular width='50px'/>
       </Card>
     </Pagina>
   )

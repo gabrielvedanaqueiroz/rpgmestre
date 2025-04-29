@@ -60,19 +60,19 @@ export default function CartaItem(){
     );
   }
 
-  function onEditarValor(aValor: string){
+  function onEditarValor(aValor: number){
     if(Number(aValor) < 0)
-      aValor = '0';
+      aValor = 0;
 
     setValor(Number(aValor));   
   }
 
-  function onEditarCarga(aValor: string){
-    if(Number(aValor) > 8)
-      aValor = '8';
+  function onEditarCarga(aValor: number){
+    if(Number(aValor) > 9)
+      aValor = 9;
 
     if(Number(aValor) < 0)
-      aValor = '0';
+      aValor = 0;
 
     setCarga(Number(aValor));   
   }
