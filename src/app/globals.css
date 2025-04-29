@@ -65,13 +65,13 @@ code {
 }
 
 .app-paginas{
-  width: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 78px 8px 8px 8px;
   overflow: hidden;
   overflow-y: auto; /* Ativa a rolagem */
+  padding: 70px 0px 0px 0px;
 }
 
 .app-conteudo{
@@ -114,10 +114,6 @@ code {
   .app-container {
     height: calc(100vh - 55px);
     margin:0px;
-  }
-
-  .app-paginas{
-    padding: 78px 8px 8px 8px;
   }
 
   .app-conteudo{

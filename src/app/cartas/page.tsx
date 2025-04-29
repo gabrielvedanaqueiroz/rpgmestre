@@ -10,7 +10,7 @@ export default function Carta(){
     <Pagina subtitulo='Gerador de carta'>
 
       <Card>
-        <label>escolha uma opção</label>
+        <label>Selecione uma opção</label>
 
         <div className='ca-div-cartas'>
 

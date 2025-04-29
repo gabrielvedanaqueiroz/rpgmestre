@@ -7,6 +7,7 @@ import Image from "next/image";
 import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
 import borda from '@/res/borda_item.png';
+import Input from '@/components/input';
 
 export default function CartaItem(){
 
@@ -93,113 +94,108 @@ export default function CartaItem(){
   return(
 
     <Pagina subtitulo='Gerador de carta - Item'>
-      <div className="ci-div-carta" id='cartas'>
-        
-        <div className='ci-carta ci-cor'>
-          <div className='ci-topo'>
-            
-            <Image src={borda} alt='borda' unoptimized className='ci-borda-topo'/>    
-            
-            <div className='ci-tp-interno'>
-              <div className= {carga >= 1? 'ci-tpi-imagem-comcarga':'ci-tpi-imagem'}>
-                {imagePreview ? (
-                    <div className="ci-div-imagem">
-                      <Image src={imagePreview} alt="Preview" className="ci-imagem" fill unoptimized/>
-                    </div>
-                  ):
-                  (<GiAncientSword size={120}/> )
-                }           
+
+      <div className='ci-container'>
+        <div className="ci-div-carta" id='cartas'>
+          
+          <div className='ci-carta ci-cor'>
+            <div className='ci-topo'>
+              
+              <Image src={borda} alt='borda' unoptimized className='ci-borda-topo'/>    
+              
+              <div className='ci-tp-interno'>
+                <div className= {carga >= 1? 'ci-tpi-imagem-comcarga':'ci-tpi-imagem'}>
+                  {imagePreview ? (
+                      <div className="ci-div-imagem">
+                        <Image src={imagePreview} alt="Preview" className="ci-imagem" fill unoptimized/>
+                      </div>
+                    ):
+                    (<GiAncientSword size={120}/> )
+                  }           
+                </div>
+                
+                {carga >= 1 && (onGergarCargas())}  
               </div>
               
-              {carga >= 1 && (onGergarCargas())}  
             </div>
-            
+
+            <div className='ci-meio'>
+
+              <div className='ci-me-fundo'>
+                <div className='ci-me-frente texto-script'>
+                  <div className='ci-me-valor'>{valor}</div>
+                  <div className='ci-me-valor'>PO</div>
+                </div>
+              </div>
+
+              <div className='ci-me-div-titulo'>
+
+                <div className='ci-me-titulo texto-script'>
+                  {titulo}
+                </div>
+                <div className='ci-me-titulo-ponta'>
+
+                </div>
+              </div>
+              
+            </div>
+
+            <div className='ci-rodape'>
+              
+              <Image src={borda} alt='borda' unoptimized className='ci-borda-rodape'/>    
+              <div className='ci-rp-interno'>
+                <article className='ci-rp-texto texto-script'>
+                  {descricao}
+                </article>
+              </div>
+
+            </div>
+
           </div>
 
-          <div className='ci-meio'>
-
-            <div className='ci-me-fundo'>
-              <div className='ci-me-frente texto-script'>
-                <div className='ci-me-valor'>{valor}</div>
-                <div className='ci-me-valor'>PO</div>
-              </div>
-            </div>
-
-            <div className='ci-me-div-titulo'>
-
-              <div className='ci-me-titulo texto-script'>
-                {titulo}
-              </div>
-              <div className='ci-me-titulo-ponta'>
-
-              </div>
-            </div>
-            
-          </div>
-
-          <div className='ci-rodape'>
-            
-            <Image src={borda} alt='borda' unoptimized className='ci-borda-rodape'/>    
-            <div className='ci-rp-interno'>
-              <article className='ci-rp-texto texto-script'>
-                {descricao}
+          <div className='ci-carta ci-cor-verso'>
+            <div className='ci-interno-verso'>
+              <article className='ci-vs-texto'> 
+                {texto}
               </article>
             </div>
-
           </div>
-
-        </div>
-
-        <div className='ci-carta ci-cor-verso'>
-          <div className='ci-interno-verso'>
-            <article className='ci-vs-texto'> 
-              {texto}
-            </article>
-          </div>
-        </div>
         </div>
 
         <div className='ci-div-edicao'>
-        <div className='ci-div-edit'>
-          <label>Título:</label>
-          <input className='ci-edit' value={titulo} onChange={(e)=>{setTitulo(e.target.value)}} />
-        </div>  
 
-        <div className='ci-div-edit'>
-          <label>Descrição:</label>
-          <textarea className='ci-edit  ci-textearea' value={descricao} onChange={(e)=>{setDescricao(e.target.value)}} />
-        </div> 
+            <Input titulo='Título:' value={titulo} onChange={setTitulo} placeholder='Título'/>
+            
+            <div className='ci-div-edit'>
+              <label>Descrição:</label>
+              <textarea className='ci-edit  ci-textearea' value={descricao} onChange={(e)=>{setDescricao(e.target.value)}} />
+            </div> 
 
-        <div className='ci-div-edit'>
-          <label>Texto:</label>
-          <textarea className='ci-edit ci-textearea' value={texto} onChange={(e)=>{setTexto(e.target.value)}} />
-        </div> 
+            <div className='ci-div-edit'>
+              <label>Texto:</label>
+              <textarea className='ci-edit ci-textearea' value={texto} onChange={(e)=>{setTexto(e.target.value)}} />
+            </div> 
 
-        <div className='ci-div-edit'>
-          <label>Valor:</label>
-          <input type='number' className='ci-edit' value={valor} onChange={(e)=>{onEditarValor(e.target.value)}} />
-        </div> 
+            <Input titulo='Valor:' type='number' value={valor} onChange={onEditarValor} placeholder='Valor'/>
 
-        <div className='ci-div-edit'>
-          <label>Carga:</label>
-          <input type='number' className='ci-edit' value={carga} onChange={(e)=>{onEditarCarga(e.target.value)}} />
-        </div> 
+            <Input titulo='Carga:' type='number' value={carga} onChange={onEditarCarga} placeholder='Carga'/>
+            
+            <div className='ci-div-botao'>
 
-        <div className='ci-div-botao'>
+              <button type="button" onClick={onClickImagem} className="ci-botao" >
+                Selecionar Imagem
+              </button>
 
-          <button type="button" onClick={onClickImagem} className="ci-botao" >
-            Selecionar Imagem
-          </button>
+              <button type="button" onClick={onClickGerarImagem} className="ci-botao" >
+                Gerar Imagem
+              </button>
 
-          <button type="button" onClick={onClickGerarImagem} className="ci-botao" >
-            Gerar Imagem
-          </button>
+              <input className='ci-edit-oculto' ref={fileInputRef} type="file" accept="image/*" onChange={onImageChange}/>
+          </div>        
 
         </div>
-
-        <input className='ci-edit-oculto' ref={fileInputRef} type="file" accept="image/*" onChange={onImageChange}/>
-
-        </div>
+      </div>
+      
     </Pagina>
 
   )

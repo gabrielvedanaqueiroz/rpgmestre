@@ -1,9 +1,6 @@
-.ci-div-carta{  
-  width: 12.6cm;
-  height: 17.6cm;
+.ci-container{
   display: flex;
-  flex-direction: row;
-  color: white;
+  flex-direction: row-reverse;
 
   --cor-600: #d97706;
   --cor-700: #b45309;
@@ -11,7 +8,15 @@
 
   --cor-fundo: #A2531C;
   --cor-interno: #F0982C;
+}
 
+.ci-div-carta{  
+  width: 12.6cm;
+  height: 8.8cm;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  margin : 0px 0 8px 8px;
 }
 
 .ci-carta{
@@ -237,7 +242,7 @@
 }
 
 .ci-botao{
-  background-color: rgb(0, 0, 255);
+  background-color: var(--cor-secundaria);
   padding: 10px;
   border-radius: 4px;
   border: none;
@@ -246,11 +251,12 @@
 }
 
 .ci-botao:hover{
-  background-color: #1e40af
+  background-color: var(--cor-secundaria-selecionada);
 }
 
 .ci-edit-oculto{
   visibility: hidden;
+  display: none;
 }
 
 .ci-div-edicao{
@@ -260,7 +266,9 @@
   padding: 4px;
   border-radius: 4px;
   gap: 4px;
-  width: 13cm;
+  width: 100%;
+  /* overflow: hidden; */
+  margin-bottom: 8px;
 }
 
 .ci-div-edit{
@@ -323,4 +331,17 @@
   font-size: 12px;
   overflow: hidden;
   white-space: pre-wrap;
+}
+
+@media screen and (max-width: 600px)  {
+  .ci-div-carta{
+    flex-direction: column;
+    height: 17.6cm;
+    margin : 0px 0 8px 0px;
+  }
+
+  .ci-container{
+    flex-direction: column-reverse;
+  }
+
 }

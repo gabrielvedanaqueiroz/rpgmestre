@@ -1,12 +1,19 @@
 .hd-container{
   height: 70px;
+  width: 100%;
   padding: 8px 0px 4px 4px;
   background-color: var(--cor-secundaria);  
   align-items: center;
   border-top-right-radius: 4px;
-  position: static;
-  top: 8px;
-  width: 100%;
-  z-index: 9000;
+  position: fixed;
+  top: 24px;
+  z-index: 999999999;
   color: white;
+}
+
+
+@media screen and (max-width: 600px)  {
+    .hd-container{
+      top: 0;
+    }
 }

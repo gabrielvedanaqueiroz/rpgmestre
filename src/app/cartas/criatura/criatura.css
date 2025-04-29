@@ -1,12 +1,18 @@
-.cc-div-carta{  
-  width: 13cm;
-  height: 17cm;
+.cc-container{
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 
   --cor-fundo :#292524;
   --cor-fundo-verso: #44403c;
 
+}
+
+.cc-div-carta{  
+  width: 12.6cm;
+  height: 8.8cm;
+  display: flex;
+  flex-direction: row;
+  margin : 0px 0 8px 8px;
 }
 
 hr{
@@ -102,7 +108,7 @@ hr{
 }
 
 .cc-botao{
-  background-color: rgb(0, 0, 255);
+  background-color: var(--cor-secundaria);
   padding: 10px;
   border-radius: 4px;
   border: none;
@@ -111,11 +117,12 @@ hr{
 }
 
 .cc-botao:hover{
-  background-color: #1e40af
+  background-color: var(--cor-secundaria-selecionada);
 }
 
 .cc-edit-oculto{
   visibility: hidden;
+  display: none;
 }
 
 .cc-carta-verso{
@@ -173,7 +180,8 @@ hr{
   padding: 4px;
   border-radius: 4px;
   gap: 4px;
-  width: 13cm;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 .cc-div-edit{
@@ -201,4 +209,17 @@ hr{
 .cc-edit:focus {
   border-color:  var(--cor-primaria); /* Cor do contorno ao focar */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
+}
+
+@media screen and (max-width: 600px)  {
+  .cc-div-carta{
+    flex-direction: column;
+    height: 17.6cm;
+    margin : 0px 0 8px 0px;
+  }
+
+  .cc-container{
+    flex-direction: column-reverse;
+  }
+
 }

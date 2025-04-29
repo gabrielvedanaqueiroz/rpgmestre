@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import Sidebar from "@/components/sidebar/";
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "RPGMestre",
@@ -29,8 +29,11 @@ export default function RootLayout({  children, }: Readonly<{  children: React.R
       <body className="app-container">
         <Sidebar/>
 
-        {children}
-        {/* <ToastContainer/> */}
+        <div className="app-paginas">
+          {children}
+        </div>
+        
+        <ToastContainer/>
       </body>
     </html>
   );

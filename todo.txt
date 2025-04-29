@@ -1,20 +1,14 @@
 carta
   -criatura:
     campos edicao;
-    responsividade tela
   -magia:
-    campos edicao
     titulo diminuir width (centralizada no div)
     orintacao do texto começar na esquerda
-    responsividade tela
-  -item:
-    campos edicao      
+  -item:      
 	  posso aumentar tamanho da fonte da descricao 
-    responsividade tela
 	
 home:
   criar camapanha
-  responsividade tela
   calculadora batalha
   informacoes camapanha
   

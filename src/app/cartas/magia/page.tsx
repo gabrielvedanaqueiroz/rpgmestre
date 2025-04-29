@@ -8,6 +8,7 @@ import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
 import Image from 'next/image';
 import borda from '@/res/borda_magia.png';
+import Input from '@/components/input';
 
 export default function CartaMagia(){
 
@@ -16,7 +17,7 @@ export default function CartaMagia(){
   const [titulo, setTitulo]            = useState<string>('Título')
   const [texto, setTexto]              = useState<string>(TEXTO);
   const [descricao, setDescricao]      = useState<string>(TEXTO);
-  const [nivel, setNivel]              = useState<string>('0');
+  const [nivel, setNivel]              = useState<number>(0);
   const [alcance, setAlcance]          = useState<string>('10 metros');
   const [tempo, setTempo]              = useState<string>('1 ação Bônus');
   const [duracao, setDuracao]          = useState<string>('10 turnos');
@@ -41,82 +42,81 @@ export default function CartaMagia(){
 
     <Pagina subtitulo='Gerador de carta - Mágia'>
 
-      <div className='cm-div-carta' id='cartas'>
-          <div className="cm-carta cm-cor">
-            <div className='cm-frente'>
+      <div className='cm-container'>
+        <div className='cm-div-carta' id='cartas'>
+            <div className="cm-carta cm-cor">
+              <div className='cm-frente'>
 
-              <div className='cm-topo'>
-                
-                <Image src={borda} alt='borda' unoptimized className='cm-borda-topo'/>  
-                
-                <div className='cm-icone-fundo'>
-                  <div className='cm-icone-frente'>
-                    <SiAeromexico size={35} color="#11661c"/>
+                <div className='cm-topo'>
+                  
+                  <Image src={borda} alt='borda' unoptimized className='cm-borda-topo'/>  
+                  
+                  <div className='cm-icone-fundo'>
+                    <div className='cm-icone-frente'>
+                      <SiAeromexico size={35} color="#11661c"/>
+                    </div>
+                  </div>
+
+                  <div className='ci-me-div-titulo'>
+
+                    <div className='cm-titulo-fundo texto-script '>
+                      <label>{titulo}</label>
+                    </div>
+
+                    <div className='ci-me-titulo-ponta'/>
                   </div>
                 </div>
 
-                <div className='ci-me-div-titulo'>
-
-                  <div className='cm-titulo-fundo texto-script '>
-                    <label>{titulo}</label>
+                <div className='cm-meio'>
+                  <div className='ce-meio-interno'>
+                    <article className='cm-me-article texto-script'>
+                      {descricao}
+                    </article>
                   </div>
-
-                  <div className='ci-me-titulo-ponta'/>
                 </div>
-              </div>
+                <div className='cm-rodape'>
 
-              <div className='cm-meio'>
-                <div className='ce-meio-interno'>
-                  <article className='cm-me-article texto-script'>
-                    {descricao}
-                  </article>
-                </div>
-              </div>
-              <div className='cm-rodape'>
+                  <Image src={borda} alt='borda' unoptimized className='cm-borda-rodape'/>  
 
-                <Image src={borda} alt='borda' unoptimized className='cm-borda-rodape'/>  
+                  <div className='cm-rodape-interno texto-script'>
+                    <div className='cm-rp-item'>
+                      <AiFillSignal size={14}/>
+                      <label>Nível: {nivel}</label>
+                    </div>
 
-                <div className='cm-rodape-interno texto-script'>
-                  <div className='cm-rp-item'>
-                    <AiFillSignal size={14}/>
-                    <label>Nível: {nivel}</label>
-                  </div>
-
-                  <div className='cm-rp-item'>
-                    <AiFillHourglass size={14}/>
-                    <label>Tempo conjuração: {tempo}</label>
-                  </div>
-                  <div className='cm-rp-item'>
-                    <AiFillOpenAI size={14}/> 
-                    <label>Alcance: {alcance}</label>
-                  </div>
-                  <div className='cm-rp-item'>
-                    <AiFillExperiment size={14}/> 
-                    <label>Componentes: {componentes}</label>
-                  </div>
-                  <div className='cm-rp-item'>
-                    <AiOutlineClockCircle size={14}/>
-                    <label>Duração:{duracao}</label>
+                    <div className='cm-rp-item'>
+                      <AiFillHourglass size={14}/>
+                      <label>Tempo conjuração: {tempo}</label>
+                    </div>
+                    <div className='cm-rp-item'>
+                      <AiFillOpenAI size={14}/> 
+                      <label>Alcance: {alcance}</label>
+                    </div>
+                    <div className='cm-rp-item'>
+                      <AiFillExperiment size={14}/> 
+                      <label>Componentes: {componentes}</label>
+                    </div>
+                    <div className='cm-rp-item'>
+                      <AiOutlineClockCircle size={14}/>
+                      <label>Duração:{duracao}</label>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="cm-carta cm-cor-verso">
-            <div className='cm-verso'>
-              <article className='cm-ve-article'>
-                {texto}
-              </article>
+            <div className="cm-carta cm-cor-verso">
+              <div className='cm-verso'>
+                <article className='cm-ve-article'>
+                  {texto}
+                </article>
+              </div>
             </div>
-          </div>
-      </div>
+        </div>
 
-      <div className='cm-div-edicao'>
-          <div className='cm-div-edit'>
-            <label>Título:</label>
-            <input className='cm-edit' value={titulo} onChange={(e)=>{setTitulo(e.target.value)}} />
-          </div>  
+        <div className='cm-div-edicao'>
+
+          <Input titulo='Título:' value={titulo} onChange={setTitulo} placeholder='Título'/>            
 
           <div className='cm-div-edit'>
             <label>Descrição:</label>
@@ -128,37 +128,21 @@ export default function CartaMagia(){
             <textarea className='cm-edit cm-textearea' value={texto} onChange={(e)=>{setTexto(e.target.value)}} />
           </div> 
 
-          <div className='cm-div-edit'>
-            <label>Nível:</label>
-            <input type='number' className='cm-edit' value={nivel} onChange={(e)=>{setNivel(e.target.value)}} />
-          </div> 
-
-          <div className='cm-div-edit'>
-            <label>Alcance:</label>
-            <input className='cm-edit' value={alcance} onChange={(e)=>{setAlcance(e.target.value)}} />
-          </div> 
-
-          <div className='cm-div-edit'>
-            <label>Druação:</label>
-            <input className='cm-edit' value={duracao} onChange={(e)=>{setDuracao(e.target.value)}} />
-          </div> 
-
-          <div className='cm-div-edit'>
-            <label>Tempo conjuração:</label>
-            <input className='cm-edit' value={tempo} onChange={(e)=>{setTempo(e.target.value)}} />
-          </div> 
-
-          <div className='cm-div-edit'>
-            <label>Componentes:</label>
-            <input className='cm-edit' value={componentes} onChange={(e)=>{setComponentes(e.target.value)}} />
-          </div> 
+          <Input type='number' titulo='Nível:' value={nivel} onChange={setNivel} placeholder='Nível'/>        
+          <Input titulo='Alcance:' value={alcance} onChange={setAlcance} placeholder='Alcance'/>
+          <Input titulo='Duração:' value={duracao} onChange={setDuracao} placeholder='Duração'/>
+          <Input titulo='Tempo de conjuração:' value={tempo} onChange={setTempo} placeholder='Tempo de conjuração'/>
+          <Input titulo='Componentes:' value={componentes} onChange={setComponentes} placeholder='Componentes'/>
           
           <div>
             <button type="button" onClick={onClickGerarImagem} className="cc-botao" >
               Gerar Imagem
             </button>
           </div>
-      </div> 
+        </div> 
+
+      </div>
+      
     </Pagina>
 
   );
