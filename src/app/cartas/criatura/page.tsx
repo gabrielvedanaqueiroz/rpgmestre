@@ -3,9 +3,10 @@
 import './criatura.css';
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { GiChameleonGlyph, GiHeartBeats , GiCheckedShield , GiBootPrints } from "react-icons/gi";
+import { GiChameleonGlyph, GiHeartBeats , GiCheckedShield , GiBootPrints, GiBatwingEmblem } from "react-icons/gi";
 import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
+import Input from '@/components/input';
 
 export default function CartaCriatura(){
 
@@ -13,10 +14,17 @@ export default function CartaCriatura(){
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [titulo, setTitulo]             = useState<string>('Título');
   const [vida, setVida]                 = useState<number>(10);
+  const [vidadados, setVidaDados]       = useState<string>('');
   const [classeArm, setClasseArm]       = useState<number>(10);
   const [deslocamento, setDeslocamento] = useState<number>(6);
-  // const [vida, setVida] = useState<number>(0);
-  // const [vida, setVida] = useState<number>(0);
+  const [ataques, setAtaques]           = useState<string>('');
+  const [forca, setForca]               = useState<number>(0);
+  const [destreza, setDestreza]         = useState<number>(0);
+  const [constituicao, setConstituicao] = useState<number>(0);
+  const [inteligencia, setInteligencia] = useState<number>(0);
+  const [sabedoria, setSabedoria]       = useState<number>(0);
+  const [carisma, setCarisma]           = useState<number>(0);
+  const [pericias, setPericias]         = useState<string>('');
 
   function onImageChange(e: React.ChangeEvent<HTMLInputElement>){
   
@@ -60,7 +68,7 @@ export default function CartaCriatura(){
       
       <div className='cc-container'>
         
-        <div className="cc-div-carta" id='cartas'>
+        <section className="cc-div-carta" id='cartas'>
           <div className="cc-carta">
             <div className='cc-topo texto-script'>{titulo}</div>
             <div className='cc-meio'>
@@ -70,7 +78,8 @@ export default function CartaCriatura(){
                 </div>
               ):
               (<div >
-                <GiChameleonGlyph size={95} color="white"/>
+                {/* <GiChameleonGlyph size={95} color="white"/> */}
+                <GiBatwingEmblem size={120} color="white"/>
               </div>)
             }
           </div>
@@ -83,10 +92,11 @@ export default function CartaCriatura(){
               </div>
               <hr/>
               <div className="cc-meta-texto texto-script"> 
-                <div><strong>Bicada:</strong> <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
+                {/* <div><strong>Bicada:</strong> <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
                 1,5 m, um alvo. Acerto: 10 (1d10 + 5) de dano perfurante.</label></div>
                 <div><strong>Garras:</strong> <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
-                1,5 m, um alvo. Acerto: 14 (2d8 + 5) de dano cortante. </label></div>
+                1,5 m, um alvo. Acerto: 14 (2d8 + 5) de dano cortante. </label></div> */}
+                {ataques}
               </div>
             </div>
           </div>
@@ -95,7 +105,7 @@ export default function CartaCriatura(){
           <div className="cc-carta-verso">
             <div className="cc-verso-interno">
 
-              <div>Vida: {vida} (7d10 + 21)</div>
+              <div>Vida: {vida} ({vidadados})</div>
               <div>Classe de armadura: {classeArm} (armadura natural)</div>
               <div>Deslocamento: {deslocamento} metros</div>
               <hr className='cc-linha'/>
@@ -103,41 +113,43 @@ export default function CartaCriatura(){
               <div className='cc-vi-atributos'>
                 <div className="cc-viat-item">
                   <strong>FOR</strong>
-                  <label>20(+5)</label>
+                  <label>{forca}(-2)</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>DES</strong>
-                  <label>10(+0)</label>
+                  <label>{destreza}(+3)</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>CON</strong>
-                  <label>12(+1)</label>
+                  <label>{constituicao}+1</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>INT</strong>
-                  <label>14(+2)</label>
+                  <label>{inteligencia}(0)</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>SAB</strong>
-                  <label>16(+3)</label>
+                  <label>{sabedoria}(+1)</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>CAR</strong>
-                  <label>18(+4)</label>
+                  <label>{carisma}(+2)</label>
                 </div>
               </div>
 
               <hr className='cc-linha'/>
-
-              <div>Perícias: Percepção +3</div>
+              <div className="cc-verso-texto">
+                {pericias}
+              </div>
+              {/* <div>Perícias: Percepção +3</div>
               <div>Sentidos: visão no escuro 18m, Percepção passivao 13</div>
-              <div>Visão e faro aguçados: tem vantagens nos testes de Sabedoria (Percepção) relacionados à visão e faro.</div>
+              <div>Visão e faro aguçados: tem vantagens nos testes de Sabedoria (Percepção) relacionados à visão e faro.</div> */}
               
               <hr className='cc-linha'/>
 
               <div className="cc-verso-texto">
-                  
-                  <div>
+                {ataques}
+                  {/* <div>
                     <strong>Ataques Múltiplos, </strong>
                     <label>realiza dois ataques: um com 
                     sua bicada e um com suas garras.</label>
@@ -153,49 +165,70 @@ export default function CartaCriatura(){
                     <strong>Garras: </strong> 
                     <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
                     1,5 m, um alvo. Acerto: 14 (2d8 + 5) de dano cortante. </label>
-                  </div>
+                  </div> */}
                   
                 </div>
 
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className='cc-div-edicao'>
+        <section className='cc-div-edicao'>
 
-          <div className='cc-div-edit'>
-            <label>Título:</label>
-            <input className='cc-edit' value={titulo} onChange={(e)=>{setTitulo(e.target.value)}} />
-          </div>  
+          <Input titulo='Título' value={titulo} onChange={setTitulo}/>
 
-          <div className='cc-div-edit'>
-            <label>Vida:</label>
-            <input type='number' className='cc-edit' value={vida} onChange={(e)=>{setVida(Number(e.target.value))}} />
-          </div>  
+          <div className='cc-div-agrupar-linha'>
 
-          <div className='cc-div-edit'>
-            <label>Classe de armadura:</label>
-            <input type='number' className='cc-edit' value={classeArm} onChange={(e)=>{setClasseArm(Number(e.target.value))}} />
-          </div>  
+            <Input type='number' titulo='Vida' value={vida} onChange={setVida}/>
+            <Input titulo='Dados' value={vidadados} onChange={setVidaDados}/>
+            <Input type='number' titulo='CA' value={classeArm} onChange={setClasseArm}/>
+            <Input type='number' titulo='Deslocamento' value={deslocamento} onChange={setDeslocamento}/>
+            
+          </div>     
 
           <div className='cc-div-edit'>
-            <label>Deslocamento:</label>
-            <input type='number' className='cc-edit' value={deslocamento} onChange={(e)=>{setDeslocamento(Number(e.target.value))}} />
+            <label>Ataques</label>
+            <textarea className='cc-textearea' value={ataques} onChange={(e)=>{setAtaques(e.target.value)}} />
+          </div>      
+
+          <hr/>
+
+          <div className='cc-div-agrupar-linha'>
+
+            <Input type='number' titulo='For' value={forca} onChange={setForca}/>
+            <Input type='number' titulo='Des' value={destreza} onChange={setDestreza}/>
+            <Input type='number' titulo='Con' value={constituicao} onChange={setConstituicao}/>
+            
+          </div>   
+
+          <div className='cc-div-agrupar-linha'>
+
+            <Input type='number' titulo='Int' value={inteligencia} onChange={setInteligencia}/>
+            <Input type='number' titulo='Sab' value={sabedoria} onChange={setSabedoria}/>
+            <Input type='number' titulo='Car' value={carisma} onChange={setCarisma}/>
+            
+          </div>   
+
+          <hr/>
+
+          <div className='cc-div-edit'>
+            <label>Perícias</label>
+            <textarea className='cc-textearea' value={pericias} onChange={(e)=>{setPericias(e.target.value)}} />
           </div>  
           
           <div className='cc-div-botao'>
             <button type="button" onClick={onClickImagem} className="cc-botao" >
               Selecionar Imagem
             </button>
+            
+            <input className='cc-edit-oculto' ref={fileInputRef} type="file" accept="image/*" onChange={onImageChange}/>
 
             <button type="button" onClick={onClickGerarImagem} className="cc-botao" >
               Gerar Imagem
             </button>
-          </div>
-
-          <input className='cc-edit-oculto' ref={fileInputRef} type="file" accept="image/*" onChange={onImageChange}/>
+          </div>          
           
-        </div> 
+        </section> 
       </div>
       
     </Pagina>

@@ -186,24 +186,24 @@ hr{
 
 .cc-div-edit{
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
 }
 
-.cc-edit{
+.cc-textearea{
+  height: 80px;
   border: 1px solid rgba(0, 0, 0, 0.2); /* Contorno suave */
   border-radius: 8px; /* Cantos arredondados */
   padding: 10px 15px; /* Espaçamento interno */
   font-size: 16px; /* Tamanho da fonte */
   outline: none; /* Remove o contorno padrão ao focar */
   transition: all 0.3s ease-in-out; /* Suaviza transições */
-  width: 100%;
   margin-top: 2px;
   font-size: 16px;  
   background-color: var(--cor-backgroud);
   color: white;
-}
-
-.cc-textearea{
-  height: 80px;
+  text-align: justify;
 }
 
 .cc-edit:focus {
@@ -222,4 +222,10 @@ hr{
     flex-direction: column-reverse;
   }
 
+}
+
+.cc-div-agrupar-linha{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
