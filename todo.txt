@@ -1,6 +1,4 @@
 carta
-  -criatura:
-    campos edicao;
   -magia:
     titulo diminuir width (centralizada no div)
     orintacao do texto começar na esquerda
@@ -19,22 +17,3 @@ personagens/id:
 
 anotacoes:
   lançar anotacoes
-
-
-Carta de Magia (Verde)
-    Fundo da carta: #1E4F2B
-    Borda interna clara: #3B7F47
-    Título (fundo da faixa): #2D6538
-    Texto e bordas internas: #F1EFD8
-    Seção de descrição: #D7E3C4
-    Seção de metajogo: #A9C59A
-    Magia (efeito verde brilhante): #A2F88B, com variações mais claras no centro
-
-Carta de Item (Alaranjado)
-    Fundo da carta: #A2531C
-    Borda interna clara: #C67E3C
-    Título (fundo da faixa): #EBA042
-    Texto e bordas internas: #4A2E0A
-    Seção da descrição: #F5D7A6
-    Círculo do item (fundo da imagem da espada): #F0982C
-    Espada (detalhes metálicos): #D4D7DA (lâmina), #7C542F (empunhadura)

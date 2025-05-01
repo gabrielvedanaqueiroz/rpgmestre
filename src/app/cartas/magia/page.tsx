@@ -9,6 +9,7 @@ import Pagina from '@/components/pagina';
 import Image from 'next/image';
 import borda from '@/res/borda_magia.png';
 import Input from '@/components/input';
+import TextArea from '@/components/textearea';
 
 export default function CartaMagia(){
 
@@ -22,7 +23,6 @@ export default function CartaMagia(){
   const [tempo, setTempo]              = useState<string>('1 ação Bônus');
   const [duracao, setDuracao]          = useState<string>('10 turnos');
   const [componentes, setComponentes]  = useState<string>('V, S, M');
-
   
   async function onClickGerarImagem(){
     const div = document.getElementById('cartas');
@@ -34,7 +34,7 @@ export default function CartaMagia(){
     // Criar link para download
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'minha-div.png';
+    link.download = 'carta-magia.png';
     link.click();
   }
 
@@ -43,6 +43,7 @@ export default function CartaMagia(){
     <Pagina subtitulo='Gerador de carta - Mágia'>
 
       <div className='cm-container'>
+
         <div className='cm-div-carta' id='cartas'>
             <div className="cm-carta cm-cor">
               <div className='cm-frente'>
@@ -116,23 +117,17 @@ export default function CartaMagia(){
 
         <div className='cm-div-edicao'>
 
-          <Input titulo='Título:' value={titulo} onChange={setTitulo} placeholder='Título'/>            
+          <Input titulo='Título' value={titulo} onChange={setTitulo} placeholder='Título'/>            
 
-          <div className='cm-div-edit'>
-            <label>Descrição:</label>
-            <textarea className='cm-edit  cm-textearea' value={descricao} onChange={(e)=>{setDescricao(e.target.value)}} />
-          </div> 
+          <TextArea titulo='Descrição' value={descricao} onChange={setDescricao}/>
+          
+          <TextArea titulo='Texto' value={texto} onChange={setTexto}/>
 
-          <div className='cm-div-edit'>
-            <label>Texto:</label>
-            <textarea className='cm-edit cm-textearea' value={texto} onChange={(e)=>{setTexto(e.target.value)}} />
-          </div> 
-
-          <Input type='number' titulo='Nível:' value={nivel} onChange={setNivel} placeholder='Nível'/>        
-          <Input titulo='Alcance:' value={alcance} onChange={setAlcance} placeholder='Alcance'/>
-          <Input titulo='Duração:' value={duracao} onChange={setDuracao} placeholder='Duração'/>
-          <Input titulo='Tempo de conjuração:' value={tempo} onChange={setTempo} placeholder='Tempo de conjuração'/>
-          <Input titulo='Componentes:' value={componentes} onChange={setComponentes} placeholder='Componentes'/>
+          <Input type='number' titulo='Nível' value={nivel} onChange={setNivel} placeholder='Nível'/>        
+          <Input titulo='Alcance' value={alcance} onChange={setAlcance} placeholder='Alcance'/>
+          <Input titulo='Duração' value={duracao} onChange={setDuracao} placeholder='Duração'/>
+          <Input titulo='Tempo de conjuração' value={tempo} onChange={setTempo} placeholder='Tempo de conjuração'/>
+          <Input titulo='Componentes' value={componentes} onChange={setComponentes} placeholder='Componentes'/>
           
           <div>
             <button type="button" onClick={onClickGerarImagem} className="cc-botao" >

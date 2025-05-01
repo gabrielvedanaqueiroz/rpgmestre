@@ -7,6 +7,7 @@ import { GiChameleonGlyph, GiHeartBeats , GiCheckedShield , GiBootPrints } from 
 import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
 import Input from '@/components/input';
+import TextArea from '@/components/textearea';
 
 interface AtaqueProps{
   titulo: string;
@@ -17,12 +18,14 @@ export default function CartaCriatura(){
 
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
   const [titulo, setTitulo]             = useState<string>('Título');
   const [vida, setVida]                 = useState<number>(10);
   const [vidadados, setVidaDados]       = useState<string>('');
   const [classeArm, setClasseArm]       = useState<number>(10);
   const [deslocamento, setDeslocamento] = useState<number>(6);
-
+  
+  const [lstAtaque, setLstAtaque]       = useState<AtaqueProps[]>([]);
   const [atTitulo, setAtTitulo]         = useState<string>('');
   const [atDescricao, setAtDescricao]   = useState<string>('');
   
@@ -40,7 +43,6 @@ export default function CartaCriatura(){
   const [mdCarisma, setMdCarisma]           = useState<number>(0);
 
   const [pericias, setPericias]         = useState<string>('');
-  const [lstAtaque, setLstAtaque]       = useState<AtaqueProps[]>([]);
 
   function onImageChange(e: React.ChangeEvent<HTMLInputElement>){
   
@@ -152,6 +154,7 @@ export default function CartaCriatura(){
     }
     
   }
+
   return(
 
     <Pagina subtitulo='Gerador de carta - Criatura'>
@@ -159,8 +162,10 @@ export default function CartaCriatura(){
       <div className='cc-container'>
         
         <section className="cc-div-carta" id='cartas'>
+
           <div className="cc-carta">
             <div className='cc-topo texto-script'>{titulo}</div>
+            
             <div className='cc-meio'>
               {imagePreview ? (
                 <div className="cc-div-imagem">
@@ -172,11 +177,12 @@ export default function CartaCriatura(){
               </div>)
               }
             </div>
+
             <div className='cc-rodape'>
               <div className='cc-meta'>
                 <div className="cc-meta-topo">
                   <div className="cc-meta-topo-item texto-script"><GiHeartBeats size={15}/> {vida}</div>
-                  <div className="cc-meta-topo-item texto-script"><GiCheckedShield  size={15}/> {classeArm}</div>
+                  <div className="cc-meta-topo-item texto-script"><GiCheckedShield size={15}/> {classeArm}</div>
                   <div className="cc-meta-topo-item texto-script"><GiBootPrints size={15}/> {deslocamento} </div>
                 </div>
                 <hr/>
@@ -192,6 +198,7 @@ export default function CartaCriatura(){
                 </div>
               </div>
             </div>
+
           </div>
 
           <div className="cc-carta-verso">
@@ -270,10 +277,8 @@ export default function CartaCriatura(){
             <Input titulo='Ataque' value={atTitulo} onChange={setAtTitulo}/>
             <button className='cc-btn-ataque' onClick={onAddListaAtaque}>Adicionar</button>
           </div> 
-          <div className='cc-div-edit'>
-            <label>Descrição</label>
-            <textarea className='cc-textearea' value={atDescricao} onChange={(e)=>{setAtDescricao(e.target.value)}} />
-          </div>  
+
+          <TextArea titulo='Descrição' value={atDescricao} onChange={setAtDescricao}/> 
 
           <hr/>
 
@@ -295,10 +300,7 @@ export default function CartaCriatura(){
 
           <hr/>
 
-          <div className='cc-div-edit'>
-            <label>Perícias</label>
-            <textarea className='cc-textearea' value={pericias} onChange={(e)=>{setPericias(e.target.value)}} />
-          </div>  
+          <TextArea titulo='Perícias' value={pericias} onChange={setPericias}/> 
           
           <div className='cc-div-botao'>
             <button type="button" onClick={onClickImagem} className="cc-botao" >

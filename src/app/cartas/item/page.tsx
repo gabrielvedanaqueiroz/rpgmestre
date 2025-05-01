@@ -8,6 +8,7 @@ import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
 import borda from '@/res/borda_item.png';
 import Input from '@/components/input';
+import TextArea from '@/components/textearea';
 
 export default function CartaItem(){
 
@@ -164,21 +165,15 @@ export default function CartaItem(){
 
         <div className='ci-div-edicao'>
 
-            <Input titulo='Título:' value={titulo} onChange={setTitulo} placeholder='Título'/>
+            <Input titulo='Título' value={titulo} onChange={setTitulo} placeholder='Título'/>
             
-            <div className='ci-div-edit'>
-              <label>Descrição:</label>
-              <textarea className='ci-edit  ci-textearea' value={descricao} onChange={(e)=>{setDescricao(e.target.value)}} />
-            </div> 
+            <TextArea titulo='Descrição' value={descricao} onChange={setDescricao}/> 
 
-            <div className='ci-div-edit'>
-              <label>Texto:</label>
-              <textarea className='ci-edit ci-textearea' value={texto} onChange={(e)=>{setTexto(e.target.value)}} />
-            </div> 
+            <TextArea titulo='Texto' value={texto} onChange={setTexto}/> 
+        
+            <Input titulo='Valor' type='number' value={valor} onChange={onEditarValor} placeholder='Valor'/>
 
-            <Input titulo='Valor:' type='number' value={valor} onChange={onEditarValor} placeholder='Valor'/>
-
-            <Input titulo='Carga:' type='number' value={carga} onChange={onEditarCarga} placeholder='Carga'/>
+            <Input titulo='Carga' type='number' value={carga} onChange={onEditarCarga} placeholder='Carga'/>
             
             <div className='ci-div-botao'>
 
