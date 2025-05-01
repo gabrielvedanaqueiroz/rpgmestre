@@ -3,10 +3,15 @@
 import './criatura.css';
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { GiChameleonGlyph, GiHeartBeats , GiCheckedShield , GiBootPrints, GiBatwingEmblem } from "react-icons/gi";
+import { GiChameleonGlyph, GiHeartBeats , GiCheckedShield , GiBootPrints } from "react-icons/gi";
 import html2canvas from 'html2canvas';
 import Pagina from '@/components/pagina';
 import Input from '@/components/input';
+
+interface AtaqueProps{
+  titulo: string;
+  descricao: string;
+}
 
 export default function CartaCriatura(){
 
@@ -17,14 +22,25 @@ export default function CartaCriatura(){
   const [vidadados, setVidaDados]       = useState<string>('');
   const [classeArm, setClasseArm]       = useState<number>(10);
   const [deslocamento, setDeslocamento] = useState<number>(6);
-  const [ataques, setAtaques]           = useState<string>('');
+
+  const [atTitulo, setAtTitulo]         = useState<string>('');
+  const [atDescricao, setAtDescricao]   = useState<string>('');
+  
   const [forca, setForca]               = useState<number>(0);
   const [destreza, setDestreza]         = useState<number>(0);
   const [constituicao, setConstituicao] = useState<number>(0);
   const [inteligencia, setInteligencia] = useState<number>(0);
   const [sabedoria, setSabedoria]       = useState<number>(0);
   const [carisma, setCarisma]           = useState<number>(0);
+  const [mdForca, setMdForca]               = useState<number>(0);
+  const [mdDestreza, setMdDestreza]         = useState<number>(0);
+  const [mdConstituicao, setMdConstituicao] = useState<number>(0);
+  const [mdInteligencia, setMdInteligencia] = useState<number>(0);
+  const [mdSabedoria, setMdSabedoria]       = useState<number>(0);
+  const [mdCarisma, setMdCarisma]           = useState<number>(0);
+
   const [pericias, setPericias]         = useState<string>('');
+  const [lstAtaque, setLstAtaque]       = useState<AtaqueProps[]>([]);
 
   function onImageChange(e: React.ChangeEvent<HTMLInputElement>){
   
@@ -58,10 +74,84 @@ export default function CartaCriatura(){
     // Criar link para download
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'minha-div.png';
+    link.download = 'carta-criatura.png';
     link.click();
   }
 
+  function onEditarForca(aValor: number){
+    onEditarValor(aValor, 1);
+  }
+
+  function onEditarDestreza(aValor: number){
+    onEditarValor(aValor, 2);
+  }
+
+  function onEditarConstituicao(aValor: number){
+    onEditarValor(aValor, 3);
+  }
+
+  function onEditarInteligencia(aValor: number){
+    onEditarValor(aValor, 4);
+  }
+
+  function onEditarSabedoria(aValor: number){
+    onEditarValor(aValor, 5);
+  }
+
+  function onEditarCarisma(aValor: number){
+    onEditarValor(aValor, 6);
+  }
+
+  function onEditarValor(aValor: number, aAtributo: number){
+    
+    let aux = (aValor - 10) / 2;
+    let modificador =  Math.floor(aux);
+
+    switch (aAtributo) {
+      case 1:
+        setForca(aValor);
+        setMdForca(modificador);
+      break;
+      case 2:
+        setDestreza(aValor);
+        setMdDestreza(modificador);
+      break;
+      case 3:
+        setConstituicao(aValor);
+        setMdConstituicao(modificador);
+      break;
+      case 4:
+        setInteligencia(aValor);
+        setMdInteligencia(modificador);
+      break;
+      case 5:
+        setSabedoria(aValor);
+        setMdSabedoria(modificador);
+      break;
+      case 6:
+        setCarisma(aValor);
+        setMdCarisma(modificador);
+      break;
+    }
+  }
+
+  function onAddListaAtaque(){
+
+    if((atTitulo != '') && (atDescricao != '')){
+      let item : AtaqueProps = {
+        titulo : atTitulo,
+        descricao : atDescricao,
+      }
+  
+      let lista = lstAtaque;
+      lista.push(item);
+  
+      setLstAtaque(lista);
+      setAtTitulo('');
+      setAtDescricao('');
+    }
+    
+  }
   return(
 
     <Pagina subtitulo='Gerador de carta - Criatura'>
@@ -78,29 +168,31 @@ export default function CartaCriatura(){
                 </div>
               ):
               (<div >
-                {/* <GiChameleonGlyph size={95} color="white"/> */}
-                <GiBatwingEmblem size={120} color="white"/>
+                <GiChameleonGlyph size={95} color="white"/>
               </div>)
-            }
-          </div>
-          <div className='cc-rodape'>
-            <div className='cc-meta'>
-              <div className="cc-meta-topo">
-                <div className="cc-meta-topo-item texto-script"><GiHeartBeats size={15}/> {vida}</div>
-                <div className="cc-meta-topo-item texto-script"><GiCheckedShield  size={15}/> {classeArm}</div>
-                <div className="cc-meta-topo-item texto-script"><GiBootPrints size={15}/> {deslocamento} </div>
-              </div>
-              <hr/>
-              <div className="cc-meta-texto texto-script"> 
-                {/* <div><strong>Bicada:</strong> <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
-                1,5 m, um alvo. Acerto: 10 (1d10 + 5) de dano perfurante.</label></div>
-                <div><strong>Garras:</strong> <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
-                1,5 m, um alvo. Acerto: 14 (2d8 + 5) de dano cortante. </label></div> */}
-                {ataques}
+              }
+            </div>
+            <div className='cc-rodape'>
+              <div className='cc-meta'>
+                <div className="cc-meta-topo">
+                  <div className="cc-meta-topo-item texto-script"><GiHeartBeats size={15}/> {vida}</div>
+                  <div className="cc-meta-topo-item texto-script"><GiCheckedShield  size={15}/> {classeArm}</div>
+                  <div className="cc-meta-topo-item texto-script"><GiBootPrints size={15}/> {deslocamento} </div>
+                </div>
+                <hr/>
+                <div className="cc-meta-texto texto-script"> 
+                  <ul>
+                    {lstAtaque.map((item, index)=>(
+                      <li key={index}>
+                        <strong>{item.titulo}: </strong> 
+                        <label>{item.descricao}</label>
+                      </li>
+                    ))}
+                  </ul>                
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
           <div className="cc-carta-verso">
             <div className="cc-verso-interno">
@@ -113,59 +205,46 @@ export default function CartaCriatura(){
               <div className='cc-vi-atributos'>
                 <div className="cc-viat-item">
                   <strong>FOR</strong>
-                  <label>{forca}(-2)</label>
+                  <label>{forca}({mdForca})</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>DES</strong>
-                  <label>{destreza}(+3)</label>
+                  <label>{destreza}({mdDestreza})</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>CON</strong>
-                  <label>{constituicao}+1</label>
+                  <label>{constituicao} ({mdConstituicao})</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>INT</strong>
-                  <label>{inteligencia}(0)</label>
+                  <label>{inteligencia}({mdInteligencia})</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>SAB</strong>
-                  <label>{sabedoria}(+1)</label>
+                  <label>{sabedoria}({mdSabedoria})</label>
                 </div>
                 <div className="cc-viat-item">
                   <strong>CAR</strong>
-                  <label>{carisma}(+2)</label>
+                  <label>{carisma}({mdCarisma})</label>
                 </div>
               </div>
 
               <hr className='cc-linha'/>
-              <div className="cc-verso-texto">
+              <article className="cc-verso-texto">
                 {pericias}
-              </div>
-              {/* <div>Perícias: Percepção +3</div>
-              <div>Sentidos: visão no escuro 18m, Percepção passivao 13</div>
-              <div>Visão e faro aguçados: tem vantagens nos testes de Sabedoria (Percepção) relacionados à visão e faro.</div> */}
+              </article>
               
               <hr className='cc-linha'/>
 
               <div className="cc-verso-texto">
-                {ataques}
-                  {/* <div>
-                    <strong>Ataques Múltiplos, </strong>
-                    <label>realiza dois ataques: um com 
-                    sua bicada e um com suas garras.</label>
-                  </div>
-
-                  <div>
-                    <strong>Bicada: </strong>
-                    <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
-                    1,5 m, um alvo. Acerto: 10 (1d10 + 5) de dano perfurante.</label>
-                  </div>
-                  
-                  <div>
-                    <strong>Garras: </strong> 
-                    <label>Ataque Corpo-a-Corpo com Arma: +7 para atingir, alcance 
-                    1,5 m, um alvo. Acerto: 14 (2d8 + 5) de dano cortante. </label>
-                  </div> */}
+                <ul>
+                  {lstAtaque.map((item, index)=>(
+                    <li key={index}>
+                      <strong>{item.titulo}: </strong> 
+                      <label>{item.descricao}</label>
+                    </li>
+                  ))}
+                </ul>  
                   
                 </div>
 
@@ -186,26 +265,31 @@ export default function CartaCriatura(){
             
           </div>     
 
+          <hr/>
+          <div className='cc-div-agrupar-linha'>
+            <Input titulo='Ataque' value={atTitulo} onChange={setAtTitulo}/>
+            <button className='cc-btn-ataque' onClick={onAddListaAtaque}>Adicionar</button>
+          </div> 
           <div className='cc-div-edit'>
-            <label>Ataques</label>
-            <textarea className='cc-textearea' value={ataques} onChange={(e)=>{setAtaques(e.target.value)}} />
-          </div>      
+            <label>Descrição</label>
+            <textarea className='cc-textearea' value={atDescricao} onChange={(e)=>{setAtDescricao(e.target.value)}} />
+          </div>  
 
           <hr/>
 
           <div className='cc-div-agrupar-linha'>
 
-            <Input type='number' titulo='For' value={forca} onChange={setForca}/>
-            <Input type='number' titulo='Des' value={destreza} onChange={setDestreza}/>
-            <Input type='number' titulo='Con' value={constituicao} onChange={setConstituicao}/>
+            <Input type='number' titulo='For' value={forca} onChange={onEditarForca}/>
+            <Input type='number' titulo='Des' value={destreza} onChange={onEditarDestreza}/>
+            <Input type='number' titulo='Con' value={constituicao} onChange={onEditarConstituicao}/>
             
           </div>   
 
           <div className='cc-div-agrupar-linha'>
 
-            <Input type='number' titulo='Int' value={inteligencia} onChange={setInteligencia}/>
-            <Input type='number' titulo='Sab' value={sabedoria} onChange={setSabedoria}/>
-            <Input type='number' titulo='Car' value={carisma} onChange={setCarisma}/>
+            <Input type='number' titulo='Int' value={inteligencia} onChange={onEditarInteligencia}/>
+            <Input type='number' titulo='Sab' value={sabedoria} onChange={onEditarSabedoria}/>
+            <Input type='number' titulo='Car' value={carisma} onChange={onEditarCarisma}/>
             
           </div>   
 

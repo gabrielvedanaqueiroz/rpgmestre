@@ -87,7 +87,7 @@ export default function CartaItem(){
     // Criar link para download
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'minha-div.png';
+    link.download = 'carta-item.png';
     link.click();
   }
 

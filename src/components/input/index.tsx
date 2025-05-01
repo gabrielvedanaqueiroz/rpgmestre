@@ -12,8 +12,7 @@ interface InputPros<T extends string | number>{
   readOnly?: boolean;
 }
 
-export default function Input<T extends string | number>({ titulo, type = 'text', onChange,  
-  value,  placeholder, name, readOnly = false}: InputPros<T>){
+export default function Input<T extends string | number>({ titulo, type = 'text', onChange, value,  placeholder, name, readOnly = false}: InputPros<T>){
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;

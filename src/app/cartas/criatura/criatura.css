@@ -229,3 +229,20 @@ hr{
   flex-direction: row;
   gap: 8px;
 }
+
+.cc-btn-ataque{
+  height: 40px;
+  width: 100px;
+  background-color: var(--cor-secundaria);
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+  color: white;
+  position: relative;
+  top: 35%;
+}
+
+.cc-btn-ataque:hover{
+  background-color: var(--cor-secundaria-selecionada);
+}
