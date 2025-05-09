@@ -5,15 +5,23 @@
   background-color: var(--cor-secundaria);  
   align-items: center;
   border-top-right-radius: 4px;
-  position: fixed;
-  top: 24px;
+  margin-top: -70px;
   z-index: 999999999;
   color: white;
+  position: static;
+  top: 0px;
 }
 
-
+/* fiz isso pq comecou a dar erro */
+/* 
 @media screen and (max-width: 600px)  {
     .hd-container{
       top: 0;
     }
-}
+} */
+
+/* @media screen and (mix-width: 1280px)  {
+    .hd-container{
+       width: calc(100vw - 5.7%);
+    }
+} */
