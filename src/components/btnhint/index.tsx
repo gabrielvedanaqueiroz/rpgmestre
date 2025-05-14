@@ -16,20 +16,20 @@ export default function BtnHint({ children = null, hintContent, bgcor = 'red', c
 
   return (
     <div className='container'>
-    <button style={{ background: bgcor, color: cor }}
-      className='button'
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {children}
-    </button>
+      <button style={{ background: bgcor, color: cor }}
+        className='button'        
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {children}
+      </button>
     
-    {isHovered && (
-      <div className='hintModal'>
-        <div className='hintContent'>
-          {hintContent}
+      {isHovered && (
+        <div className='hintModal'>
+          <div className='hintContent'>
+            {hintContent}
+          </div>
         </div>
-      </div>
     )}
   </div>
   );

@@ -1,6 +1,5 @@
 /* components/HintButton.module.css */
 .container {
-  position: relative;
   display: inline-block;
 }
 
@@ -21,8 +20,7 @@
 .hintModal {
   position: absolute;
   z-index: 100099;
-  top: 60%;  /* bottom: 100%; */
-  left: 50px;
+  left: inherit;
   transform: translateX(-50%);
   margin-bottom: 4px;
   opacity: 0;
