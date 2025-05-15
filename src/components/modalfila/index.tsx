@@ -57,6 +57,7 @@ function ModalFila({ onOcultar }: ModalFilaProps){
           pe_idclasse: doc.data().pe_idclasse,
           pe_classe: doc.data().pe_classe.trim(),
           pe_vidaatual: doc.data().pe_vidaatual,
+          pe_nivel: doc.data().pe_nivel,
         });
 
       });
@@ -94,6 +95,7 @@ function ModalFila({ onOcultar }: ModalFilaProps){
         pe_idclasse: -1,
         pe_classe: 'aguarde...',
         pe_vidaatual: -1,
+        pe_nivel: 0,
       }]);
     }
     // else {
@@ -209,7 +211,7 @@ function ModalFila({ onOcultar }: ModalFilaProps){
                           }}
                         >
                           <h4> {item.pe_nome} </h4>
-                          {item.pe_classe}    <hr/>
+                          {item.pe_classe}, nível: {item.pe_nivel} <hr/>
                         </li>
                       ))}
                     </ul>

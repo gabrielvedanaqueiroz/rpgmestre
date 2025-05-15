@@ -16,7 +16,9 @@ async function getCarregarPersonagem(aIdCampanha:string) {
 
   querySnapshot.forEach((doc)=>{
     if(doc){
-      if(doc.data().pe_ativo){
+
+      //exibir apenas ativos (sera que tem que ser assim?)
+      // if(doc.data().pe_ativo){ 
         lista.push({
           pe_id: doc.id.trim(),
           pe_nome: doc.data().pe_nome.trim(),
@@ -33,10 +35,12 @@ async function getCarregarPersonagem(aIdCampanha:string) {
           pe_experiencia : doc.data().pe_experiencia,
           pe_idclasse: doc.data().pe_idclasse,
         });
-      }              
+      // }              
     }
+
   });
 
+  console.log(lista);
   return lista;
 }
 
