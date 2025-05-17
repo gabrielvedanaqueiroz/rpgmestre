@@ -10,8 +10,6 @@ import { IoLeafSharp } from 'react-icons/io5';
 import { GiBoxingGlove, GiReceiveMoney } from 'react-icons/gi';
 import { BiWorld } from 'react-icons/bi';
 
-// GiReceiveMoney -recomensa, tipo(BiWorld, IoLeafSharp, GiBoxingGlove), nivel AiFillSignal  
-
 export default function CartaMagia(){
 
   function onTipo(){
@@ -84,7 +82,7 @@ export default function CartaMagia(){
 
       <div className='cs-container'>
 
-        <div className='cs-div-carta' id='cartas'>
+        <section className='cs-div-carta' id='cartas'>
 
             <div className="cs-carta cs-cor">
 
@@ -118,9 +116,9 @@ export default function CartaMagia(){
               </div>
             </div>
             
-        </div>
+        </section>
 
-        <div className='cs-div-edicao'>
+        <section className='cs-div-edicao'>
 
           <Input titulo='Título' value={titulo} onChange={setTitulo} placeholder='Título'/>      
           <div className="cbx-div-edit">
@@ -142,7 +140,7 @@ export default function CartaMagia(){
               <option value={4}>Nível 4</option>
             </select>
           </div>
-          <Input titulo='Recompensa' value={recompensaAdicional} onChange={setRecompensa} placeholder='Recompensa'/>            
+          <Input titulo='Recompensa Adicional' value={recompensaAdicional} onChange={setRecompensa} placeholder='Recompensa Adicional'/>            
           <TextArea titulo='Descrição' value={descricao} onChange={setDescricao}/>
 
           <div>
@@ -150,7 +148,7 @@ export default function CartaMagia(){
               Gerar Imagem
             </button>
           </div>
-        </div> 
+        </section> 
 
       </div>
       
