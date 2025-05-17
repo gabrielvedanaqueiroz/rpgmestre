@@ -68,8 +68,8 @@ export default function CartaMagia(){
   
   async function onClickGerarImagem(){
 
-    setShow(true);
-    return;
+    // setShow(true);
+    // return;
 
     const div = document.getElementById('cartas');
     if (!div) return;
