@@ -194,7 +194,7 @@
   text-overflow: none;
 }
 
-.cc-botao{
+.cm-botao{
   background-color: var(--cor-secundaria);
   padding: 10px;
   border-radius: 4px;
@@ -203,7 +203,7 @@
   color: white;
 }
 
-.cc-botao:hover{
+.cm-botao:hover{
   background-color: var(--cor-secundaria-selecionada);
 }
 
@@ -218,7 +218,7 @@
   margin-bottom: 8px;
 }
 
-.ci-me-div-titulo{
+.cm-me-div-titulo{
   position: relative;
   display: flex;
   z-index: 1;
@@ -232,7 +232,7 @@
   margin-right: 2px;
 }
 
-.ci-me-titulo-ponta{
+.cm-me-titulo-ponta{
   transform: rotate(-45deg); /* Rotação em graus */
   height: 28px;
   width: 28px;

@@ -19,10 +19,7 @@
 }
 
 .cs-cor{
-  background-image: url('../../../res/bg-missao2.png');
-  background-size: cover;       /* Ajusta a imagem para cobrir toda a div, ou contain */
-  background-position: center;  /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background: rgb(70, 59, 37);  
 }
 
 .cs-frente{
@@ -33,60 +30,58 @@
   flex-direction: column;
   gap: 2px;
   color: black;
+  border-radius: 4px;
+  background-image: url('../../../res/bg-missao.png');
+  background-size: cover;       /* Ajusta a imagem para cobrir toda a div, ou contain */
+  background-position: center;  /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
 }
 
 .cs-topo{
   width: 100%;
-  height: 15%;
   padding: 2px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  /* background: slategray; */
+  gap: 2px;  
+  flex-direction: column;
 }
 
-.cs-tp-tipo{
+.cs-circulo{
+  padding: 2px;
+  border-radius: 50%;
+  border: 2px solid black;
   display: flex;
-  gap: 2px;
-  justify-items: center;
-  align-items: center;
+}
+
+.cs-tp-titulo{
   width: 100%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 4px;
+  font-size: large;
 }
 
 .cs-conteudo{
   width: 100%;
   height: 100%;
-  border-radius: 2px;
   padding: 2px;  
-  /* background: yellow; */
-}
-
-.cs-ct-recompensa{
-  width: 100%;
-  height: 15%;
-  border-radius: 2px;
-  padding: 2px;  
-  /* background: red; */
-}
-
-.cs-ct-descricao{
-  width: 100%;
-  height: 85%;
-  border-radius: 2px;
-  padding: 2px; 
-  /* background: blue;  */
-}
-
-.cs-me-article{
-  color: var(--cor-fundo);
+  font-size: 15px;
   text-align: justify;
-  font-size: 12px;
   white-space: pre-wrap;  
   overflow: hidden;
   text-overflow: none;
+  border-top: 1px solid black;
+}
+
+.cs-tp-recompensa{
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px;  
+  gap: 2px;
+  display: flex;
+  align-items: center; 
+  font-size: small; 
 }
 
 .cs-botao{
@@ -112,6 +107,34 @@
   width: 100%;
   margin-bottom: 8px;
 }
+
+.cbx-div-edit{
+  width: 100%;
+  height: 55px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cbx-edit{
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Contorno suave */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px 15px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: all 0.3s ease-in-out; /* Suaviza transições */
+  width: 100%;
+  margin-top: 2px;
+  font-size: 16px;  
+  background-color: var(--cor-backgroud);
+  color: white;
+}
+
+.cbx-edit:focus {
+  border-color:  var(--cor-primaria); /* Cor do contorno ao focar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
+}
+
 
 @media screen and (max-width: 600px)  {
   .cs-div-carta{

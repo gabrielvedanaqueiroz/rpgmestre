@@ -58,13 +58,13 @@ export default function CartaMagia(){
                     </div>
                   </div>
 
-                  <div className='ci-me-div-titulo'>
+                  <div className='cm-me-div-titulo'>
 
                     <div className='cm-titulo-fundo texto-script '>
                       <label>{titulo}</label>
                     </div>
 
-                    <div className='ci-me-titulo-ponta'/>
+                    <div className='cm-me-titulo-ponta'/>
                   </div>
                 </div>
 
@@ -130,7 +130,7 @@ export default function CartaMagia(){
           <Input titulo='Componentes' value={componentes} onChange={setComponentes} placeholder='Componentes'/>
           
           <div>
-            <button type="button" onClick={onClickGerarImagem} className="cc-botao" >
+            <button type="button" onClick={onClickGerarImagem} className="cm-botao" >
               Gerar Imagem
             </button>
           </div>
