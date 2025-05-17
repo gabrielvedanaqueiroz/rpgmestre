@@ -28,7 +28,6 @@
   padding: var(--carta-padding);
   display: flex;
   flex-direction: column;
-  gap: 2px;
   color: black;
   border-radius: 4px;
   background-image: url('../../../res/bg-missao.png');
@@ -39,11 +38,12 @@
 
 .cs-topo{
   width: 100%;
-  padding: 2px;
+  padding: 2px 2px 0 2px;
   display: flex;
   align-items: center;
   gap: 2px;  
   flex-direction: column;
+  /* background: red; */
 }
 
 .cs-circulo{
@@ -65,13 +65,12 @@
 .cs-conteudo{
   width: 100%;
   height: 100%;
-  padding: 2px;  
+  padding: 0 2px 2px 2px;  
   font-size: 15px;
   text-align: justify;
   white-space: pre-wrap;  
   overflow: hidden;
   text-overflow: none;
-  border-top: 1px solid black;
 }
 
 .cs-tp-recompensa{
@@ -83,6 +82,58 @@
   align-items: center; 
   font-size: small; 
 }
+
+.cs-ct-div-separador{
+  display: flex;
+  width: 100%;
+  height: 12px;
+  position: relative;
+  align-items: center;
+}
+
+.cs-ct-linha{
+  width: 99%;
+  height: 1px;
+  background: black;
+  border-radius: 1px;
+  z-index: 1;  
+  position: relative;
+  align-self: center;
+}
+
+.cs-ct-losango-left{
+  /* width: 4px; */
+  /* height: 4px; */
+  /* background: black; */
+  z-index: 2;  
+  left: -1px;
+  
+  position: absolute;
+  /* align-items: center; */
+  /* justify-items: center; */
+  display: flex;
+  /* rotate: 45deg;   */
+}
+
+.cs-ct-losango-right{
+  /* width: 4px; */
+  /* height: 4px; */
+  /* background: black; */
+  z-index: 2;  
+  right: 0px;
+  position: absolute;
+  display: flex;
+  /* rotate: 45deg;   */
+}
+/* .cs-ct-losango-right{
+  width: 4px;
+  height: 4px;
+  background: black;
+  z-index: 2;  
+  right: 0;
+  position: absolute;
+  rotate: 45deg;  
+} */
 
 .cs-botao{
   background-color: var(--cor-secundaria);

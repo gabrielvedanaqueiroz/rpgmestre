@@ -9,6 +9,8 @@ import TextArea from '@/components/textearea';
 import { IoLeafSharp } from 'react-icons/io5';
 import { GiBoxingGlove, GiReceiveMoney } from 'react-icons/gi';
 import { BiWorld } from 'react-icons/bi';
+import { TiArrowUnsorted } from 'react-icons/ti';
+import MensagemFlash from '@/components/mensagemflash';
 
 export default function CartaMagia(){
 
@@ -41,15 +43,15 @@ export default function CartaMagia(){
     }
     else{
       switch (recompensaNivel) {
-      case 1:
-        return '50 PO';
-      case 2: 
-        return '100 PO';
-      case 3: 
-        return '200 PO';    
-      default:
-        return '300 PO';
-    }
+        case 1:
+          return '50 PO';
+        case 2: 
+          return '100 PO';
+        case 3: 
+          return '200 PO';    
+        default:
+          return '300 PO';
+      }
     }
     
   }
@@ -61,8 +63,14 @@ export default function CartaMagia(){
   const [tipoId, setTipoId]            = useState<number>(0);
   const [recompensaAdicional, setRecompensa]    = useState<string>('Recompensa adicional');
   const [recompensaNivel, setNivelRecompensa]   = useState<number>(1);
+
+  const [show, setShow]= useState<boolean>(false);
   
   async function onClickGerarImagem(){
+
+    setShow(true);
+    return;
+
     const div = document.getElementById('cartas');
     if (!div) return;
 
@@ -79,6 +87,8 @@ export default function CartaMagia(){
   return(
 
     <Pagina subtitulo='Gerador de carta - Missão'>
+
+      {show && (<MensagemFlash mensagem='teste de mensagem' tipo='sucess'/>)}
 
       <div className='cs-container'>
 
@@ -101,7 +111,7 @@ export default function CartaMagia(){
                   <div className='cs-tp-recompensa'>
                    
                     <div className='cs-circulo'>
-                      <GiReceiveMoney size={18}/>
+                      <GiReceiveMoney size={14}/>
                     </div>
                     <label>{onRecompensa()} - {recompensaAdicional}</label>             
 
@@ -110,6 +120,18 @@ export default function CartaMagia(){
                 </section>
 
                 <section className='cs-conteudo'>
+                  <div className='cs-ct-div-separador'>
+                    <div className='cs-ct-linha'/>
+                    {/* <div className='cs-ct-losango-left'/>                    
+                    <div className='cs-ct-losango-right'/>       */}
+                    <div className='cs-ct-losango-left'>                    
+                      <TiArrowUnsorted  size={8}/> 
+                      {/* <BiSolidRightArrow size={6}/>  */}
+                    </div>
+                    <div className='cs-ct-losango-right'>
+                      <TiArrowUnsorted size={8}/> 
+                    </div>      
+                  </div>
                   <article>{descricao}</article> 
                 </section>
                 
