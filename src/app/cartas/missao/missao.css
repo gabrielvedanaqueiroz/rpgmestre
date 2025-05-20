@@ -102,38 +102,18 @@
 }
 
 .cs-ct-losango-left{
-  /* width: 4px; */
-  /* height: 4px; */
-  /* background: black; */
   z-index: 2;  
-  left: -1px;
-  
+  left: -2px;
   position: absolute;
-  /* align-items: center; */
-  /* justify-items: center; */
   display: flex;
-  /* rotate: 45deg;   */
 }
 
 .cs-ct-losango-right{
-  /* width: 4px; */
-  /* height: 4px; */
-  /* background: black; */
   z-index: 2;  
   right: 0px;
   position: absolute;
   display: flex;
-  /* rotate: 45deg;   */
 }
-/* .cs-ct-losango-right{
-  width: 4px;
-  height: 4px;
-  background: black;
-  z-index: 2;  
-  right: 0;
-  position: absolute;
-  rotate: 45deg;  
-} */
 
 .cs-botao{
   background-color: var(--cor-secundaria);

@@ -9,8 +9,8 @@ import TextArea from '@/components/textearea';
 import { IoLeafSharp } from 'react-icons/io5';
 import { GiBoxingGlove, GiReceiveMoney } from 'react-icons/gi';
 import { BiWorld } from 'react-icons/bi';
-import { TiArrowUnsorted } from 'react-icons/ti';
 import MensagemFlash from '@/components/mensagemflash';
+import { VscDebugBreakpointLog } from 'react-icons/vsc';
 
 export default function CartaMagia(){
 
@@ -122,14 +122,11 @@ export default function CartaMagia(){
                 <section className='cs-conteudo'>
                   <div className='cs-ct-div-separador'>
                     <div className='cs-ct-linha'/>
-                    {/* <div className='cs-ct-losango-left'/>                    
-                    <div className='cs-ct-losango-right'/>       */}
                     <div className='cs-ct-losango-left'>                    
-                      <TiArrowUnsorted  size={8}/> 
-                      {/* <BiSolidRightArrow size={6}/>  */}
+                      <VscDebugBreakpointLog size={8}/> 
                     </div>
                     <div className='cs-ct-losango-right'>
-                      <TiArrowUnsorted size={8}/> 
+                      <VscDebugBreakpointLog size={8}/> 
                     </div>      
                   </div>
                   <article>{descricao}</article> 
