@@ -182,7 +182,7 @@ export default function CartaItem(){
               </button>
 
               <button type="button" onClick={onClickGerarImagem} className="ci-botao" >
-                Gerar Imagem
+                Gerar Carta
               </button>
 
               <input className='ci-edit-oculto' ref={fileInputRef} type="file" accept="image/*" onChange={onImageChange}/>

@@ -131,7 +131,7 @@ export default function CartaMagia(){
           
           <div>
             <button type="button" onClick={onClickGerarImagem} className="cm-botao" >
-              Gerar Imagem
+              Gerar Carta
             </button>
           </div>
         </div> 

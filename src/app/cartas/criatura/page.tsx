@@ -310,7 +310,7 @@ export default function CartaCriatura(){
             <input className='cc-edit-oculto' ref={fileInputRef} type="file" accept="image/*" onChange={onImageChange}/>
 
             <button type="button" onClick={onClickGerarImagem} className="cc-botao" >
-              Gerar Imagem
+              Gerar Carta
             </button>
           </div>          
           
