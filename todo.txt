@@ -12,8 +12,10 @@ home:
   
 perfil:
 
+personagens
+  botao pra mostrar ativos e nao ativos
 personagens/id:
-
+exibir informacoes
 
 anotacoes:
   lançar anotacoes
