@@ -1,0 +1,33 @@
+.ped-cabecalho{
+  display: flex;
+  flex-direction: column;
+}
+
+.ped-cb-linha1{
+  display: flex;
+  gap: 8px;
+}
+
+.ped-cb-sublinha1{
+  display: flex;
+  flex-direction: column;
+}
+
+.ped-cb-linha2{
+  display: flex;
+  flex-direction: column;
+}
+
+.ped-cb-icone{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.ped-es-classe{
+  width: 100%;
+  height: 100%; 
+  filter: brightness(0) invert(1);
+  padding: 4px;
+}

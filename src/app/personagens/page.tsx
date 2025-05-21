@@ -80,6 +80,7 @@ export default async function Personagem() {
                         </div>
                       </div>
                     </div>
+                    
                     <div className='pe-div-direita'>
                       <div className='pe-dr-vida'>
                         {item.pe_vidaatual}

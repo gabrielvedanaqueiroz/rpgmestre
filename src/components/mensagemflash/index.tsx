@@ -1,5 +1,6 @@
-import './mensagemflash.css';
+"use client";
 
+import './mensagemflash.css';
 import { useEffect, useState } from "react";
 
 interface MensagemFlashProps{
@@ -21,7 +22,8 @@ const MensagemFlash: React.FC<MensagemFlashProps> = ({mensagem, tipo}:MensagemFl
 
   }, []);
 
-  if((!visible)) return null;
+  if((!visible)) 
+    return null;
   
   return(
     <div className={`fm-container ${tipo === 'sucess'?" fm-sucesso ":" fm-erro "}`}>

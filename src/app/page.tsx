@@ -15,12 +15,12 @@ export default async function Home() {
 
         <CardExpansivo id='xpto-batalha' titulo='Batalha'>
           <FilaIniciativa/>
-          <label>calculadora de batalha</label>
+          {/* <label>calculadora de batalha</label> */}
         </CardExpansivo>
          
-        <Card>
+        {/* <Card>
           <TileCampanha/>
-        </Card>
+        </Card> */}
         
       </div>
     </Pagina>

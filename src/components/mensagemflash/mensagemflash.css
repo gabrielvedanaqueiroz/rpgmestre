@@ -6,6 +6,14 @@
   right: 6px;
   color: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  display: flex;
+  width: 250px;
+  height: 80px;
+  align-items: start;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 .fm-sucesso{
@@ -13,5 +21,5 @@
 }
 
 .fm-erro{
-  background: rgb(226, 54, 54);
+  background: rgb(231, 76, 76);
 }
