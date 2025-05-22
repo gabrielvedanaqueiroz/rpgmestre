@@ -112,7 +112,7 @@ export interface PersonagemProps{
   pe_tendencia?: string;
   pe_antecedente?: string;
   pe_ativo?: boolean;
-  pe_experiencia?:string;
+  pe_experiencia?:number;
 }
 
 export interface CampanhaProps{
