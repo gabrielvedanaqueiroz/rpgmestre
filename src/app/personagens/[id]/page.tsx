@@ -9,7 +9,15 @@ import { getImagem, PersonagemProps } from "@/utils";
 import { doc, getDoc} from "firebase/firestore";
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
+import { IconManifestType } from 'react-icons';
+import { AiFillSignal } from 'react-icons/ai';
+import { BsPassportFill } from 'react-icons/bs';
+import { FaRegHeart } from 'react-icons/fa6';
+import { GiBootPrints, GiCheckedShield, GiHeartBeats, GiPsychicWaves, GiPunchBlast, GiSandsOfTime } from 'react-icons/gi';
+import { IoIosPerson } from 'react-icons/io';
+import { MdShield } from 'react-icons/md';
+import { RiCompass3Fill } from 'react-icons/ri';
 
 export default function Page(){
     
@@ -60,76 +68,132 @@ export default function Page(){
 
   }, []);
 
-  function onFlag(aDescricao: string, aValor: number|undefined){
-    return <div className='ped-flag'>
-            <div className='ped-flag-interno'>
-              <label>{aDescricao}</label> 
-              {aValor}
-            </div>
-          </div>
+  // function onFlag(aDescricao: string, aValor: number|undefined){
+  //   return <div className='ped-flag'>
+  //           <div className='ped-flag-interno'>
+  //             <label>{aDescricao}</label> 
+  //             {aValor}
+  //           </div>
+  //         </div>
+  // }
+
+  function onBloco3Info(aValor: number|undefined, aDescricao:string, aIcon: ReactNode){
+    return(
+      <div className='ped-cb-info-col'>
+        {aIcon}
+        <label>{aValor}</label>
+        <hr/>
+        <div className='ped-cb-info'>
+        
+          <label>{aDescricao}</label>
+        </div>
+      </div> 
+    ) 
+  }
+
+  function onClasseIcone(){
+    let idclasse = personagem?.pe_idclasse != undefined ? personagem?.pe_idclasse : 0;
+
+    return <Image src={getImagem(idclasse)} className='ped-cb-classe' alt='personagem'/> 
   }
 
   return(
     <Pagina subtitulo='Personagens da campanha'>
       
       <Card>
-        {loading ? <div> <ProgressCircular width='50px'/> <label>Carregando....</label> </div>: 
+        { loading ? 
+          <div> <ProgressCircular width='50px'/> <label>Carregando....</label> </div> : 
           (
             <main>
 
               <section className='ped-cabecalho'>
+                
+                <div className='ped-cb-icone'>
+                  {onClasseIcone()}
+                </div>
 
-                <div className='ped-cb-linha1'>
-                  
-                  <div className='ped-cb-icone'>
-                    {
-                      personagem?.pe_idclasse != undefined ? 
-                      <Image src={getImagem(personagem?.pe_idclasse)} className='ped-es-classe' alt='personagem'/> :
-                      <Image src={getImagem(0)} className='ped-es-classe' alt='personagem'/> 
-                    }
-                    
-                  </div>
-
-                  <div className='ped-cb-bloco1'>
-                    <strong>{personagem?.pe_nome}</strong>
-                    <label>{personagem?.pe_classe} - {personagem?.pe_subclasse}</label>
+                <div className='ped-cb-bloco1'>
+                  <strong>{personagem?.pe_nome}</strong>
+                  <label>{personagem?.pe_classe} - {personagem?.pe_subclasse}</label>
+                  <div className='ped-cb-info'>
+                    <AiFillSignal size={15}/> 
                     <label>Nível: {personagem?.pe_nivel} - Experiência: {personagem?.pe_experiencia}</label>
-                  </div>
-                  
-                  <div className='ped-cb-bloco2'>
+                  </div> 
+                </div>
+                
+                <div className='ped-cb-bloco2'>
+                  <div className='ped-cb-info'>
+                    <IoIosPerson size={15}/>
                     <label>{personagem?.pe_raca} {personagem?.pe_subraca}</label>
+                  </div> 
 
-                    <div className='ped-cb-bloco4'>
-                      <div>
-                        {personagem?.pe_antecedente} 
-                        <hr/>
+                  <div className='ped-cb-subbloco2'>
+                    <div>
+                      {personagem?.pe_antecedente} 
+                      <hr/>
+                      <div className='ped-cb-info'>
+                        <BsPassportFill  size={15}/>  
                         <label>Antencedente</label>
                       </div>
-
-                      <div>
-                        {personagem?.pe_tendencia} 
-                        <hr/>
-                        <label>Alinhamento</label>
-                      </div>                 
                     </div>
-                    
-                  </div>                 
+
+                    <div>
+                      {personagem?.pe_tendencia} 
+                      <hr/>
+                      <div className='ped-cb-info'>
+                        <RiCompass3Fill size={15}/> 
+                        <label>Alinhamento</label>
+                      </div>  
+                    </div>                 
+                  </div>
+                </div>       
+
+                <div className='ped-cb-bloco3'>
+
+                  {onBloco3Info(personagem?.pe_vidaatual, 'Vida', <GiHeartBeats size={15}/>)}
+                  {onBloco3Info(personagem?.pe_vidaatual, 'Classe de Armadura', <GiCheckedShield size={15}/>)}
+                  {onBloco3Info(personagem?.pe_vidaatual, 'Movimentação', <GiBootPrints size={15}/>)}
+                  {onBloco3Info(personagem?.pe_vidaatual, 'Iniciativa', <GiSandsOfTime size={15}/>)}
+                  {onBloco3Info(personagem?.pe_vidaatual, 'Bônus de Preficiência', <GiPunchBlast size={15}/>)}
+                  {onBloco3Info(personagem?.pe_vidaatual, 'Percepção Passiva', <GiPsychicWaves size={15}/>)}
+
+                  {/* {onFlag('C. Armadura', 12)} */}
+                  {/* {onFlag('Iniciativa', 2)} */}
+                  {/* {onFlag('Movimento', 6)} */}
+                  {/* {onFlag('Percepção', 12)} */}
+                  {/* {onFlag('B. Profic', 2)} */}
+                </div>        
+
+              </section>                                   
+
+              <section className='ped-habilidade'>
+                <div className='ped-habilidade-item'>
+                  <strong>Força</strong>
+
+                  <div className='teste'>
+
+                    <div className='ped-hab-mod'>
+                      <strong>2</strong>
+                      <label>Modificador</label>
+                    </div>
+
+                    <div className='ped-hab-valor'>
+                      <strong>12</strong>
+                      <label>Valor</label>
+                    </div>
+                  </div>
+                  
+                  <hr/>
+                  <label>* 12 salva-guarda </label>
+                  <hr/>
+                  <label>° acrobacia 2 </label>
 
                 </div>
-              
-                <hr/>
-                <div className='ped-cb-linha2'>
-                  {onFlag('Vida', 14)}
-                  {onFlag('Classe de Armadura', 12)}
-                  {onFlag('Movimentação', 6)}
-                  {onFlag('Percepção', 12)}
-                  {onFlag('Iniciativa', 2)}
-                  {onFlag('B Proficiencia', 2)}                  
-                </div>
-                              
-                <hr/>             
+                <div className='ped-habilidade'>
 
-              </section>    
+                  ° <strong>acrobacia</strong> 3
+
+                </div>
 
                 <div className='ped-habilidade'>
 
@@ -137,8 +201,23 @@ export default function Page(){
 
                 </div>
 
-              <section>
+                <div className='ped-habilidade'>
 
+                  ° <strong>acrobacia</strong> 3
+
+                </div>
+
+                <div className='ped-habilidade'>
+
+                  ° <strong>acrobacia</strong> 3
+
+                </div>
+
+                <div className='ped-habilidade'>
+
+                  ° <strong>acrobacia</strong> 3
+
+                </div>
               </section>
             </main>
           )
