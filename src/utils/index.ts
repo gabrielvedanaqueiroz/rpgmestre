@@ -1,5 +1,6 @@
-  //metodo para mostrar uma imagem dependendo da classe do personagem
-  export function getImagem(aClasse: number){
+
+//metodo para mostrar uma imagem dependendo da classe do personagem
+export function getImagem(aClasse: number){
 
     let url = '';
     switch (Number(aClasse)) {
@@ -45,7 +46,7 @@
     }
  
     return url;
-  }
+}
 
 
 //LIMITES DE XP POR NÍVEL DE PERSONAGEM recomendado
@@ -102,9 +103,12 @@ export interface PersonagemProps{
   pe_id: string;
   pe_nome:string;
   pe_idclasse:number;
+  pe_idraca:number;
   pe_classe:string;
   pe_catotal:number;
   pe_vidaatual:number;
+  pe_vidabase?:number;
+  pe_vidadado?: string;
   pe_nivel?:number;
   pe_raca?:string;
   pe_subraca?:string;
@@ -113,6 +117,40 @@ export interface PersonagemProps{
   pe_antecedente?: string;
   pe_ativo?: boolean;
   pe_experiencia?:number;
+  pe_bproficiencia?:number;
+  pe_cabase?:number;
+  pe_carisma?:number;
+  pe_constituicao?:number;
+  pe_destreza?:number;
+  pe_forca?:number;
+  pe_inteligencia?:number;
+  pe_sabedoria?:number;
+  pe_idhabilidadeconjuracao?:number;
+  pe_movimento?:number;
+  pe_proacrobacia?:boolean;
+  pe_proarcanismo?:boolean;
+  pe_proatletismo?:boolean;
+  pe_proatuacao?:boolean;
+  pe_problefar?:boolean;
+  pe_profurtividade?:boolean;
+  pe_prohistoria?:boolean;
+  pe_prointimidacao?:boolean;
+  pe_prointuicao?:boolean;
+  pe_proinvestigacao?:boolean;
+  pe_prolidaranimais?:boolean;
+  pe_promedicina?:boolean;
+  pe_pronatureza?:boolean;
+  pe_propercepcao?:boolean;
+  pe_propersusao?:boolean;
+  pe_proprestidigitacao?:boolean;
+  pe_proreligiao?:boolean;
+  pe_prosobrevivencia?:boolean;
+  pe_sgcarisma?:boolean;
+  pe_sgconstituicao?:boolean;
+  pe_sgdestreza?:boolean;
+  pe_sgforca?:boolean;
+  pe_sginteligencia?:boolean;
+  pe_sgsabedoria?:boolean;
 }
 
 export interface CampanhaProps{
@@ -121,3 +159,11 @@ export interface CampanhaProps{
   cp_descricao: string;
   cp_nome:string;
 };
+
+export function onModificador(aValor: number|undefined){
+    if(aValor === undefined)
+      aValor = 0;
+    
+    let modificador = (aValor - 10) / 2;
+    return Math.floor(modificador);
+  }
