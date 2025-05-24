@@ -120,7 +120,7 @@ export default function Page(){
   //         </div>
   // }
 
-  function onBloco3Info(aValor: number|undefined, aDescricao:string, aIcon: ReactNode){
+  function onBloco3Info(aValor: number|0, aDescricao:string, aIcon: ReactNode){
     return(
       <div className='ped-cb-info-col'>
         {aIcon}
@@ -134,9 +134,10 @@ export default function Page(){
     ) 
   }
 
-  function divHabItem(aAtiva:boolean, aValorHab: number, aDescricao:string, aSalvaGuarda: boolean = false){
+  function divHabItem(aAtiva:boolean|false, aValorHab: number, aDescricao:string, aSalvaGuarda: boolean = false){
 
-    let valor = (aAtiva ? aValorHab + personagem?.pe_bproficiencia: aValorHab);
+    let bprof : number = (personagem?.pe_bproficiencia != undefined ? personagem?.pe_bproficiencia : 0);
+    let valor = (aAtiva ? aValorHab + bprof : aValorHab);
 
     return(
       <div className={`ped-hab-item ${aSalvaGuarda && 'ped-hi-salvaguarda'}`}>

@@ -12,6 +12,7 @@
   justify-content: center;
   gap: 2px;
   padding: 4px;
+  width: 20%;
 }
 
 .ped-cb-info{
@@ -38,27 +39,25 @@
 .ped-cb-bloco2{
   display: flex;
   flex-direction: column;
-  font-size: medium;
   gap: 2px;
   padding: 4px 8px 4px 8px;
   border-left: 1px solid whitesmoke;
-  /* border-right: 1px solid whitesmoke; */
+  border-right: 1px solid whitesmoke;
+  width: 20%;
 }
 
 .ped-cb-subbloco2{
   display: flex;
   gap: 4px;
-  font-size: medium;
+  /* font-size: medium; */
 }
 
 .ped-cb-bloco3{
   display: flex;
   align-items: center;
   justify-content: end;
-  /* justify-items: end; */
-  /* width: 100%; */
-  /* background-color: aliceblue; */
   gap: 8px;
+  width: 60%;
 }
 
 .ped-cb-icone{
@@ -153,7 +152,6 @@
   gap: 4px;
   align-items: center;
   padding: 4px;
-  /* border-bottom: 1px solid whitesmoke; */
 }
 
 .ped-hi-prof{
