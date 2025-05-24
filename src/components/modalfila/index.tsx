@@ -58,6 +58,7 @@ function ModalFila({ onOcultar }: ModalFilaProps){
           pe_classe: doc.data().pe_classe.trim(),
           pe_vidaatual: doc.data().pe_vidaatual,
           pe_nivel: doc.data().pe_nivel,
+          pe_idraca: doc.data().pe_idraca,
         });
 
       });
@@ -96,6 +97,7 @@ function ModalFila({ onOcultar }: ModalFilaProps){
         pe_classe: 'aguarde...',
         pe_vidaatual: -1,
         pe_nivel: 0,
+        pe_idraca: 0,
       }]);
     }
     // else {
