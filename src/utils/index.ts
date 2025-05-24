@@ -141,7 +141,7 @@ export interface PersonagemProps{
   pe_promedicina?:boolean;
   pe_pronatureza?:boolean;
   pe_propercepcao?:boolean;
-  pe_propersusao?:boolean;
+  pe_propersuasao?:boolean;
   pe_proprestidigitacao?:boolean;
   pe_proreligiao?:boolean;
   pe_prosobrevivencia?:boolean;

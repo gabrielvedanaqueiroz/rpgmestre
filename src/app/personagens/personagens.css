@@ -7,7 +7,7 @@
 
 .pe-grid-item{
   width: 400px;
-  height: auto;
+  height: 190px;
   border: 1px solid whitesmoke;
   padding: 8px 8px 2px 8px;
   border-radius: 4px;
@@ -22,6 +22,7 @@
   gap: 8px;
   font-size: 14px;
   text-align: left;
+  height: 90%;
 }
 
 .pe-div-esquerda{

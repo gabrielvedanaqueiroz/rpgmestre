@@ -73,6 +73,7 @@ export default function Page(){
               pe_sginteligencia: snapshot.data().pe_sginteligencia,
               pe_sgsabedoria: snapshot.data().pe_sgsabedoria,
               pe_sgcarisma: snapshot.data().pe_sgcarisma,
+
               pe_proatletismo: snapshot.data().pe_proatletismo,
               pe_proacrobacia: snapshot.data().pe_proacrobacia,
               pe_proprestidigitacao: snapshot.data().pe_proprestidigitacao,
@@ -89,7 +90,8 @@ export default function Page(){
               pe_problefar: snapshot.data().pe_problefar,
               pe_prointimidacao: snapshot.data().pe_prointimidacao,
               pe_proatuacao: snapshot.data().pe_proatuacao,
-              pe_propersusao: snapshot.data().pe_propersusao,
+              pe_propersuasao: snapshot.data().pe_propersuasao,
+              pe_prosobrevivencia: snapshot.data().pe_prosobrevivencia,
 
           };
 
@@ -120,17 +122,16 @@ export default function Page(){
   //         </div>
   // }
 
-  function onBloco3Info(aValor: number|undefined, aDescricao:string, aIcon: ReactNode){
+  function bloco4Info(aValor: number|undefined, aDescricao:string, aIcon: ReactNode){
     return(
-      <div className='ped-cb-info-col'>
-        {aIcon}
-        <label>{aValor}</label>
-        <hr/>
-        <div className='ped-cb-info'>
-          <label>{aDescricao}</label>
+      <div className='bloco4'>
+        <div className='bloco4-linha1'>
+          {aIcon}
+          <label>{aValor}</label>
         </div>
-      </div> 
-    ) 
+        <label>{aDescricao}</label>
+      </div>
+    );
   }
 
   function divHabItem(aAtiva:boolean|undefined, aValorHab: number, aDescricao:string, aSalvaGuarda: boolean = false){
@@ -149,10 +150,14 @@ export default function Page(){
     )
   }
 
-  function onClasseIcone(){
+  function IconeClasse(){
     let idclasse = personagem?.pe_idclasse != undefined ? personagem?.pe_idclasse : 0;
 
-    return <Image src={getImagem(idclasse)} className='ped-cb-classe' alt='personagem'/> 
+    return(
+      <div className='ped-cb-icone'>
+        <Image src={getImagem(idclasse)} className='ped-cb-classe' alt='personagem'/> 
+      </div>      
+    ) 
   }
 
   return(
@@ -166,9 +171,7 @@ export default function Page(){
 
               <section className='ped-cabecalho'>
                 
-                <div className='ped-cb-icone'>
-                  {onClasseIcone()}
-                </div>
+                {IconeClasse()}
 
                 <div className='ped-cb-bloco1'>
                   <strong>{personagem?.pe_nome}</strong>
@@ -204,13 +207,19 @@ export default function Page(){
                       </div>  
                     </div>                 
                   </div>
-                </div>       
+                </div>     
 
                 <div className='ped-cb-bloco3'>
+                  <label>Nome do Jogador</label>
+                  <hr/>
+                  <label>Nome do Jogador</label>
+                </div>
 
-                  {onBloco3Info(personagem?.pe_vidaatual, 'Vida', <GiHeartBeats size={15}/>)}
-                  {onBloco3Info(personagem?.pe_catotal, 'Classe de Armadura', <GiCheckedShield size={15}/>)}
-                  {onBloco3Info(personagem?.pe_movimento, 'Movimentação', <GiBootPrints size={15}/>)}
+                <div className='ped-cb-bloco4'>
+
+                  {bloco4Info(personagem?.pe_vidaatual, 'Vida', <GiHeartBeats size={15}/>)}
+                  {bloco4Info(personagem?.pe_catotal, 'Classe de Armadura', <GiCheckedShield size={15}/>)}
+                  {bloco4Info(personagem?.pe_movimento, 'Movimentação', <GiBootPrints size={15}/>)}
 
                   {/* {onFlag('C. Armadura', 12)} */}
                   {/* {onFlag('Iniciativa', 2)} */}
@@ -241,7 +250,7 @@ export default function Page(){
                   
                   {divHabItem(personagem?.pe_sgforca, modForca, 'Salva-guarda', true)}
                   
-                  {divHabItem(personagem?.pe_proacrobacia, modForca, 'Atletismo')}
+                  {divHabItem(personagem?.pe_proatletismo, modForca, 'Atletismo')}
 
                 </div>
 
@@ -363,15 +372,15 @@ export default function Page(){
                   {divHabItem(personagem?.pe_problefar, modCarisma, 'Blefar')}
                   {divHabItem(personagem?.pe_prointimidacao, modCarisma, 'Intimidação')}
                   {divHabItem(personagem?.pe_proatuacao, modCarisma, 'Atuação')}
-                  {divHabItem(personagem?.pe_propersusao, modCarisma, 'Persuasão')}
+                  {divHabItem(personagem?.pe_propersuasao, modCarisma, 'Persuasão')}
 
                 </div>
 
                 <div className='ped-habilidade ped-hi-gap'>
                   
-                  {onBloco3Info(personagem?.pe_destreza, 'Iniciativa', <GiSandsOfTime size={15}/>)}
-                  {onBloco3Info(personagem?.pe_bproficiencia, 'Bônus de Preficiência', <GiPunchBlast size={15}/>)}
-                  {onBloco3Info(personagem?.pe_sabedoria, 'Percepção Passiva', <GiPsychicWaves size={15}/>)}
+                  {bloco4Info(personagem?.pe_destreza, 'Iniciativa', <GiSandsOfTime size={15}/>)}
+                  {bloco4Info(personagem?.pe_bproficiencia, 'Bônus de Preficiência', <GiPunchBlast size={18}/>)}
+                  {bloco4Info(personagem?.pe_sabedoria, 'Percepção Passiva', <GiPsychicWaves size={15}/>)}
                 </div>
 
               </section>

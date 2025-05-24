@@ -16,31 +16,53 @@ function Sidebar() {
 
   const pathName = usePathname();
 
+  function pathSegment():number{
+
+    if (pathName === '/')
+      return 0;
+
+    let firstSegment = pathName.split('/')[1];
+
+    switch (firstSegment) {
+      case 'personagens':
+        return 1;
+      case 'cartas':
+        return 2;
+      case 'anotacoes':
+        return 3;
+      case 'perfil':
+        return 4;
+      default :
+        return 0;
+    }
+    
+  }
+
   return(
     <aside className='sd-container'>
 
       <Image className='sd_logo'src={logo} alt='RPGMestre'/>
 
       <ul className='sd-div-top'>
-        <li key='sdbt1' className={pathName === '/'?'sd-div-item-selecionado': 'sd-div-item'} >
+        <li key='sdbt1' className={pathSegment() === 0?'sd-div-item-selecionado': 'sd-div-item'} >
           <Link href='/'> 
             <BiSolidHome size={45} color='#fff' className='sd-container-img'/>
           </Link>
         </li>
 
-        <li key='sdbt2' className={pathName === '/personagens'?'sd-div-item-selecionado': 'sd-div-item'} >
+        <li key='sdbt2' className={pathSegment() === 1?'sd-div-item-selecionado': 'sd-div-item'} >
           <Link href='/personagens'> 
             <IoPersonSharp size={45} color='#fff' className='sd-container-img'/>
           </Link>
         </li>
 
-        <li key='sdbt3' className={pathName === '/cartas'?'sd-div-item-selecionado': 'sd-div-item'} >
+        <li key='sdbt3' className={pathSegment() === 2?'sd-div-item-selecionado': 'sd-div-item'} >
           <Link href='/cartas'> 
             <GiCardBurn size={45} color='#fff' className='sd-container-img'/>
           </Link>
         </li>
 
-        <li key='sdbt4' className={pathName === '/anotacoes'?'sd-div-item-selecionado': 'sd-div-item'} >
+        <li key='sdbt4' className={pathSegment() === 3?'sd-div-item-selecionado': 'sd-div-item'} >
           <Link href='/anotacoes'> 
             <FaNoteSticky size={45} color='#fff' className='sd-container-img'/>
           </Link>
@@ -49,7 +71,7 @@ function Sidebar() {
       </ul>
 
       <ul className='siv-div-bottom'>
-        <li key='sdbb1' className={pathName === '/perfil'?'sd-div-item-selecionado': 'sd-div-item'} >
+        <li key='sdbb1' className={pathSegment() === 4?'sd-div-item-selecionado': 'sd-div-item'} >
           <Link href='/perfil'> 
             <CiSettings size={45} color='#fff' className='sd-container-img'/>
           </Link>

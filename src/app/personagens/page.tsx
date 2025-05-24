@@ -34,6 +34,7 @@ async function getCarregarPersonagem(aIdCampanha:string) {
           pe_ativo : doc.data().pe_ativo,
           pe_experiencia : doc.data().pe_experiencia,
           pe_idclasse: doc.data().pe_idclasse,
+          pe_idraca: doc.data().pe_idraca,
         });
       }              
     }
@@ -93,7 +94,7 @@ export default async function Personagem() {
                   </div>
 
                   <hr/>
-                  <Link href={`/personagens/${item.pe_id}`} style={{ alignSelf: 'flex-end', marginTop: 4} }>
+                  <Link href={`/personagens/${item.pe_id}`} style={{ justifySelf:'flex-end', alignSelf: 'flex-end', marginTop: 4} }>
                     <div className='pe-link'>
                       <label>Ficha</label>
                       <AiOutlineRight size={12} color='white'/>
