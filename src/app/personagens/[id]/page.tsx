@@ -120,23 +120,23 @@ export default function Page(){
   //         </div>
   // }
 
-  function onBloco3Info(aValor: number|0, aDescricao:string, aIcon: ReactNode){
+  function onBloco3Info(aValor: number|undefined, aDescricao:string, aIcon: ReactNode){
     return(
       <div className='ped-cb-info-col'>
         {aIcon}
         <label>{aValor}</label>
         <hr/>
         <div className='ped-cb-info'>
-        
           <label>{aDescricao}</label>
         </div>
       </div> 
     ) 
   }
 
-  function divHabItem(aAtiva:boolean|false, aValorHab: number, aDescricao:string, aSalvaGuarda: boolean = false){
+  function divHabItem(aAtiva:boolean|undefined, aValorHab: number, aDescricao:string, aSalvaGuarda: boolean = false){
 
-    let bprof : number = (personagem?.pe_bproficiencia != undefined ? personagem?.pe_bproficiencia : 0);
+    aAtiva = (aAtiva != undefined ? aAtiva: false);
+    let bprof = (personagem?.pe_bproficiencia != undefined ? personagem?.pe_bproficiencia : 0);
     let valor = (aAtiva ? aValorHab + bprof : aValorHab);
 
     return(
@@ -367,7 +367,7 @@ export default function Page(){
 
                 </div>
 
-                <div className='ped-habilidade'>
+                <div className='ped-habilidade ped-hi-gap'>
                   
                   {onBloco3Info(personagem?.pe_destreza, 'Iniciativa', <GiSandsOfTime size={15}/>)}
                   {onBloco3Info(personagem?.pe_bproficiencia, 'Bônus de Preficiência', <GiPunchBlast size={15}/>)}
