@@ -17,7 +17,7 @@ export default async function Home() {
           <FilaIniciativa/>
           {/* <label>calculadora de batalha</label> */}
         </CardExpansivo>
-         
+       
         {/* <Card>
           <TileCampanha/>
         </Card> */}

@@ -216,6 +216,20 @@ img{
   border: 1px solid;
 }
 
+.fi-div-condicao{
+  display: flex;
+  align-items: center;
+}
+
+.fi-co-descricao{
+  display: block;
+}
+
+.fi-ir-condicaobtn{
+  all: unset;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px)  {
   .fi-div-iniciativa{
     width: 340px;
@@ -231,5 +245,9 @@ img{
 
   .fi-div-vida-selecionado{
     left: calc(61%);
+  }
+
+ .fi-co-descricao{
+    display: none;
   }
 }

@@ -14,10 +14,14 @@ import mais from '@/res/expandir_mais.svg'
 import menos from '@/res/expandir_menos.svg'
 import {db} from '@/services/firebaseConnection';
 import {collection, query, where, getDocs, doc, deleteDoc, updateDoc, orderBy } from 'firebase/firestore';
-import { getImagem } from '@/utils';
+import { getImagem, jCondicao } from '@/utils';
 import Image from 'next/image';
 import ModalFila from '../modalfila';
 import { toast } from 'react-toastify';
+import { GiAchillesHeel, GiArmSling, GiBackPain, GiBandaged, GiBoneGnawer, GiCementShoes, GiComa, GiDeadHead, GiEgyptianWalk, GiEskimo, GiInvisible, GiPsychicWaves, GiWorriedEyes } from 'react-icons/gi';
+import { FaPersonFalling } from 'react-icons/fa6';
+import { MdPersonPin } from 'react-icons/md';
+
 
 interface FilaProps{
   fi_id: string;
@@ -29,6 +33,7 @@ interface FilaProps{
   fi_vida: number;
   fi_idcampanha: string;
   fi_posicao: number;
+  fi_condicao: number;
 };
 
 function FilaIniciativa(){
@@ -38,6 +43,9 @@ function FilaIniciativa(){
   const [lista, setLista] = useState<FilaProps[]>([]);
 
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModalCondicao, setShowModalCondicao] = useState<boolean>(false);
+
+  const [idPersonCondicao, setIdPersonCondicao] = useState<string>('');
 
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
@@ -67,6 +75,7 @@ function FilaIniciativa(){
           fi_vida: doc.data().fi_vida,
           fi_idcampanha : doc.data().fi_idcampanha.trim(),
           fi_posicao : i,
+          fi_condicao: doc.data().fi_condicao| 0,
         });
 
         i++;
@@ -193,6 +202,95 @@ function FilaIniciativa(){
     });  
   }
 
+  function onCondicao(aIndex: number){
+
+    if((aIndex > 0) && (aIndex < 15)){
+
+      aIndex = aIndex -1;
+      let item = jCondicao[aIndex];
+      let icon;
+
+      switch (aIndex) {
+    
+        case 1:
+          icon = <GiBackPain size={20}/>   
+          break;
+        case 2:
+          icon = <GiComa size={20}/>   
+          break;
+        case 3:
+          icon = <GiWorriedEyes size={20}/>   
+          break;
+        case 4:
+          icon = <FaPersonFalling size={20}/>   
+          break;
+        case 5:
+          icon = <GiEskimo size={20}/>   
+          break;
+        case 6:
+          icon = <GiBoneGnawer size={20}/>   
+          break;
+        case 7:
+          icon = <GiAchillesHeel size={20}/>   
+          break;
+        case 8:
+          icon = <GiArmSling size={20}/>   
+          break;
+        case 9:
+          icon = <GiDeadHead size={20}/>   
+          break;
+        case 10:
+          icon = <GiInvisible size={20}/>   
+          break;
+        case 11:
+          icon = <GiEgyptianWalk size={20}/>   
+          break;
+        case 12:
+          icon = <GiCementShoes size={20}/>   
+          break;
+        case 13:
+          icon = <GiPsychicWaves size={20}/>   
+          break;
+        default:
+          icon = <GiBandaged size={20}/>   
+          break;    
+        }
+      
+      return(
+        <div className='fi-div-condicao'>
+          {icon}
+          <label className='fi-co-descricao'>{item.nome}</label>
+        </div>
+      );
+    }
+    else
+    return;
+    
+  }
+
+  function onModalCondicao(aId: string){
+    //abrir showmodal pra escolher  
+    setIdPersonCondicao(aId);
+    alert('exibir showmodal pra trocar condicao');    
+  }
+
+  async function onCondicaoTrocar(aId: string, aCondicao: number) {
+ 
+    const docRef = doc(db, "tb_fila", aId);
+      await updateDoc(docRef, {
+        fi_condicao: aCondicao,
+      }
+    )
+    .then(()=>{ 
+      setIdPersonCondicao('');
+    })
+    .catch((error)=>{
+      console.log('Erro ao trocar condicao: '+error);
+      toast.error('Erro ao trocar condicao');
+    });
+    
+  }
+
   return (
 
     <div>
@@ -228,13 +326,16 @@ function FilaIniciativa(){
                   </div>            
 
                   <div className='fi-item-center'>
-                    <strong>{item.fi_nome}</strong> 
+                    <strong>{item.fi_nome} </strong> 
                     <div className='fi-item-sublinha'>
                       <div className='fi-div-sublinha'> <Image src={vida} alt='vida'/> {item.fi_vida} </div>
                       <div className='fi-div-sublinha'> <Image src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
                       <div className='fi-div-sublinha'> <Image src={iniciativa} alt='iniciaiva'/> {item.fi_iniciativa} </div>
+                      
+                      {onCondicao(item.fi_condicao)}
                      
                       <div className='fi-div-vida'>
+                        
                         <Image src={mais} alt='aumentar vida' onClick={()=>{onVidaInc(item.fi_id, item.fi_vida)}}/>
                         <div className='fi-div-vida-div'/>
                         <Image className='fi-div-vida-img' src={menos} alt='diminuir vida' onClick={()=>{onVidaDec(item.fi_id, item.fi_vida)}}/>
@@ -246,6 +347,7 @@ function FilaIniciativa(){
 
                   <div className='fi-item-right'>
                     <Image src={remover} alt='apagar' onClick={()=>{onRemover(item.fi_id)} }/>  
+                    <button className='fi-ir-condicaobtn' onClick={()=>{onModalCondicao(item.fi_id)} }><MdPersonPin size={20}/></button>
                   </div>            
                 </li>
               ) 

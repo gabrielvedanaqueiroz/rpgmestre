@@ -168,21 +168,21 @@ export function onModificador(aValor: number|undefined){
     return Math.floor(modificador);
 }
 
-const jCondicao = [
+export const jCondicao = [
 
-	{"Agarrado":"* O deslocamento da criatura se torna 0, e ela não se benifica de qualquer bônus em seu deslocamento. \n	* Se encerra se um efeito, como causado pela magia onda trovejante, remover a criatura do calcance da criatura que o agarrou ou do efeito que causa a condição."},
-	{"Amendrontado": "* Sofre desvantagem em testes de atributo e jogadas de ataque enquanto a fonte do seu medo estiver na sua linha de visão. \n	* A criatura não pode se mover voluntáriamente para uma posição que a faça terminar o turno mais proxima da sua fonte de medo."},
-	{"Atordoado": "* Está incapacitada, só pode falar hesitantemente. \n * Falha automaticamente em tetes de Força ou Destreza. \n * Ataque contra a criatura possuem vantagem."},
-	{"Cego": "* Falha automaticamente em testes de visão. \n * Ataque contra a criatura sofrem vantagem. \n	* Ataque da criatura sofrem desvantagem."},
-	{"Derrubado": "* A única opção de movimento é rastejar. \n * Ataques da criatura sofrem desvantagem. \n	* Ataques contra a criatura possuem vantagem se estiver a 1,5 metras. \n * Qualquer outra forma de jogada sobre desvantagem."},
-	{"Enfeitiçado": "* Não pode atacar quem a encantou ou tê-lo como alvo de habilidade nocivas ou efeitos mágicos. \n * Quem encaltou possui vantagem em testes de atributos feitos para interagir socialmente com a criatura."},
-	{"Envenenado": "* Desvantagem em ataques e testes de atributos."},
-	{"Impedido": "* Deslocamento 0 e sem bônus de deslocamento. \n * Ataques da criatura sofrem desvantagem. \n	* Ataques contra a criatura possuem vantagem. \n * Desvantagem em testes de resistência de Destreza."},
-	{"Incapacitado": "* Não pode realizar ações e reações."},
-	{"Inconciente":"* Larga tudo que estiver segurando e fica derrubada. \n * Falha automaticamente em testes de Força e Destreza. \n	* Ataques contra a criatura possuem vantagem. \n * Qualquer ataque que atinja a criatura é considerado Sucesso Critico, se o atacante estiver a 1,5 metros."},
-	{"Invisivel": "* Só pode ser visto por magia ou sentidos especiais. \n * Esconder é considerada em escuridão pesada. \n * Ataques da criatura sofrem vantagem. \n	* Ataques contra a criatura sofrem desvantagem."},
-	{"Paralisado": "* Está incapacitado. Ela não pode se mover ou falar. \n * Falha automaticamente em testes de Força e Destreza. \n	* Ataques contra a criatura sofrem vantagem. \n	* Qualquer ataque que atinja a criatura é considerado Sucesso Critico, se o atacante estiver a 1,5 metros."},
-	{"Petrificado": "* Trasnformada junto com todos os objetos não mágicos que estiver carregando. \n	* Peso é multiplicado por 10 e não envelhece. \n * A criatura está incapacitada, não pode falar, se mover, e não tem ciência de seus arredores. \n * Ataques contra a criatura sofrem vantagem. "+
-    "\n * Falha automaticamente em testes de Força e Destreza. \n * Resistência a qualquer tipo de dano. \n	* A criatura é imune a veneno  doenças, veneno ou doenças previamente presentes em seus sistema fica suspensas, não neutralizadas."},
-	{"Surdo": "Falha automaticamente em testes de audição."}
+	{"nome": "Agarrado", "efeito": "* O deslocamento da criatura se torna 0, e ela não se benifica de qualquer bônus em seu deslocamento. \n* Se encerra se um efeito, como causado pela magia onda trovejante, remover a criatura do calcance da criatura que o agarrou ou do efeito que causa a condição."},
+	{"nome": "Amendrontado", "efeito": "* Sofre desvantagem em testes de atributo e jogadas de ataque enquanto a fonte do seu medo estiver na sua linha de visão. \n* A criatura não pode se mover voluntáriamente para uma posição que a faça terminar o turno mais proxima da sua fonte de medo."},
+	{"nome": "Atordoado", "efeito": "* Está incapacitada, só pode falar hesitantemente. \n* Falha automaticamente em tetes de Força ou Destreza. \n* Ataque contra a criatura possuem vantagem."},
+	{"nome": "Cego", "efeito": "* Falha automaticamente em testes de visão. \n* Ataque contra a criatura sofrem vantagem. \n* Ataque da criatura sofrem desvantagem."},
+	{"nome": "Derrubado", "efeito": "* A única opção de movimento é rastejar. \n* Ataques da criatura sofrem desvantagem. \n* Ataques contra a criatura possuem vantagem se estiver a 1,5 metras. \n* Qualquer outra forma de jogada sobre desvantagem."},
+	{"nome": "Enfeitiçado", "efeito": "* Não pode atacar quem a encantou ou tê-lo como alvo de habilidade nocivas ou efeitos mágicos. \n* Quem encaltou possui vantagem em testes de atributos feitos para interagir socialmente com a criatura."},
+	{"nome": "Envenenado", "efeito": "* Desvantagem em ataques e testes de atributos."},
+	{"nome": "Impedido", "efeito": "* Deslocamento 0 e sem bônus de deslocamento. \n* Ataques da criatura sofrem desvantagem. \n* Ataques contra a criatura possuem vantagem. \n* Desvantagem em testes de resistência de Destreza."},
+	{"nome": "Incapacitado", "efeito": "* Não pode realizar ações e reações."},
+	{"nome": "Inconciente", "efeito": "* Larga tudo que estiver segurando e fica derrubada. \n* Falha automaticamente em testes de Força e Destreza. \n* Ataques contra a criatura possuem vantagem. \n* Qualquer ataque que atinja a criatura é considerado Sucesso Critico, se o atacante estiver a 1,5 metros."},
+	{"nome": "Invisivel", "efeito": "* Só pode ser visto por magia ou sentidos especiais. \n* Esconder é considerada em escuridão pesada. \n* Ataques da criatura sofrem vantagem. \n* Ataques contra a criatura sofrem desvantagem."},
+	{"nome": "Paralisado", "efeito": "* Está incapacitado. Ela não pode se mover ou falar. \n* Falha automaticamente em testes de Força e Destreza. \n* Ataques contra a criatura sofrem vantagem. \n* Qualquer ataque que atinja a criatura é considerado Sucesso Critico, se o atacante estiver a 1,5 metros."},
+	{"nome": "Petrificado", "efeito": "* Trasnformada junto com todos os objetos não mágicos que estiver carregando. \n	* Peso é multiplicado por 10 e não envelhece. \n * A criatura está incapacitada, não pode falar, se mover, e não tem ciência de seus arredores. \n * Ataques contra a criatura sofrem vantagem. "+
+    "\n* Falha automaticamente em testes de Força e Destreza. \n* Resistência a qualquer tipo de dano. \n* A criatura é imune a veneno  doenças, veneno ou doenças previamente presentes em seus sistema fica suspensas, não neutralizadas."},
+	{"nome": "Surdo", "efeito": "Falha automaticamente em testes de audição."}
 ]
