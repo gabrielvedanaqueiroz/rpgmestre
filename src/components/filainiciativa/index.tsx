@@ -19,6 +19,8 @@ import { GiAchillesHeel, GiArmSling, GiBackPain, GiBandaged, GiBoneGnawer, GiCem
 import { FaMinus, FaPersonFalling, FaPlus } from 'react-icons/fa6';
 import { MdDeleteOutline, MdPersonPin } from 'react-icons/md';
 import ModalCondicao from '../modalcondicao';
+import { CiMenuKebab } from 'react-icons/ci';
+import { BiDotsVerticalRounded } from 'react-icons/bi';
 
 
 interface FilaProps{
@@ -42,6 +44,9 @@ function FilaIniciativa(){
 
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showModalCondicao, setShowModalCondicao] = useState<boolean>(false);
+
+  const [showMenu, setShowMenu] = useState<boolean>(false);  
+  const [itemCondicao, setItemCondicao] = useState({});
 
   const [idFila, setIdFila] = useState<string>('');
 
@@ -191,6 +196,9 @@ function FilaIniciativa(){
   }
 
   async function onRemover(aId:string){
+    
+    setShowMenu(false); 
+    
     const docRef = doc(db, "tb_fila", aId);
     await deleteDoc(docRef)
     .then(()=>{ })
@@ -198,6 +206,7 @@ function FilaIniciativa(){
       toast.error('Erro ao excluir');
       console.log('erro ao buscar '+error);
     });  
+
   }
 
   function onCondicao(aIndex: number){
@@ -265,8 +274,14 @@ function FilaIniciativa(){
   }
 
   function onModalCondicao(aId: string){
+    setShowMenu(false); 
     setIdFila(aId);
-    setShowModalCondicao(true); 
+    setShowModalCondicao(true);     
+  }
+
+  function onShowMenu(aId: string){
+    setIdFila(aId);
+    setShowMenu(true); 
   }
 
   return (
@@ -331,14 +346,16 @@ function FilaIniciativa(){
                   </div>            
 
                   <div className='fi-item-right'>
-
-                    <button className='fi-btn' onClick={()=>{onModalCondicao(item.fi_id)} }>
-                      <MdPersonPin size={20}/>
-                    </button>
-
-                    <button className='fi-btn' onClick={()=>{onRemover(item.fi_id)} }>
-                      <MdDeleteOutline size={20} />
-                    </button>
+                    <button className='fi-btn' 
+                      onClick={(e)=>{
+                        e.preventDefault();
+                        onShowMenu(item.fi_id);
+                        // const [position, setPosition] = useState({ x: 0, y: 0 });
+                        // style={{ top: position.y, left: position.x }}
+                        // setPosition({ x: e.clientX, y: e.clientY });
+                      }}>
+                      <BiDotsVerticalRounded size={20} />
+                    </button>                 
                     
                   </div>            
                 </li>
@@ -346,8 +363,29 @@ function FilaIniciativa(){
             })}   
 
           </ul>
+
+          {showMenu && (
+            <ul className="fi-menu" >
+              <li key='fi-menu-contexto1' className="fi-menu-item">
+                <button className='fi-btn' onClick={()=>{onModalCondicao(idFila)} }>
+                  <MdPersonPin size={20}/>
+                  <label>Trocar Condição</label>
+                </button>                         
+              </li>
+              <li key='fi-menu-contexto2'><hr/></li>
+              <li key='fi-menu-contexto3' className="fi-menu-item">
+                <button className='fi-btn' onClick={()=>{onRemover(idFila)} }>
+                  <MdDeleteOutline size={20} />
+                  <label>Excluir</label>
+                </button> 
+              </li>              
+            </ul>
+          )}
+
         </div>
-      </div>
+
+      </div>      
+
       {showModal && (
         <ModalFila onOcultar={()=>{
           buscar();
@@ -361,6 +399,7 @@ function FilaIniciativa(){
           setShowModalCondicao(false);
         }}/>
       )} 
+      
     </div>
    
   )

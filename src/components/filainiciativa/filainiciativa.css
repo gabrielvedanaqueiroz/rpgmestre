@@ -44,8 +44,9 @@
 .fi-div-fila{
   height: auto;
   display: flex;
-  overflow: hidden;
-  flex-wrap: wrap;
+  position: relative;
+  /* overflow: hidden; */
+  /* flex-wrap: wrap; */
 }
 
 .fi-div-tipo{
@@ -129,6 +130,7 @@ img{
   justify-content: var(--fi-justify-content);
   justify-items: var(--fi-justify-items);
   height: 65px;
+  position: relative;
 }
 
 .fi-item img{
@@ -149,6 +151,7 @@ img{
   position: relative;    
   background-color: var(--cor-selecionada);  
   height: 65px;
+  position: relative
 }
 
 .fi-item-selecionado img{
@@ -185,6 +188,7 @@ img{
   width: 15%;
   height: 100%;
   align-items: center;
+  position: relative;
 }
 
 .fi-item-right img:active {
@@ -198,7 +202,6 @@ img{
   align-items: center;
   height: 20px;
   padding: 4px;
-  /* border: 1px solid black; */
   border: 1px solid white;
   border-radius: 8px;
   position: absolute;
@@ -232,6 +235,26 @@ img{
   justify-content: center;
   justify-items: center;
   display: flex;
+}
+
+.fi-menu{
+  position: absolute;
+  border-radius: 8px;
+  top: 0%;
+  left: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 10px;
+  min-width: 150px;
+  background-color: black;
+}
+
+.fi-menu-item{
+  display: flex;
+  gap: 4px;
+  min-width: 150px;
+  min-height: fit-content;
+  padding: 6px;
 }
 
 @media screen and (max-width: 600px)  {
