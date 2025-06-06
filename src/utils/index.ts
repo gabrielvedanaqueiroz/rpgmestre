@@ -169,7 +169,7 @@ export function onModificador(aValor: number|undefined){
 }
 
 export const jCondicao = [
-
+  {"nome": "Sem condição", "efeito": ""},
 	{"nome": "Agarrado", "efeito": "* O deslocamento da criatura se torna 0, e ela não se benifica de qualquer bônus em seu deslocamento. \n* Se encerra se um efeito, como causado pela magia onda trovejante, remover a criatura do calcance da criatura que o agarrou ou do efeito que causa a condição."},
 	{"nome": "Amendrontado", "efeito": "* Sofre desvantagem em testes de atributo e jogadas de ataque enquanto a fonte do seu medo estiver na sua linha de visão. \n* A criatura não pode se mover voluntáriamente para uma posição que a faça terminar o turno mais proxima da sua fonte de medo."},
 	{"nome": "Atordoado", "efeito": "* Está incapacitada, só pode falar hesitantemente. \n* Falha automaticamente em tetes de Força ou Destreza. \n* Ataque contra a criatura possuem vantagem."},

@@ -225,9 +225,13 @@ img{
   display: block;
 }
 
-.fi-ir-condicaobtn{
+.fi-btn{
   all: unset;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  display: flex;
 }
 
 @media screen and (max-width: 600px)  {

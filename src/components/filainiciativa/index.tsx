@@ -6,12 +6,9 @@ import finalizar from '@/res/parar.svg'
 import adicionar from '@/res/adicionar.svg'
 import anterior from '@/res/anterior.svg'
 import proximo from '@/res/proximo.svg'
-import remover from '@/res/delete.svg'
 import ca from '@/res/ca.svg'
 import vida from '@/res/vida.svg'
 import iniciativa from '@/res/iniciativa.svg'
-import mais from '@/res/expandir_mais.svg'
-import menos from '@/res/expandir_menos.svg'
 import {db} from '@/services/firebaseConnection';
 import {collection, query, where, getDocs, doc, deleteDoc, updateDoc, orderBy } from 'firebase/firestore';
 import { getImagem, jCondicao } from '@/utils';
@@ -19,8 +16,9 @@ import Image from 'next/image';
 import ModalFila from '../modalfila';
 import { toast } from 'react-toastify';
 import { GiAchillesHeel, GiArmSling, GiBackPain, GiBandaged, GiBoneGnawer, GiCementShoes, GiComa, GiDeadHead, GiEgyptianWalk, GiEskimo, GiInvisible, GiPsychicWaves, GiWorriedEyes } from 'react-icons/gi';
-import { FaPersonFalling } from 'react-icons/fa6';
-import { MdPersonPin } from 'react-icons/md';
+import { FaMinus, FaPersonFalling, FaPlus } from 'react-icons/fa6';
+import { MdDeleteOutline, MdPersonPin } from 'react-icons/md';
+import ModalCondicao from '../modalcondicao';
 
 
 interface FilaProps{
@@ -45,7 +43,7 @@ function FilaIniciativa(){
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showModalCondicao, setShowModalCondicao] = useState<boolean>(false);
 
-  const [idPersonCondicao, setIdPersonCondicao] = useState<string>('');
+  const [idFila, setIdFila] = useState<string>('');
 
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
@@ -206,49 +204,48 @@ function FilaIniciativa(){
 
     if((aIndex > 0) && (aIndex < 15)){
 
-      aIndex = aIndex -1;
       let item = jCondicao[aIndex];
       let icon;
 
       switch (aIndex) {
     
-        case 1:
+        case 2:
           icon = <GiBackPain size={20}/>   
           break;
-        case 2:
+        case 3:
           icon = <GiComa size={20}/>   
           break;
-        case 3:
+        case 4:
           icon = <GiWorriedEyes size={20}/>   
           break;
-        case 4:
+        case 5:
           icon = <FaPersonFalling size={20}/>   
           break;
-        case 5:
+        case 6:
           icon = <GiEskimo size={20}/>   
           break;
-        case 6:
+        case 7:
           icon = <GiBoneGnawer size={20}/>   
           break;
-        case 7:
+        case 8:
           icon = <GiAchillesHeel size={20}/>   
           break;
-        case 8:
+        case 9:
           icon = <GiArmSling size={20}/>   
           break;
-        case 9:
+        case 10:
           icon = <GiDeadHead size={20}/>   
           break;
-        case 10:
+        case 11:
           icon = <GiInvisible size={20}/>   
           break;
-        case 11:
+        case 12:
           icon = <GiEgyptianWalk size={20}/>   
           break;
-        case 12:
+        case 13:
           icon = <GiCementShoes size={20}/>   
           break;
-        case 13:
+        case 14:
           icon = <GiPsychicWaves size={20}/>   
           break;
         default:
@@ -264,31 +261,12 @@ function FilaIniciativa(){
       );
     }
     else
-    return;
-    
+    return;    
   }
 
   function onModalCondicao(aId: string){
-    //abrir showmodal pra escolher  
-    setIdPersonCondicao(aId);
-    alert('exibir showmodal pra trocar condicao');    
-  }
-
-  async function onCondicaoTrocar(aId: string, aCondicao: number) {
- 
-    const docRef = doc(db, "tb_fila", aId);
-      await updateDoc(docRef, {
-        fi_condicao: aCondicao,
-      }
-    )
-    .then(()=>{ 
-      setIdPersonCondicao('');
-    })
-    .catch((error)=>{
-      console.log('Erro ao trocar condicao: '+error);
-      toast.error('Erro ao trocar condicao');
-    });
-    
+    setIdFila(aId);
+    setShowModalCondicao(true); 
   }
 
   return (
@@ -336,9 +314,16 @@ function FilaIniciativa(){
                      
                       <div className='fi-div-vida'>
                         
-                        <Image src={mais} alt='aumentar vida' onClick={()=>{onVidaInc(item.fi_id, item.fi_vida)}}/>
+                        <button className='fi-btn' onClick={()=>{onVidaDec(item.fi_id, item.fi_vida)}}>
+                          <FaMinus size={14} aria-label='diminuir vida'/> 
+                        </button>
+  
                         <div className='fi-div-vida-div'/>
-                        <Image className='fi-div-vida-img' src={menos} alt='diminuir vida' onClick={()=>{onVidaDec(item.fi_id, item.fi_vida)}}/>
+
+                        <button className='fi-btn' onClick={()=>{onVidaInc(item.fi_id, item.fi_vida)}}>
+                          <FaPlus size={14} aria-label='aumentar vida'/> 
+                        </button>
+
                       </div>
                      
                     </div>
@@ -346,8 +331,15 @@ function FilaIniciativa(){
                   </div>            
 
                   <div className='fi-item-right'>
-                    <Image src={remover} alt='apagar' onClick={()=>{onRemover(item.fi_id)} }/>  
-                    <button className='fi-ir-condicaobtn' onClick={()=>{onModalCondicao(item.fi_id)} }><MdPersonPin size={20}/></button>
+
+                    <button className='fi-btn' onClick={()=>{onModalCondicao(item.fi_id)} }>
+                      <MdPersonPin size={20}/>
+                    </button>
+
+                    <button className='fi-btn' onClick={()=>{onRemover(item.fi_id)} }>
+                      <MdDeleteOutline size={20} />
+                    </button>
+                    
                   </div>            
                 </li>
               ) 
@@ -360,6 +352,13 @@ function FilaIniciativa(){
         <ModalFila onOcultar={()=>{
           buscar();
           setShowModal(false);
+        }}/>
+      )} 
+
+      {showModalCondicao && (
+        <ModalCondicao idFila={idFila} onOcultar={()=>{
+          buscar();
+          setShowModalCondicao(false);
         }}/>
       )} 
     </div>
