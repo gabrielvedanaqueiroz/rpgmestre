@@ -202,7 +202,7 @@ function FilaIniciativa(){
 
   function onCondicao(aIndex: number){
 
-    if((aIndex > 0) && (aIndex < 15)){
+    if((aIndex > 0) && (aIndex < jCondicao.length)){
 
       let item = jCondicao[aIndex];
       let icon;
