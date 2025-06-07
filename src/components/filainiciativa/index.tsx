@@ -19,7 +19,6 @@ import { GiAchillesHeel, GiArmSling, GiBackPain, GiBandaged, GiBoneGnawer, GiCem
 import { FaMinus, FaPersonFalling, FaPlus } from 'react-icons/fa6';
 import { MdDeleteOutline, MdPersonPin } from 'react-icons/md';
 import ModalCondicao from '../modalcondicao';
-import { CiMenuKebab } from 'react-icons/ci';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 
 
@@ -42,13 +41,13 @@ function FilaIniciativa(){
   const [turno, setTurno] = useState<number>(1);
   const [lista, setLista] = useState<FilaProps[]>([]);
 
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [showModalCondicao, setShowModalCondicao] = useState<boolean>(false);
-
-  const [showMenu, setShowMenu] = useState<boolean>(false);  
-  const [itemCondicao, setItemCondicao] = useState({});
+  const [showModalAddFila, setShowModalAddFila] = useState<boolean>(false);
+  const [showModalAddCondicao, setShowModalAddCondicao] = useState<boolean>(false);
+  const [showMenuPopup, setShowMenuPopup] = useState<boolean>(false);  
+  const [showCondicaoDetalhe, setShowCondicaoDetalhe] = useState<boolean>(false);
 
   const [idFila, setIdFila] = useState<string>('');
+  const [condicaoItem, setCondicaoItem] = useState({nome:'', efeito:''});
 
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
@@ -94,6 +93,25 @@ function FilaIniciativa(){
 
   useEffect(()=>{
     buscar();
+
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        console.log('Tecla ESC pressionada!');
+        setShowMenuPopup(false);
+        setShowModalAddCondicao(false);
+        setShowModalAddFila(false);
+        setShowCondicaoDetalhe(false);
+      }
+    };
+
+    if (typeof window !== 'undefined') 
+      window.addEventListener('keydown', handleEsc);
+
+    // Limpeza do listener ao desmontar o componente
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+
   },[lista]);
 
   function onProximo(){
@@ -156,7 +174,7 @@ function FilaIniciativa(){
   }
 
   function onAdicionar(){
-    setShowModal(true);
+    setShowModalAddFila(true);
   }
 
   async function onVidaInc(aId:string, aVida:number){
@@ -197,7 +215,7 @@ function FilaIniciativa(){
 
   async function onRemover(aId:string){
     
-    setShowMenu(false); 
+    setShowMenuPopup(false); 
     
     const docRef = doc(db, "tb_fila", aId);
     await deleteDoc(docRef)
@@ -263,9 +281,12 @@ function FilaIniciativa(){
         }
       
       return(
-        <div className='fi-div-condicao'>
-          {icon}
-          <label className='fi-co-descricao'>{item.nome}</label>
+        <div > {/*className='fi-div-condicao'*/}
+          <button className='fi-btn' onClick={()=>{onCondicaoDetalhe(aIndex)}}>
+            {icon}
+            <label className='fi-co-descricao'>{item.nome}</label>
+          </button>
+          
         </div>
       );
     }
@@ -274,20 +295,33 @@ function FilaIniciativa(){
   }
 
   function onModalCondicao(aId: string){
-    setShowMenu(false); 
+    setShowMenuPopup(false); 
     setIdFila(aId);
-    setShowModalCondicao(true);     
+    setShowModalAddCondicao(true);     
   }
 
   function onShowMenu(aId: string){
     setIdFila(aId);
-    setShowMenu(true); 
+    setShowMenuPopup(true); 
+    setShowCondicaoDetalhe(false); 
+  }
+
+  function onCondicaoDetalhe(aIndex: number){
+
+    if(!showCondicaoDetalhe){
+      let item = jCondicao[aIndex];
+      setCondicaoItem(item);
+    }
+    
+    setShowCondicaoDetalhe(!showCondicaoDetalhe);  
   }
 
   return (
 
-    <div>
+    <section className='fi-container'>
+      
       <div className='fi-div-iniciativa'>
+        
         <strong className='fi-div-iniciativa-titulo'>Fila de Iniciativa</strong>
 
         <div className='fi-div-fila'>
@@ -364,7 +398,7 @@ function FilaIniciativa(){
 
           </ul>
 
-          {showMenu && (
+          {showMenuPopup && (
             <ul className="fi-menu" >
               <li key='fi-menu-contexto1' className="fi-menu-item">
                 <button className='fi-btn' onClick={()=>{onModalCondicao(idFila)} }>
@@ -374,7 +408,7 @@ function FilaIniciativa(){
               </li>
               <li key='fi-menu-contexto2'><hr/></li>
               <li key='fi-menu-contexto3' className="fi-menu-item">
-                <button className='fi-btn' onClick={()=>{onRemover(idFila)} }>
+                <button className='fi-btn' onClick={()=>{onRemover(idFila)}}>
                   <MdDeleteOutline size={20} />
                   <label>Excluir</label>
                 </button> 
@@ -386,21 +420,34 @@ function FilaIniciativa(){
 
       </div>      
 
-      {showModal && (
-        <ModalFila onOcultar={()=>{
-          buscar();
-          setShowModal(false);
-        }}/>
+      {showModalAddFila && (
+        <ModalFila 
+          onOcultar={()=>{
+            buscar();
+            setShowModalAddFila(false);
+          }}
+        />
       )} 
 
-      {showModalCondicao && (
-        <ModalCondicao idFila={idFila} onOcultar={()=>{
-          buscar();
-          setShowModalCondicao(false);
-        }}/>
+      {showModalAddCondicao && (
+        <ModalCondicao idFila={idFila} 
+          onOcultar={()=>{
+            buscar();
+            setShowModalAddCondicao(false);
+          }}
+        />
       )} 
+
+      {showCondicaoDetalhe &&( 
+        <div className='fi-co-detalhe'>
+          <strong>{condicaoItem.nome}</strong><br/>
+          <article className='fi-coa-detalhe'>
+            {condicaoItem.efeito}
+          </article>
+        </div> 
+      )}
       
-    </div>
+    </section>
    
   )
 }

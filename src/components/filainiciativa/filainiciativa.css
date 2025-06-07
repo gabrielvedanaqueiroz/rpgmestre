@@ -257,7 +257,32 @@ img{
   padding: 6px;
 }
 
+.fi-co-detalhe{
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 8px;
+  background-color: var(--cor-selecionada);
+  /* height: fit-content; */
+}
+.fi-coa-detalhe{
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.fi-container{
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+}
+
 @media screen and (max-width: 600px)  {
+
+  .fi-container{
+    flex-direction: column;
+    display: flex;
+    gap: 8px;
+  }
+
   .fi-div-iniciativa{
     width: 340px;
   }
