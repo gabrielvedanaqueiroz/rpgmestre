@@ -262,7 +262,7 @@ img{
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 8px;
   background-color: var(--cor-selecionada);
-  /* height: fit-content; */
+  width: 450px;
 }
 .fi-coa-detalhe{
   text-align: justify;
@@ -283,6 +283,10 @@ img{
     gap: 8px;
   }
 
+  .fi-co-detalhe{
+    width: 100%;
+  }
+  
   .fi-div-iniciativa{
     width: 340px;
   }
