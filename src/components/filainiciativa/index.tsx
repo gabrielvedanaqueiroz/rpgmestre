@@ -49,6 +49,8 @@ function FilaIniciativa(){
   const [idFila, setIdFila] = useState<string>('');
   const [condicaoItem, setCondicaoItem] = useState({nome:'', efeito:''});
 
+  // const [positionMouse, setPosition] = useState({x:220, y:80});
+
   async function buscar() {
     let pos = Number(localStorage.getItem('rm@filainiposicao'));
     setPosicao(pos);
@@ -175,6 +177,9 @@ function FilaIniciativa(){
 
   function onAdicionar(){
     setShowModalAddFila(true);
+    setShowMenuPopup(false);
+    setShowCondicaoDetalhe(false);
+    setShowModalAddCondicao(false);
   }
 
   async function onVidaInc(aId:string, aVida:number){
@@ -295,9 +300,9 @@ function FilaIniciativa(){
   }
 
   function onModalCondicao(aId: string){
-    setShowMenuPopup(false); 
     setIdFila(aId);
-    setShowModalAddCondicao(true);     
+    setShowModalAddCondicao(true);  
+    setShowMenuPopup(false);    
   }
 
   function onShowMenu(aId: string){
@@ -314,6 +319,7 @@ function FilaIniciativa(){
     }
     
     setShowCondicaoDetalhe(!showCondicaoDetalhe);  
+    setShowMenuPopup(false);  
   }
 
   return (
@@ -383,10 +389,8 @@ function FilaIniciativa(){
                     <button className='fi-btn' 
                       onClick={(e)=>{
                         e.preventDefault();
-                        onShowMenu(item.fi_id);
-                        // const [position, setPosition] = useState({ x: 0, y: 0 });
-                        // style={{ top: position.y, left: position.x }}
                         // setPosition({ x: e.clientX, y: e.clientY });
+                        onShowMenu(item.fi_id);
                       }}>
                       <BiDotsVerticalRounded size={20} />
                     </button>                 
@@ -400,6 +404,7 @@ function FilaIniciativa(){
 
           {showMenuPopup && (
             <ul className="fi-menu" >
+              {/* style={{ top: positionMouse.y - 150, left: positionMouse.x - 250}}> */}
               <li key='fi-menu-contexto1' className="fi-menu-item">
                 <button className='fi-btn' onClick={()=>{onModalCondicao(idFila)} }>
                   <MdPersonPin size={20}/>
