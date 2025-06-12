@@ -1,0 +1,110 @@
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--cor-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mvd-container{
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  padding: 0;
+  width: 350px;
+  background-color: var(--cor-elementos);
+  border-radius: 4px;
+  margin-top: 45px;
+}
+
+.mvd-titulo{
+  background-color: #000;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 8px;
+  padding: 8px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height: 48px;
+  color: white;
+}
+
+.mvd-form{
+  margin: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.mvd-botoes{
+  display: flex;
+  justify-content: end;
+}
+
+.mvd-btn-cancelar{
+  text-decoration: none;
+  background:var(--cor-elementos);
+  border: 0px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+  font-size: 18px;
+  color: white;
+}
+
+.mvd-btn-cancelar:hover{
+  background-color: var(--cor-cinzacontorno);
+}
+
+.mvd-linha1{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  justify-content: end;
+}
+
+.mvd-linha1 label{
+  width: 100px;
+  text-align: end;
+}
+
+.mvd-linha2{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+  justify-content: end;
+}
+
+.mvd-linha2 div{
+  width: 100px;
+  align-items: center;
+  justify-content: end;
+}
+
+.mvd-linha3{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+  justify-content: end;
+  margin-bottom: 16px;
+}
+
+.mvd-linha3 label{
+  margin-top: 2px;
+  width: 100px;
+  text-align: end;
+  font-size: 1.5em;
+}

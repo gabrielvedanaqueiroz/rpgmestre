@@ -190,6 +190,7 @@ function ModalFila({ onOcultar }: ModalFilaProps){
             <div id='mfi-slide2' className="mfi-slide mfi-slide2">
 
               <div className='mfi-div-busca'>
+                
                 <div className='mfi-div-edit'>
                   <label>Nome</label>
                   <input className='mfi-edit' value={nome} onChange={(e)=>{

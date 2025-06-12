@@ -6,6 +6,7 @@ carta
 	  posso aumentar tamanho da fonte da descricao 
 	
 home:
+  Fazer diálogo pra editar vida no RPGmestre colocando numero diretamente
   criar camapanha
   calculadora batalha
   informacoes camapanha

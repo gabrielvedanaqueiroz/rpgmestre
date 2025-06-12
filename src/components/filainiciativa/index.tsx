@@ -6,9 +6,9 @@ import finalizar from '@/res/parar.svg'
 import adicionar from '@/res/adicionar.svg'
 import anterior from '@/res/anterior.svg'
 import proximo from '@/res/proximo.svg'
-import ca from '@/res/ca.svg'
-import vida from '@/res/vida.svg'
-import iniciativa from '@/res/iniciativa.svg'
+import imgCA from '@/res/ca.svg'
+import imgVida from '@/res/vida.svg'
+import imgIniciativa from '@/res/iniciativa.svg'
 import {db} from '@/services/firebaseConnection';
 import {collection, query, where, getDocs, doc, deleteDoc, updateDoc, orderBy } from 'firebase/firestore';
 import { getImagem, jCondicao } from '@/utils';
@@ -20,6 +20,7 @@ import { FaMinus, FaPersonFalling, FaPlus } from 'react-icons/fa6';
 import { MdDeleteOutline, MdPersonPin } from 'react-icons/md';
 import ModalCondicao from '../modalcondicao';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
+import ModalVida from '../modalvida';
 
 
 interface FilaProps{
@@ -45,8 +46,10 @@ function FilaIniciativa(){
   const [showModalAddCondicao, setShowModalAddCondicao] = useState<boolean>(false);
   const [showMenuPopup, setShowMenuPopup] = useState<boolean>(false);  
   const [showCondicaoDetalhe, setShowCondicaoDetalhe] = useState<boolean>(false);
+  const [showModalVida, setShowModalVida] = useState<boolean>(false);
 
   const [idFila, setIdFila] = useState<string>('');
+  const [vida, setVida] = useState<number>(0);
   const [condicaoItem, setCondicaoItem] = useState({nome:'', efeito:''});
 
   // const [positionMouse, setPosition] = useState({x:220, y:80});
@@ -361,9 +364,13 @@ function FilaIniciativa(){
                   <div className='fi-item-center'>
                     <strong>{item.fi_nome} </strong> 
                     <div className='fi-item-sublinha'>
-                      <div className='fi-div-sublinha'> <Image src={vida} alt='vida'/> {item.fi_vida} </div>
-                      <div className='fi-div-sublinha'> <Image src={ca} alt='classe de armadura'/> {item.fi_ca} </div>
-                      <div className='fi-div-sublinha'> <Image src={iniciativa} alt='iniciaiva'/> {item.fi_iniciativa} </div>
+                      <div className='fi-div-sublinha' onClick={()=>{
+                        setIdFila(item.fi_id);
+                        setShowModalVida(true);
+                        setVida(item.fi_vida);
+                      }}> <Image src={imgVida} alt='vida'/> {item.fi_vida} </div>
+                      <div className='fi-div-sublinha'> <Image src={imgCA} alt='classe de armadura'/> {item.fi_ca} </div>
+                      <div className='fi-div-sublinha'> <Image src={imgIniciativa} alt='iniciaiva'/> {item.fi_iniciativa} </div>
                       
                       {onCondicao(item.fi_condicao)}
                      
@@ -450,6 +457,10 @@ function FilaIniciativa(){
             {condicaoItem.efeito}
           </article>
         </div> 
+      )}
+
+      {showModalVida &&(
+        <ModalVida idFila={idFila} vida={vida} onOcultar={ ()=>{setShowModalVida(false)}} /> 
       )}
       
     </section>
