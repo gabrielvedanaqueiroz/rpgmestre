@@ -54,11 +54,11 @@ hr{
 .cc-div-imagem{
   position: relative;
   height: 136px;
-  width: 136px;
+  width: 100%;
 }
 
 .cc-imagem{
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 4px;
 }
 

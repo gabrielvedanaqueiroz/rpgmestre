@@ -80,6 +80,34 @@ export default function CartaCriatura(){
     link.click();
   }
 
+  function onClickLimpar(){
+    setImagePreview(null);
+    setTitulo('Título');
+    setVida(10);
+    setVidaDados('');
+    setClasseArm(10);
+    setDeslocamento(6);
+  
+    setLstAtaque([]);
+    setAtTitulo('');
+    setAtDescricao('');
+  
+    setForca(0);
+    setDestreza(0);
+    setConstituicao(0);
+    setInteligencia(0);
+    setSabedoria(0);
+    setCarisma(0);
+    setMdForca(0);
+    setMdDestreza(0);
+    setMdConstituicao(0);
+    setMdInteligencia(0);
+    setMdSabedoria(0);
+    setMdCarisma(0);
+
+    setPericias('');
+  }
+
   function onEditarForca(aValor: number){
     onEditarValor(aValor, 1);
   }
@@ -308,6 +336,10 @@ export default function CartaCriatura(){
             </button>
             
             <input className='cc-edit-oculto' ref={fileInputRef} type="file" accept="image/*" onChange={onImageChange}/>
+
+            <button type="button" onClick={onClickLimpar} className="cc-botao" >
+              Limpar Carta
+            </button>
 
             <button type="button" onClick={onClickGerarImagem} className="cc-botao" >
               Gerar Carta
