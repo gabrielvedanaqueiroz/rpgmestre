@@ -16,11 +16,12 @@ import Image from 'next/image';
 import ModalFila from '../modalfila';
 import { toast } from 'react-toastify';
 import { GiAchillesHeel, GiArmSling, GiBackPain, GiBandaged, GiBoneGnawer, GiCementShoes, GiComa, GiDeadHead, GiEgyptianWalk, GiEskimo, GiInvisible, GiPsychicWaves, GiWorriedEyes } from 'react-icons/gi';
-import { FaMinus, FaPersonFalling, FaPlus } from 'react-icons/fa6';
+import { FaDice, FaMinus, FaPersonFalling, FaPlus } from 'react-icons/fa6';
 import { MdDeleteOutline, MdPersonPin } from 'react-icons/md';
 import ModalCondicao from '../modalcondicao';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 import ModalVida from '../modalvida';
+import { LuDices } from 'react-icons/lu';
 
 
 interface FilaProps{
@@ -243,7 +244,10 @@ function FilaIniciativa(){
       let icon;
 
       switch (aIndex) {
-    
+        
+        case 1:
+          icon = <GiBandaged size={20}/>   
+          break;    
         case 2:
           icon = <GiBackPain size={20}/>   
           break;
@@ -283,8 +287,11 @@ function FilaIniciativa(){
         case 14:
           icon = <GiPsychicWaves size={20}/>   
           break;
-        default:
-          icon = <GiBandaged size={20}/>   
+        case 15:
+          icon = <FaDice size={20}/>   
+          break;    
+        case 16:
+          icon = <LuDices size={20}/>   
           break;    
         }
       

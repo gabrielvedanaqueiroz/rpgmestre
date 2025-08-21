@@ -184,5 +184,7 @@ export const jCondicao = [
 	{"nome": "Paralisado", "efeito": "* Está incapacitado. Ela não pode se mover ou falar. \n* Falha automaticamente em testes de Força e Destreza. \n* Ataques contra a criatura sofrem vantagem. \n* Qualquer ataque que atinja a criatura é considerado Sucesso Critico, se o atacante estiver a 1,5 metros."},
 	{"nome": "Petrificado", "efeito": "* Transformado junto com todos os objetos não mágicos que estiver carregando. \n	* Peso é multiplicado por 10 e não envelhece. \n * A criatura está incapacitada, não pode falar, se mover, e não tem ciência de seus arredores. \n * Ataques contra a criatura sofrem vantagem. "+
     "\n* Falha automaticamente em testes de Força e Destreza. \n* Resistência a qualquer tipo de dano. \n* A criatura é imune a veneno  doenças, veneno ou doenças previamente presentes em seus sistema fica suspensas, não neutralizadas."},
-	{"nome": "Surdo", "efeito": "Falha automaticamente em testes de audição."}
+	{"nome": "Surdo", "efeito": "Falha automaticamente em testes de audição."},
+  {"nome":"Vantagem", "efeito":"Vantagem nos dados, escolha o maior número"},
+  {"nome":"Desvantagem", "efeito":"Desvantagem nos dados, escolha o menor número"},
 ]
