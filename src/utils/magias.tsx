@@ -1,3 +1,18 @@
+export type MagiasProps = {
+  name: string;
+  level: number;
+  display_name: string;
+  school: string;
+  cast_time: string;
+  range: string;
+  components: string;
+  duration: string;
+  description: string;
+  material?: string | null;
+  requires_concentration?: boolean| false;
+  is_ritual?: boolean;
+};
+
 export const jMagias = [
   {
       "name": "amizade",

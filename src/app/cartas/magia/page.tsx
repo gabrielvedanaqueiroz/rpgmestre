@@ -9,6 +9,8 @@ import Input from '@/components/input';
 import TextArea from '@/components/textearea';
 import { GiMagicSwirl } from 'react-icons/gi';
 import { LiaBrainSolid } from 'react-icons/lia';
+import { jMagias, MagiasProps } from '@/utils/magias';
+import { namedQuery } from 'firebase/firestore';
 
 export default function CartaMagia(){
 
@@ -25,6 +27,35 @@ export default function CartaMagia(){
   const [compSomatico, setCompSomatico]   = useState<boolean>(false);
   const [compMaterial, setCompMaterial]   = useState<boolean>(false);
   const [concentracao, setConcentracao]   = useState<boolean>(false);
+
+  const [listaMagiaFiltrado, setListaMagiaFiltrado] = useState<MagiasProps[]>([]);
+
+  function onBuscarMagia(aValue: string){
+    const value = aValue;
+      if (value.trim() === "") {
+        setListaMagiaFiltrado([]);
+      } 
+      else {
+        setListaMagiaFiltrado(
+          jMagias.filter((item) =>
+            item.display_name.toLowerCase().includes(value.toLowerCase())
+          )
+        );
+      }  
+  }
+
+  function onExtrairMaterial(aComponente:string) {
+
+    setCompMaterial(false);
+    setCompSomatico(false);
+    setCompVocal(false);
+
+    if(aComponente){
+      setCompMaterial(aComponente.includes('M'));
+      setCompSomatico(aComponente.includes('S'));
+      setCompVocal(aComponente.includes('V'));
+    }
+  }
   
   async function onClickGerarImagem(){
     const div = document.getElementById('cartas');
@@ -62,21 +93,21 @@ export default function CartaMagia(){
       <div className='cm-container'>
 
         <div className='cm-div-carta' id='cartas'>
-            <section className="cm-carta cm-cor">
-              <div className='cm-frente'>
+          <section className="cm-carta cm-cor">
+            <div className='cm-frente'>
 
-                <section className='cm-topo'>
+              <section className='cm-topo'>
                   <GiMagicSwirl size={35} />
                   <label className='texto-script'>{titulo}</label>
-                </section>
+              </section>
 
-                <section className='cm-meio'>
+              <section className='cm-meio'>
                   <article className='cmm-descricao texto-script'>
                     {descricao}
                   </article>
-                </section>
+              </section>
 
-                <section className='cm-rodape'>
+              <section className='cm-rodape'>
 
                   <div className='cmr-interno texto-script'>
                     <div className='cmr-item'>
@@ -112,23 +143,61 @@ export default function CartaMagia(){
                     )}                    
                     
                   </div>
-                </section>
+              </section>
 
-              </div>
-            </section>
+            </div>
+          </section>
 
-            <section className="cm-carta cm-cor-verso">
-              <div className='cm-verso'>
-                <article className='cm-ve-article'>
-                  {texto}
-                </article>
-              </div>
+          <section className="cm-carta cm-cor-verso">
+            <div className='cm-verso'>
+              <article className='cm-ve-article'>
+                {texto}
+              </article>
+            </div>
             </section>
         </div>
 
-        <div className='cm-div-edicao'>
 
-          <Input titulo='Título' value={titulo} onChange={setTitulo} placeholder='Título'/>            
+        <div className='cm-div-edicao'>
+        
+          <div className='mfi-div-busca'>
+                        
+            <div className='mfi-div-edit'>
+              <label>Título</label>
+              <input className='mfi-edit' value={titulo} placeholder='Título' 
+              onChange={(e)=>{
+                setTitulo(e.target.value);
+                onBuscarMagia(e.target.value);
+              }} 
+              />
+            </div>
+            {listaMagiaFiltrado.length > 0 && (
+              <ul className="mfi-lista-busca">
+                {listaMagiaFiltrado.map((item) => (
+              
+                <li className='mfi-lista-busca-item'
+                  key={item.name}
+                  onClick={() => {
+                  setTitulo(item.display_name);
+                  setDescricao(item.description);
+                  setTexto(item.description);
+                  setNivel(item.level);
+                  setTempo(item.cast_time);
+                  setAlcance(item.range);
+                  setDuracao(item.duration);
+                  setConcentracao(item?.requires_concentration as boolean);
+                  onExtrairMaterial(item.components);
+                  setListaMagiaFiltrado([]);
+                  }}
+                >
+                  <h4> {item.display_name}, nível: {item.level} </h4>
+                  {item.description.substring(0, 120)} <hr/>
+                </li>
+                ))}
+              </ul>
+              )}
+        </div>
+          
 
           <TextArea titulo='Descrição' value={descricao} onChange={setDescricao}/>
           

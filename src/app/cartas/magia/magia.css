@@ -186,6 +186,59 @@
   gap: 10px;
 }
 
+/* ---------------- */
+
+.cme-div-busca{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.cme-div-edit{
+  width: 100%;
+  height: 55px;
+  margin-bottom: 10px;
+}
+
+.cme-edit{
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Contorno suave */
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 10px 15px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: all 0.3s ease-in-out; /* Suaviza transições */
+  width: 100%;
+  margin-top: 2px;
+  font-size: 16px;  
+  background-color: var(--cor-backgroud);
+  color: white;
+}
+
+.cme-edit:focus {
+  border-color:  var(--cor-primaria); /* Cor do contorno ao focar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
+}
+
+.mfi-lista-busca{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--cor-backgroud);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 9000;
+  padding: 4px;
+  color: white;
+}
+/* ---------------------- */
+
 @media screen and (max-width: 600px)  {
   .cm-div-carta{
     flex-direction: column;

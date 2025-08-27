@@ -1,12 +1,8 @@
 carta
-  -magia:
-    titulo diminuir width (centralizada no div)
-    orintacao do texto começar na esquerda
   -item:      
 	  posso aumentar tamanho da fonte da descricao 
 	
 home:
-  Fazer diálogo pra editar vida no RPGmestre colocando numero diretamente
   criar camapanha
   calculadora batalha
   informacoes camapanha
