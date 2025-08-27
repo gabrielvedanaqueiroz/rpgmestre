@@ -68,6 +68,8 @@
 }
 
 .cmm-descricao{
+  height: 82%;
+  width: 100%;
   color: white;
   text-align: justify;
   font-size: 12px;
@@ -75,6 +77,18 @@
   overflow: hidden;
   text-overflow: none;
   padding: var(--carta-padding);
+}
+
+.cmm-material{
+  height: 18%;
+  color: white;
+  text-align: justify;
+  font-size: 12px;
+  white-space: pre-wrap;  
+  overflow: hidden;
+  text-overflow: none;
+  padding: var(--carta-padding);
+  /* background-color: #ccc; */
 }
 
 .cm-rodape{
@@ -87,9 +101,7 @@
 .cmr-interno{
   width: 100%;
   height: 100%;
-  padding: 4px;
-  /* background-color: var(--cor-fundo); */
-  
+  padding: 4px;  
   background-image: linear-gradient(to right, #0f361a, #3a5e44);
   grid-template-columns: 1fr 1fr;
   border-bottom-left-radius: var(--carta-arrendamento);
@@ -105,25 +117,6 @@
   justify-items: center;
   font-size: 10px;
 }
-/* 
-.cmr-borda-esquerda{
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  bottom: -2px;
-  left: -2px;
-  z-index: 100;
-}
-
-.cmr-borda-direita{
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  bottom: -2px;
-  right: -2px;
-  z-index: 100;
-  transform: rotate(270deg); 
-} */
 
 .cmve-checkbox{
   display: flex;
@@ -186,8 +179,6 @@
   gap: 10px;
 }
 
-/* ---------------- */
-
 .cme-div-busca{
   position: relative;
   width: 100%;
@@ -222,7 +213,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de leve sombra */
 }
 
-.mfi-lista-busca{
+.cme-lista-busca{
   position: absolute;
   top: 100%;
   left: 0;
@@ -237,7 +228,6 @@
   padding: 4px;
   color: white;
 }
-/* ---------------------- */
 
 @media screen and (max-width: 600px)  {
   .cm-div-carta{

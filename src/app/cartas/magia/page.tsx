@@ -10,7 +10,6 @@ import TextArea from '@/components/textearea';
 import { GiMagicSwirl } from 'react-icons/gi';
 import { LiaBrainSolid } from 'react-icons/lia';
 import { jMagias, MagiasProps } from '@/utils/magias';
-import { namedQuery } from 'firebase/firestore';
 
 export default function CartaMagia(){
 
@@ -23,6 +22,7 @@ export default function CartaMagia(){
   const [alcance, setAlcance]          = useState<string>('10 metros');
   const [tempo, setTempo]              = useState<string>('1 ação Bônus');
   const [duracao, setDuracao]          = useState<string>('10 turnos');
+  const [material, setMaterial]        = useState<string>('');
   const [compVocal, setCompVocal]         = useState<boolean>(false);
   const [compSomatico, setCompSomatico]   = useState<boolean>(false);
   const [compMaterial, setCompMaterial]   = useState<boolean>(false);
@@ -44,7 +44,7 @@ export default function CartaMagia(){
       }  
   }
 
-  function onExtrairMaterial(aComponente:string) {
+  function onExtrairComponente(aComponente:string) {
 
     setCompMaterial(false);
     setCompSomatico(false);
@@ -102,9 +102,12 @@ export default function CartaMagia(){
               </section>
 
               <section className='cm-meio'>
-                  <article className='cmm-descricao texto-script'>
-                    {descricao}
-                  </article>
+                <article className='cmm-descricao texto-script'>
+                  {descricao}
+                </article>
+                {material && (
+                  <article className='cmm-material texto-script'>Material: {material}</article>
+                )}
               </section>
 
               <section className='cm-rodape'>
@@ -153,18 +156,20 @@ export default function CartaMagia(){
               <article className='cm-ve-article'>
                 {texto}
               </article>
+              {material && (
+                <article className='cm-ve-article'>Material: {material}</article>
+              )}
             </div>
             </section>
         </div>
 
-
         <div className='cm-div-edicao'>
         
-          <div className='mfi-div-busca'>
+          <div className='cme-div-busca'>
                         
-            <div className='mfi-div-edit'>
+            <div className='cme-div-edit'>
               <label>Título</label>
-              <input className='mfi-edit' value={titulo} placeholder='Título' 
+              <input className='cme-edit' value={titulo} placeholder='Título' 
               onChange={(e)=>{
                 setTitulo(e.target.value);
                 onBuscarMagia(e.target.value);
@@ -172,10 +177,10 @@ export default function CartaMagia(){
               />
             </div>
             {listaMagiaFiltrado.length > 0 && (
-              <ul className="mfi-lista-busca">
+              <ul className="cme-lista-busca">
                 {listaMagiaFiltrado.map((item) => (
               
-                <li className='mfi-lista-busca-item'
+                <li className='cme-lista-busca-item'
                   key={item.name}
                   onClick={() => {
                   setTitulo(item.display_name);
@@ -186,7 +191,8 @@ export default function CartaMagia(){
                   setAlcance(item.range);
                   setDuracao(item.duration);
                   setConcentracao(item?.requires_concentration as boolean);
-                  onExtrairMaterial(item.components);
+                  setMaterial(item?.material as string);
+                  onExtrairComponente(item.components);
                   setListaMagiaFiltrado([]);
                   }}
                 >
@@ -202,6 +208,8 @@ export default function CartaMagia(){
           <TextArea titulo='Descrição' value={descricao} onChange={setDescricao}/>
           
           <TextArea titulo='Texto' value={texto} onChange={setTexto}/>
+
+          <Input titulo='Material' value={material} onChange={setMaterial} placeholder='Material'/>       
 
           <div className='cme-linha'>
             <Input type='number' titulo='Nível' value={nivel} onChange={setNivel} placeholder='Nível'/>        
