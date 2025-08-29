@@ -124,7 +124,7 @@ export const jMagias: MagiasProps[] = [
     material: null,
     requires_concentration: false,
     is_ritual: false,
-    description: "Sussurrando para os espíritos da natureza, você cria um dos seguintes efeitos, dentro do alcance:"
+    description: "Sussurrando para os espíritos da natureza, você cria um dos seguintes efeitos, dentro do alcance: Você cria um efeito sensorial minúsculo e inofensivo que prevê como será o clima na sua localização pelas próximas 24 horas. O efeito deve se manifestar como um globo dourado para céu claro, uma nuvem para chuva, flocos de neve para nevasca e assim por diante. Esse efeito persiste por 1 rodada. Você faz uma flor florescer, uma semente brotar ou uma folha amadurecer, instantaneamente. Você cria um efeito sensorial inofensivo instantâneo, como folhas caindo, um sopro de vento, o som de um pequeno animal ou o suave odor de um repolho. O efeito deve caber num cubo de 1,5 metro. Você, instantaneamente, acende ou apaga uma vela, tocha ou fogueira pequena."
   },
   {
     name: "espirro ácido",
@@ -206,7 +206,7 @@ export const jMagias: MagiasProps[] = [
     components: "V, S",
     duration: "1 minuto",
     material: null,
-    requires_concentration: true,
+    requires_concentration: false,
     is_ritual: false,
     description: "Uma mão espectral flutuante aparece num ponto, à sua escolha, dentro do alcance. A mão permanece pela duração ou até você dissipa-la com uma ação. A mão some se estiver a mais de 9 metros de você ou se você conjurar essa magia novamente. Você pode usar sua ação para controlar a mão. Você pode usar a mão para manipular um objeto, abrir uma porta ou recipiente destrancado, guardar ou pegar um item de um recipiente aberto ou derramar o conteúdo de um frasco. Você pode mover a mão até 9 metros a cada vez que a usa. A mão não pode atacar, ativar itens mágicos ou carregar mais de 5 quilos."
   },
@@ -823,7 +823,7 @@ export const jMagias: MagiasProps[] = [
     duration: "10 minutos",
     material: null,
     requires_concentration: false,
-    is_ritual: false,
+    is_ritual: true,
     description: "Você imbui as plantas a até 9 metros de você com consciência e animação limitadas, dando-lhes a habilidade de se comunicar com você and follow your simple commands. Você pode perguntar as plantas sobre eventos na área da magia, acontecidos desde o dia anterior, recebendo informações sobre criaturas que passaram, clima e outras circunstâncias. Você também pode tornar terreno difícil causado pelo crescimento de plantas (como arbustos e vegetação rasteira) em terreno normal, permanecendo assim pela duração. Ou você pode tornar terreno normal onde as plantas estiverem presentes, em terreno difícil, permanecendo assim pela duração, fazendo as vinhas e ramos atrasarem perseguidores, por exemplo. As plantas podem ser capazes de realizar outras tarefas em seu favor, à critério do Mestre. A magia não permite que as plantas desenraizem-se e se movam, mas elas podem mover, livremente, seus ramos, galhos e caules. Se uma criatura planta estiver na área, você pode se comunicar com ela se você partilhar um idioma em comum, mas você não recebe qualquer habilidade mágica para influencia-la. Essa magia pode fazer as plantas criadas pela magia constrição soltarem uma criatura impedida."
   },
   {
@@ -1075,7 +1075,7 @@ export const jMagias: MagiasProps[] = [
     duration: "instantânea",
     material: null,
     requires_concentration: false,
-    is_ritual: false,
+    is_ritual: true,
     description: "Toda comida e bebida não-mágica dentro de uma esfera de 1,5 metro de raio centrada num ponto, à sua escolha, dentro do alcance é purificada e se livrada de venenos ou doenças."
   },
   {
@@ -1425,7 +1425,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "até ser dissipada",
     "material": "um pedaço de favo de mel e pó de jade valendo, no mínimo, 10 po, consumidos pela magia",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "description": "Você implanta uma mensagem em um objeto dentro do alcance, uma mensagem que é pronunciada quando uma condição de ativação é satisfeita. Escolha um objeto que você possa ver e não esteja sendo vestido ou carregado por outra criatura. Então, fale a mensagem, que deve conter 25 palavras ou menos, apesar de ela poder ser entregue durante um período de até 10 minutos. Finalmente, determine a circunstância que irá ativar a magia para que sua mensagem seja entregue. Quando essa circunstância ocorrer, a boca encantada aparecerá no objeto e recitará a mensagem com sua voz e com o mesmo volume que você falou. Se o objeto que você escolheu tiver uma boca ou algo semelhante a uma boca (por exemplo, a boca de uma estátua), a boca mágica aparece ai, então, as palavras parecerão vir da boca do objeto. Quando você conjura essa magia, você pode fazer a magia acabar depois de enviar sua mensagem ou ela pode permanecer e repetir a mensagem sempre que a circunstância de ativação ocorrer. A circunstância de ativação pode be tão genérica ou tão detalhada quando você quiser, apesar de ela precisar ser baseada em condições visuais ou audíveis que ocorram a até 9 metros do objeto. Por exemplo, você pode instruir a boca a falar quando uma criatura se aproximar a menos de 9 metros do objeto ou quando um sino de prata tocar a menos de 9 metros dela."
   },
   {
@@ -1438,7 +1438,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "1 minuto",
     "material": null,
-    "requires_concentration": true,
+    "requires_concentration": false,
     "is_ritual": false,
     "description": "Você tece um cordão de palavras distrativas, fazendo as criaturas, à sua escolha, que você puder ver dentro do alcance e que puderem ouvir você, realizarem um teste de resistência de Sabedoria. Qualquer criatura que não puder ser enfeitiçada, passa automaticamente nesse teste de resistência e, se você ou seus companheiros estiverem lutando com a criatura, ela terá vantagem na resistência.Se falhar na resistência, a criatura terá desvantagem em testes de Sabedoria (Percepção) feitos para notar qualquer criatura além de você, até a magia acabar ou até o alvo não poder mais ouvir você. A magia acaba se você estiver incapacitado ou incapaz de falar."
   },
@@ -1858,7 +1858,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 hora",
     "material": "um pedaço de casca de carvalho",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "description": "Você toca uma criatura voluntária. Até o fim da magia, a pele da criatura fica rígida, similar a casca de um carvalho, e a CA do alvo não pode ser inferior a 16, independentemente do tipo de armadura que ela esteja vestindo."
   },
@@ -1943,7 +1943,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "10 dias",
     "material": "uma pitada de sal e uma peça de cobre colocada em cada um dos olhos do corpo, que devem permanecer ai pela duração",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "description": "Você toca um corpo ou outros restos mortais. Pela duração, o alvo estará protegido de decomposição e não pode se tornar um morto-vivo.A magia também estende, efetivamente, o limite de tempo para que o alvo seja trazido de volta a vida, já que os dias passados sob a influência dessa magia não contam no tempo limite de tais magias, como reviver os mortos."
   },
   {
@@ -1971,7 +1971,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "até 1 hora",
     "material": null,
     "requires_concentration": true,
-    "is_ritual": false,
+    "is_ritual": true,
     "description": "Você toca uma besta voluntária. Pela duração da magia, você pode usar sua ação para ver através dos olhos e ouvir através dos ouvidos da besta e continua a fazê-lo até você usar sua ação para retornar aos seus sentidos normais. Enquanto estiver utilizando os sentidos da besta, você ganha os benefícios de qualquer sentido especial possuído pela criatura, no entanto, você estará cego e surdo em relação aos seus próprios sentidos."
   },
   {
@@ -2208,7 +2208,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 10 minutos",
     "description": "Você cria um sensor invisível, dentro do alcance, em um local familiar a você (um local que você tenha visitado ou visto antes) ou em um local obvio que não seja familiar a você (como atrás de uma porta, ao redor de um canto ou em um bosque de árvores). O sensor se mantem no local pela duração e não pode ser atacado ou manipulado de outra forma. Quando você conjurar essa magia, escolhe visão ou audição. Você pode escolher sentir através do sensor como se você estivesse no espaço dele. Com sua ação, você pode trocar entre visão e audição. Uma criatura que puder ver o sensor (como uma criatura beneficiada por ver o invisível ou visão verdadeira) vê um globo luminoso e intangível do tamanho do seu olho.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um foco valendo, no mínimo, 100 po, também um chifre cravejado de joias para ouvir ou um olho de vidro para ver."
   },
@@ -2376,7 +2376,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Da próxima vez que você realizar um ataque com uma arma à distância enquanto a magia durar, a munição da arma ou a própria arma, se ela for uma arma de arremesso, se transforma num relâmpago. Realize uma jogada de ataque normal. O alvo sofre 4d8 de dano elétrico se atingir ou metade desse dano se errar, ao invés do dano normal da arma. Independentemente de você acertar ou errar, cada criatura a até 3 metros do alvo deve realizar um teste de resistência de Destreza. Cada uma dessas criaturas sofre 2d8 de dano elétrico se falhar na resistência ou metade desse dano se obtiver sucesso.A munição ou arma então, volta a sua forma normal. Em Níveis Superiores. Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, o dano de ambos os efeitos da magia aumenta em 1d8 para cada nível do espaço acima do 3°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2390,7 +2390,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": " Você abre um portal para a escuridão entre as estrelas, uma região infestada de horrores desconhecidos. Uma esfera de 6 metros de raio de negritude e frio severo aparece, centrada num ponto dentro do alcance, e permanece pela duração. Esse vazio está preenchido por uma cacofonia de sussurros suaves e barulhos de rangidos que podem ser ouvidos a até 9 metros. Nenhuma luz, mágica ou qualquer que seja, pode iluminar a área e as criaturas totalmente dentro da área estarão cegas. O vazio cria uma dobra no tecido do espaço e a área é de terreno difícil. Qualquer criatura que começar seu turno na área sofre 2d6 de dano de frio. Qualquer criatura que terminar seu turno na área, deve ser bem sucedida num teste de resistência de Destreza ou sofrerá 2d6 de dano de ácido, à medida que tentáculos leitosos extraterrestres se esfregam contra ela.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um tentáculo de polvo em conserva."
   },
@@ -2405,7 +2405,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "1 hora",
     "description": "Você toca uma criatura voluntária e a coloca em um estado catatônico que é indistinguível da morte. Pela duração da magia, ou até você usar uma ação para tocar o alvo e dissipar a magia, o alvo aparenta estar morto para todas as inspeções externas e para magias usadas para determinar a condição do alvo. O alvo está cego e incapacitado e seu deslocamento cai para 0. O alvo tem resistência a todos os danos, exceto dano psíquico. Se o alvo estava doente ou envenenado quando você conjurou a magia, ou ficou doente ou envenenado durante o período em que estava sob efeito da magia, a doença e veneno não terá qualquer efeito até a magia terminar.",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "material": "uma pitada de terra de cemitério."
   },
   {
@@ -2447,7 +2447,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "1 hora",
     "description": "Essa magia garante a criatura que você tocar a habilidade de compreender e falar o idioma que ela ouvir.Além disso, quando o alvo fala, qualquer criatura que saiba, pelo menos, um idioma pode ouvir o alvo e compreender o que ele diz.",
     "requires_concentration": false,
-    "is_ritual": true,
+    "is_ritual": false,
     "material": "uma pequena estátua de argila de um zigurate."
   },
   {
@@ -2531,7 +2531,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "8 horas",
     "description": "Você entra em um objeto ou superfície rochoso, grande o suficiente para comportar seu corpo inteiro, mesclando-se, junto com todo o equipamento que você esteja carregando, com a rocha pela duração. Usando seu movimento, você entra na rocha num ponto que você possa tocar. Nada da sua presença ficará visível ou, de outra forma, detectável por sentidos não-mágicos. Enquanto estiver imerso na rocha, você não pode ver o que está ocorrendo do lado de fora e, qualquer teste de Sabedoria (Percepção) que você fizer para ouvir os sons do lado de fora são feitos com desvantagem. Você continua consciente do tempo transcorrido e pode conjurar magias em você enquanto estiver imerso na rocha. Você pode usar seu movimento para sair da rocha onde você entrou, o que termina a magia. Do contrário, você não pode se mover. Pequenos danos físicos a rocha não ferem você, mas destruição parcial ou uma mudança no formato (fazendo que você já não caiba mais dentro dela) expelirá você causando-lhe 6d6 de dano de concussão. A destruição completa da rocha (ou transmutação em uma substância diferente) expelirá você causando-lhe 50 de dano de concussão. Se você for expelido, você ficará caído no chão em um espaço desocupado perto de onde você entrou da primeira vez.",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "material": null
   },
   {
@@ -2545,7 +2545,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "1 hora",
     "description": "Uma criatura Grande, quase-real, similar a um cavalo, aparece no solo em um espaço desocupado, à sua escolha, dentro do alcance. Você decide a aparência da criatura, mas ela é equipada com sela, estribo e arreio. Qualquer equipamento criado por essa magia vira fumaça caso se afaste a mais de 3 metros da montaria. Pela duração, você ou a criatura que você escolher, pode cavalgar a montaria. A criatura usa as estatísticas de um cavalo de montaria, exceto por seu deslocamento ser de 30 metros e poder viajar 15 quilômetros em uma hora, ou 20 quilômetros em um ritmo rápido. Quando a magia acaba, a montaria desaparece gradualmente, dando ao cavaleiro 1 minuto para desmontar. A magia acaba se você usar uma ação para dissipa-la ou se a montaria sofrer qualquer dano.",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "material": null
   },
   {
@@ -2558,7 +2558,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Uma muralha de ventos fortes ergue-se do chão num ponto, à sua escolha, dentro do alcance. Você pode fazer a muralha ter até 15 metros de comprimento, 4,5 metros de altura e 30 centímetros de espessura. Você pode moldar a muralha em qualquer forma que desejar, contanto que ela faça um caminho contínuo pelo solo. A muralha permanece pela duração. Quando a muralha aparece, cada criatura dentro da área dela deve realizar um teste de resistência de Força.Uma criatura sofre 3d8 de dano de concussão se falhar na resistência, ou metade desse dano se obtiver sucesso. Os ventos fortes mantem névoa, fumaça e outros gases afastados. Criaturas ou objetos voadores Pequenos ou menores, não podem atravessar a muralha. Materiais leves e soltos trazidos para a muralha são arremessados para cima. Flechas, virotes e outros projéteis ordinários disparados contra alvos além da muralha são defletidos para cima e erram automaticamente. (Pedras arremessadas por gigantes ou armas de cerco e projéteis similares, não são afetados.) As criaturas em forma gasosa não podem atravessa-la.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um leque minúsculo e uma pena de origem exótica."
   },
@@ -2726,7 +2726,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Você toca uma criatura e a criatura deve ser bem sucedida em um teste de resistência de Sabedoria ou será amaldiçoada pela duração da magia. Quando você conjura essa magia, escolha a natureza da maldição dentre as seguintes opções:",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2740,7 +2740,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Essa magia confere esperança e vitalidade. Escolha qualquer quantidade de criaturas dentro do alcance. Pela duração, cada alvo tem vantagem em testes de resistência de Sabedoria e testes de resistência contra a morte e recuperam o máximo de pontos de vida possível em qualquer cura.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2824,7 +2824,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Você mexe com os pesadelos de uma criatura que você possa ver, dentro do alcance, e cria uma manifestação ilusória dos seus medos mais profundos, visível apenas para a criatura. O alvo deve realizar um teste de resistência de Sabedoria. Se falhar na resistência, ele ficará amedrontado pela duração. No final de cada turno do alvo, antes da magia acabar, ele deve ser bem sucedido num teste de resistência de Sabedoria ou sofrerá 4d10 de dano psíquico. Se passar na resistência, a magia acaba. Em Níveis Superiores. Quando você conjurar essa magia usando um espaço de magia de 5° nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 4°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2838,7 +2838,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V",
     "duration": "até 10 minutos",
     "description": "Energia purificante irradia de você em uma aura com 9 metros de raio. Até a magia acabar, a aura se move mantendo-se centrada em você. Todas as criaturas não-hostis na aura (incluindo você) não podem ficar doentes, tem resistência a dano de veneno e tem vantagem em testes de resistência contra efeitos que deixem ela com qualquer das condições a seguir: amedrontado, atordoado, cego, enfeitiçado, envenenado, paralisado e surdo.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2852,7 +2852,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V",
     "duration": "até 10 minutos",
     "description": "Energia de prevenção vital irradia de você em uma aura com 9 metros de raio. Até a magia acabar, a aura se move mantendo-se centrada em você. Todas as criaturas não-hostis na aura (incluindo você) tem resistência a dano necrótico e seu máximo de pontos de vida não pode ser reduzido. Além disso, uma criatura viva não-hostil, recupera 1 ponto de vida quando começa seu turno na aura com 0 pontos de vida.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2894,7 +2894,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Criaturas, à sua escolha, que você puder ver dentro do alcance e que puderem ouvir você, devem realizar um teste de resistência de Sabedoria. Um alvo passa automaticamente nesse teste de resistência se ele não puder ser enfeitiçado. Se falhar no teste, um alvo é afetado por essa magia. Até a magia acabar, você pode usar uma ação bônus em cada um dos seus turnos, para designar uma direção horizontal a você. Cada criatura afetada deve se mover, da melhor forma possível, para essa direção no próximo turno dela. Ela pode realizar sua ação antes de se mover. Depois de se mover dessa forma, ela pode realizar outra resistência de Sabedoria para tentar acabar com o efeito. Um alvo não é obrigado a se mover em direção de um perigo obviamente mortal, como uma fogueira ou abismo, mas ele vai provocar ataques de oportunidade por se mover na direção designada.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2922,7 +2922,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 hora",
     "description": "Você invoca elementais que aparecem em espaços desocupados, que você possa ver dentro do alcance. Você escolhe uma das opções a seguir para aparecer: Um elemental invocado através dessa magia desaparece quando cair a 0 pontos de vida ou quando a magia acabar. As criaturas invocadas são amigáveis a você e a seus companheiros. Role a iniciativa para as criaturas invocadas como um grupo, que age no seu próprio turno.Eles obedecem a quaisquer comandos verbais que você emitir (não requer uma ação sua). Se você não emitir nenhum comando a elas, elas se defenderão de criaturas hostis, mas no mais, não realizarão nenhuma ação. O Mestre possui as estatísticas das criaturas. Em Níveis Superiores. Se você conjurar essa magia usando certos espaços de magia superiores, você escolhe uma das opções de invocação acima e mais criaturas aparecem: o dobro delas com um espaço de 6° nível e o triplo delas com um espaço de 8° nível.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -2936,7 +2936,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 hora",
     "description": "Você invoca criaturas feéricas que aparecem em espaços desocupados, que você possa ver dentro do alcance.Escolha uma das opções a seguir para aparecer: Uma criatura invocado desaparece quando cair a 0 pontos de vida ou quando a magia acabar. As criaturas invocadas são amigáveis a você e a seus companheiros. Role a iniciativa para as criaturas invocadas como um grupo, que age no seu próprio turno.Eles obedecem a quaisquer comandos verbais que você emitir (não requer uma ação sua). Se você não emitir nenhum comando a elas, elas se defenderão de criaturas hostis, mas no mais, não realizarão nenhuma ação. O Mestre possui as estatísticas das criaturas. Em Níveis Superiores. Se você conjurar essa magia usando certos espaços de magia superiores, você escolhe uma das opções de invocação acima e mais criaturas aparecem: o dobro delas com um espaço de 6° nível e o triplo delas com um espaço de 8° nível.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um fruto sagrado por criatura invocada."
   },
@@ -2950,7 +2950,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 10 minutos",
     "description": "Até o fim da magia, você controla qualquer corpo de água dentro da área que você escolher, que é um cubo de 30 metros quadrados. Você pode escolher dentre quaisquer dos efeitos seguintes, quando você conjurar essa magia.Com uma ação no seu turno, você pode repetir o mesmo efeito ou escolher um diferente. Inundação. Você faz com que o nível da água de toda área afetada suba até 6 metros. Se a área incluir uma margem, a inundação ira transbordar para a terra seca. Se você escolher uma área em um extenso corpo de água, ao invés disso, você cria uma onda com 6 metros de altura que irá de um lado ao outro da área e então desaba. Qualquer veículo Enorme ou menor no caminho da onda será carregado por ela até o outro lado. Qualquer veículo Enorme ou menor atingido pela onda tem uma chance de 25 por cento de emborcar. O nível da água se mantem elevado até a magia acabar ou você escolher um efeito diferente. Se esse efeito produzir uma onda, a onda se repete no início do seu próximo turno enquanto o efeito de inundação durar. Dividir Água. Você faz com que a água na área se divida e crie uma trincheira. A trincheira se estende por toda área da magia e a água separada forma uma parede de cada lado. A trincheira permanece até a magia acabar ou você escolher um efeito diferente. A água, então, lentamente preenche a trincheira ao longo do curso da próxima rodada até o nível normal da água ser restaurado. Redirecionar Fluxo. Você faz com que o fluxo da água na área se mova na direção que você escolher, mesmo que a água tenha que fluir através de obstáculos, subir muros ou em outra direção improvável. A água na área se move na direção ordenada, mas uma vez que tenha se movido além da área da magia, ela conclui seu fluxo baseado nas condições do terreno. A água continua a se mover na direção que você escolheu até a magia acabar ou você escolher um efeito diferente. Redemoinho. Esse efeito requer um corpo de água de, pelo menos, 15 metros quadrados e 7,5 metros de profundidade. Você faz com que um redemoinho se forme no centro da área. O redemoinho forma um vórtice com 1,5 metro de largura na base, chegando a 15 metros de largura no topo e 7,5 metros de altura. Qualquer criatura ou objeto na água a até 7,5 metros do vórtice é puxado 3 metros na direção dele. Uma criatura pode tentar nadar para longe do vórtice com um teste de Força (Atletismo) contra a CD da magia. Quando uma criatura entrar no vórtice pela primeira vez no turno dela ou começar seu turno dentro dele, ela deve realizar um teste de resistência de Força. Se falhar, a criatura sofre 2d8 de dano de concussão e estará presa no vórtice até a magia acabar. Se passar na resistência, a criatura sofre metade do dano e não estará presa no vórtice. Uma criatura presa no vórtice pode usar sua ação para tentar nadar para fora do vórtice como descrito acima, mas terá desvantagem no teste de Força (Atletismo) para fazer isso. A primeira vez a cada turno que um objeto entrar no vórtice, o objeto sofre 2d8 de dano de concussão; esse dano se repete a cada rodada que ele permanecer no vórtice.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "uma gota de água e uma pitada de poeira."
   },
@@ -2964,7 +2964,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V",
     "duration": "até 1 minuto",
     "description": "Da próxima vez que você atingir uma criatura com um ataque corpo-a-corpo com arma, antes do fim da magia, sua arma penetra tanto no corpo quanto na mente e o ataque causa 4d6 de dano psíquico adicional ao alvo. O alvo deve realizar um teste de resistência de Sabedoria.Se falhar na resistência, ele terá desvantagem nas jogadas de ataque e testes de habilidade e não poderá efetuar reações até o final do próximo turno dele.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3006,7 +3006,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Uma esfera de energia brilhante engloba uma criatura ou objeto de tamanho Grande ou menor, dentro do alcance.Uma criatura involuntária deve realizar um teste de resistência de Destreza. Se falhar na resistência, a criatura estará enclausurada pela duração.Nada – nem objetos físicos, energia ou outros efeitos mágicos – pode passar através da barreira, para dentro ou para fora, apesar da criatura na esfera poder respirar lá dentro. A esfera é imune a todos os danos e a criatura ou objeto dentro não pode sofrer dano de ataques ou efeitos originados de fora, nem a criatura dentro da esfera, pode causar dano a nada fora dela. A esfera não tem peso e é grande o suficiente apenas para conter a criatura ou objeto dentro. Uma criatura enclausurada pode usar sua ação para empurrar a parede da esfera e, assim, rolar a esfera a metade do deslocamento da criatura. Similarmente, o globo pode ser erguido e movido por outras criaturas. A magia desintegrar lançada no globo o destruirá sem causar ferimentos a nada dentro dele.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "uma peça hemisférica de cristal transparente e uma peça hemisférica que combine de goma arábica."
   },
@@ -3062,7 +3062,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Você ou uma criatura que você possa tocar, se torna invisível até a magia acabar. Qualquer coisa que o alvo estiver vestindo ou carregando fica invisível enquanto estiver de posse do alvo.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3076,7 +3076,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 hora",
     "description": "Descreva ou nomeie uma criatura que seja familiar a você. Você sente a direção da localização da criatura, contanto que a criatura esteja a até 300 metros de você.Se a criatura se mover, você saberá a direção do movimento dela. A magia pode localizar uma criatura especifica que você conheça ou a criatura mais próxima de um tipo especifico (como um humano ou um unicórnio), desde que você já tenha visto tal criatura de perto – a até 9 metros – pelo menos uma vez. Se a criatura que você descreveu ou nomeou estiver em uma forma diferente, como se estiver sob efeito da magia metamorfose, essa magia não localizará a criatura. Essa magia não pode localizar uma criatura se água corrente de, pelo menos 3 metros de largura, bloquear o caminho direito entre você e a criatura.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um pouco de pelo de um cão de caça."
   },
@@ -3104,7 +3104,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 hora",
     "description": "Essa magia transforma uma criatura que você possa ver, dentro do alcance, em uma nova forma. Uma criatura involuntária deve realizar um teste de resistência de Sabedoria para evitar o efeito. Um metamorfo obtém sucesso automaticamente nesse teste de resistência. A transformação permanece pela duração, ou até o alvo cair a 0 pontos de vida ou morrer. A nova forma pode ser qualquer besta a qual o nível de desafio seja igual ou menor que o do alvo (ou o nível do alvo, se ele não possuir um nível de desafio). As estatísticas de jogo do alvo, incluindo seus valores de habilidades mentais, são substituídas pelas estatísticas da besta escolhida. Ele mantem sua tendência e personalidade. O alvo assume os pontos de vida da sua nova forma.Quando ele reverter a sua forma normal, a criatura retorna à quantidade de pontos de vida que ela tinha antes da transformação. Se ela reverter como resultado de ter caído a 0 pontos de vida, qualquer dano excedente é recebido pela sua forma normal. Contato que o dano excedente não reduza os pontos de vida da forma normal da criatura a 0, ela não cairá inconsciente. Essa magia não pode afetar um alvo com 0 pontos de vida. A criatura é limitada em suas ações pela natureza da sua nova forma e ela não pode falar, conjurar magias ou realizar qualquer outra ação que precise de mãos ou de vocalização. O equipamento do alvo mescla-se a sua nova forma. O alvo não pode ativar, empunhar ou, de outra forma, se beneficiar de qualquer de seus equipamentos.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um casulo de lagarta."
   },
@@ -3160,7 +3160,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 hora",
     "description": "Você cria um olho mágico invisível, dentro do alcance, que flutua no ar pela duração. Você mentalmente recebe informações visuais do olho, que possui visão normal e visão no escuro com alcance de 9 metros. O olho pode ver em todas as direções. Com uma ação, você pode mover o olho até 9 metros em qualquer direção. Não existe limite de quão longe de você o olho pode se mover, mas ele não pode entrar em outro plano de existência. Uma barreira solida bloqueia o movimento do olho, mas o olho pode passar através de aberturas de até 3 centímetros de diâmetro.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um punhado de pelo de morcego."
   },
@@ -3244,7 +3244,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Tentáculos negros retorcidos preenchem um quadrado de 6 metros no chão, que você possa ver dentro do alcance.Pela duração, esses tentáculos transformam o solo na área em terreno difícil. Quando uma criatura adentrar a área afetada pela primeira vez em um turno ou começar o turno dela lá, a criatura deve ser bem sucedida num teste de resistência de Destreza ou sofrerá 3d6 de dano de concussão e estará impedida pelos tentáculos até o fim da magia. Uma criatura que começar seu turno na área e já estiver impedida pelos tentáculos sofre 3d6 de dano de concussão. Uma criatura impedida pelos tentáculos pode usar sua ação para realizar um teste de Força ou Destreza (à escolha dela) contra a CD da sua magia. Se ela obtiver sucesso, ela se libertará.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um pedaço de tentáculo de um polvo gigante ou lula gigante."
   },
@@ -3272,7 +3272,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Você conjura uma vinha que brota do chão em um espaço desocupado, à sua escolha, que você possa ver dentro do alcance. Quando você conjura essa magia, você pode direcionar a vinha para que ela enlace uma criatura a até 9 metros dela que você possa ver. Essa criatura deve ser bem sucedida num teste de resistência de Destreza ou será arrastada 6 metros na direção da vinha. Até o fim da magia, você pode direcionar a vinha para enlaçar a mesma criatura ou uma diferente, com uma ação bônus, em cada um dos seus turnos.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3286,7 +3286,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Você transmuta sua aljava para que ela produza um suprimento interminável de munições não-mágicas, que parecem saltar na sua mão quando você tenta pega-las. Em cada um dos seus turnos, até a magia acabar, você pode usar uma ação bônus para realizar dois ataques com uma arma que use munição de uma aljava. Cada vez que você fizer tais ataques à distância, sua aljava, magicamente, repõe a munição que você usou com uma munição não-mágica similar. Qualquer munição criada por essa magia se desintegra quando a magia acaba. Se a aljava não estiver mais com você, a magia acaba.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "uma aljava contendo, pelo menos, uma munição."
   },
@@ -3328,7 +3328,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Você adquire a habilidade de entrar em uma árvore e se mover de dentro dela para dentro de outra árvore de mesmo tipo à até 150 metros. Ambas as árvores devem estar vivas e ter, pelo menos, o mesmo tamanho que você.Você deve usar 1,5 metro de deslocamento para entrar numa árvore. Você, instantaneamente, sabe a localização de todas as outras árvores de mesmo tipo à 150 metros e, como parte do movimento usado para entrar na árvore, pode tanto passar por uma dessas árvores quanto sair da árvore em que você está. Você aparece no espaço que você quiser a 1,5 metro da árvore destino, usando outro movimento de 1,5 metro. Se você não tiver movimento restante, você aparece a 1,5 metro da árvore que você terminou seu movimento. Você pode usar esse habilidade de transporte uma vez por rodada pela duração. Você deve terminar cada turno fora da árvore.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3342,7 +3342,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V",
     "duration": "até 10 minutos",
     "description": "Energia divina irradia de você, distorcendo e espalhando energia mágica a até 9 metros de você. Até a magia acabar, a esfera se move com você, centrada em você. Pela duração, cada criatura amigável na área (incluindo você) tem vantagem em testes de resistência contra magias e outros efeitos mágicos. Além disso, quando uma criatura afetada for bem sucedida num teste de resistência contra uma magia ou efeito mágico realizado para sofrer apenas metade do dano, ao invés disso, ela não sofrerá dano nenhum se passar na resistência.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3399,7 +3399,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "instantânea",
     "description": "Você, momentaneamente, se torna uno com a natureza e ganha conhecimento do território ao seu redor. Ao ar livre, a magia lhe oferece conhecimento do terreno a até 4,5 quilômetros de você. Em cavernas e outros formações subterrâneas naturais, o raio é limitado a 150 metros. A magia não funciona onde a natureza foi substituída por construções, como em masmorras ou cidades. Você, instantaneamente, adquire conhecimento de até três fatos, à sua escolha, sobre qualquer dos assuntos a seguir, relacionados a área: Por exemplo, você poderia determinar a localização de um morto-vivo poderoso na área, a localização da maior fonte de água potável e a localização de quaisquer cidades próximas.",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "material": null
   },
   {
@@ -3469,7 +3469,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "até ser dissipada",
     "description": "Você toca um ponto e infunde uma área ao redor com poder sagrado (ou profano). A área pode ter até 18 metros de raio e a magia falha se o raio incluir uma área já sob efeito da magia consagrar. A área afetada está sujeita aos seguintes efeitos. Primeiro, celestiais, corruptores, elementais, fadas e mortos-vivos não conseguem entrar na área, nem, tais criaturas, podem enfeitiçar, amedrontar ou possuir criaturas dentro da área. Qualquer criatura enfeitiçada, amedrontada ou possuída por uma criatura dessas, não estará mais enfeitiçada, amedrontada ou possuída ao adentrar a área. Você pode excluir um ou mais desses tipos de criaturas desse efeito. Segundo, você pode vincular um efeito extra a área.Escolha o efeito da lista a seguir, ou escolha um efeito oferecido pelo Mestre. Alguns desses efeitos se aplicam a criaturas na área; você pode definir seu o efeito se aplica a todas as criaturas, criaturas que seguem uma divindade ou líder especifico ou criaturas de uma espécie especifica, como orcs ou trolls. Quando uma criatura que seria afetada entrar na área da magia pela primeira vez em um turno, ou começar seu turno nela, ela pode fazer um teste de resistência de Carisma. Se obtiver sucesso, a criatura ignora o efeito extra até sair da área. Coragem. As criaturas afetadas não podem ser amedrontadas enquanto estiverem na área. Descanso Eterno. Cadáveres enterrados na área não podem ser transformados em mortos-vivos. Escuridão. Escuridão preenche a área. Luz normal, assim como luz mágica criada por magias de nível inferior ao nível do espaço usado para conjurar essa magia, não podem iluminar a área. Idiomas. As criaturas afetadas podem se comunicar com qualquer outra criatura na área, mesmo que elas não partilhem um idioma em comum. Interferência Extradimensional. As criaturas afetadas não podem se mover ou viajar usando teletransporte ou por meios extradimensionais ou interplanares. Luz do Dia. Luz plena preenche a área. Escuridão mágica criada por magias de nível inferior ao nível do espaço usado para conjurar essa magia, não podem extinguir a luz. Medo. As criaturas afetadas ficam amedrontadas enquanto estiverem na área. Proteção contra Energia. As criaturas afetadas na área tem resistência a um tipo de dano, à sua escolha, exceto de concussão, cortante ou perfurante. Silêncio. Nenhum som pode ser emitido de dentro da área e nenhum som pode adentra-la. Vulnerabilidade à Energia. As criaturas afetadas na área tem vulnerabilidade a um tipo de dano, à sua escolha, exceto de concussão, cortante ou perfurante.",
     "requires_concentration": false,
-    "is_ritual": true,
+    "is_ritual": false,
     "material": "ervas, óleos e incenso valendo, no mínimo, 1.000 po, consumidos pela magia. "
   },
   {
@@ -3483,7 +3483,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "1 minuto",
     "description": "Você contata mentalmente um semideus, o espírito de um sábio morto há muito tempo ou alguma outra entidade misteriosa de outro plano. Contatar esse extraplanar inteligente pode distorcer ou até mesmo arruinar com sua mente. Quando você conjurar essa magia, faça um teste de resistência de Inteligência CD 15. Se falhar, você sofre 6d6 de dano psíquico e fica insano até terminar um descanso longo. Enquanto estiver insano, você não pode realizar ações, não entende o que as outras criaturas dizem, não pode ler e fala apenas coisas sem sentido.Conjurar a magia restauração maior em você acaba com esse efeito. Se obtiver sucesso no teste de resistência, você pode fazer até cinco perguntas à entidade. Você deve fazer suas perguntas antes da magia acabar. O Mestre responde cada pergunta com uma única palavra, como “sim”, “não”, “talvez”, “nunca”, “irrelevante” ou “incerto” (se a entidade não souber a resposta para a pergunta). Em caso de uma resposta de única palavra puder levar ao engano, o Mestre pode, ao invés disso, oferecer uma frase curta como resposta.",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "material": null
   },
   {
@@ -3496,7 +3496,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "especial",
     "description": "Você puxa mechas de matéria sombria da Umbra para criar objetos inanimados de matéria vegetal dentro do alcance: bens finos, cordas, madeira ou algo similar. Você também pode usar a magia para criar objetos minerais como pedra, cristal ou metal. O objeto criado não pode ser maior que um cubo de 1,5 metro e o objeto deve ser de um formado e material que você já tenha visto antes. A duração depende do material do objeto. Se o objeto for composto por diversos materiais, use o de menor duração.",
-    "requires_concentration": true,
+    "requires_concentration": false,
     "is_ritual": false,
     "material": "um pequeno pedaço de material do mesmo tipo do item que você planeja criar."
   },
@@ -3524,7 +3524,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 hora",
     "description": "Uma barreira cintilante se estende de você até 3 metros de raio, e se move com você, permanecendo centrada em você e restringindo criaturas diferentes de mortos-vivos e constructos. A barreira mantem-se pela duração. A barreira previna uma criatura afetada de atravessa-la ou alcançar através dela. Uma criatura afetada pode conjurar magias ou realizar ataques à distância ou ataques com armas de haste através da barreira. Se você se mover forçando uma criatura afetada a atravessar a barreira, a magia termina.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3566,7 +3566,7 @@ export const jMagias: MagiasProps[] = [
     "components": "S",
     "duration": "até 1 hora",
     "description": "Você fica invisível ao mesmo tempo que uma cópia ilusória sua aparece onde você estava. A cópia permanece pela duração, mas a invisibilidade acaba se você atacar ou conjurar uma magia. Você pode usar sua ação para mover a cópia ilusória até o dobro do seu deslocamento e fazê-la gesticular, falar e se comportar da forma que você quiser.Você pode ver através dos olhos e ouvir através dos ouvidos da cópia como se você estivesse localizado onde ela está. Em cada um dos seus turnos, com uma ação bônus, você pode trocar o uso dos sentidos dela pelo seu ou voltar novamente. Enquanto você está usando os sentidos dela, você fica cego e surdo ao que está a sua volta.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3580,7 +3580,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V",
     "duration": "até 1 minuto",
     "description": "Da próxima vez que você atingir uma criatura com um ataque com arma, antes do fim da magia, seu ataque crepita com energia e o ataque causa 5d6 de dano de energia extra ao alvo. Além disso, se esse ataque reduzir o alvo a 50 pontos de vida ou menos, você a bane. Se o alvo for nativo de um plano de existência diferente do que você está, o alvo desaparece, retornando ao seu plano natal. Se o alvo for nativo do plano que você está, a criatura é enviada para um semiplano inofensivo. Enquanto estiver lá, a criatura estará incapacitada. Ela permanece lá até a magia acabar, a partir desse ponto, o alvo reaparece no espaço em que ela deixou ou no espaço desocupado mais próximo, se o espaço dela estiver ocupado.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3594,7 +3594,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Energia cintilante envolve e protege você de fadas, mortos-vivos e criaturas originarias além do Plano Material. Pela duração, celestiais, corruptores, elementais, fadas e mortos-vivos tem desvantagem nas jogadas de ataque contra você. Você pode terminar a magia prematuramente usando uma das funções especiais a seguir. Cancelar Encantamento. Com sua ação, você toca uma criatura que você possa alcançar que esteja enfeitiçada, amedrontada ou possuída por um celestial, corruptor, elemental, fada ou morto-vivo. A criatura tocada não estará mais enfeitiçada, amedrontada ou possuída por tais criaturas. Demissão. Com sua ação, faça um ataque corpo-a-corpo com magia contra um celestial, corruptor, elemental, fada ou morto-vivo que você possa alcançar. Se atingir, você pode tentar guiar a criatura de volta ao seu plano natal. A criatura deve ser bem sucedida num teste de resistência de Carisma ou será enviada de volta ao seu plano natal (se já não for aqui). Se elas não estiverem em seus planos de origem, mortos-vivos serão enviados para Umbra e fadas serão enviadas para Faéria.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "água benta ou pó de prata e ferro."
   },
@@ -3637,7 +3637,7 @@ export const jMagias: MagiasProps[] = [
     "duration": "1 hora",
     "description": "Você forja uma ligação telepática entre até oito criaturas voluntárias, à sua escolha, dentro do alcance, ligando psiquicamente cada criatura a todas as outras, pela duração. Criaturas com valores de Inteligência 2 ou menos não são afetadas por essa magia. Até a magia acabar, os alvos podem se comunicar telepaticamente através do elo, independentemente de terem ou não um idioma em comum. A comunicação é possível a qualquer distância, apesar de não se estender a outros planos de existência.",
     "requires_concentration": false,
-    "is_ritual": false,
+    "is_ritual": true,
     "material": "pedaços de cascas de ovos de dois tipos diferentes de criatura."
   },
   {
@@ -3650,7 +3650,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Você cria uma mão Grande de energia cintilante e translucida em um espaço desocupado que você possa ver dentro do alcance. A mão permanece pela duração da magia e ela se move ao seu comando, imitando os movimentos da sua própria mão. A mão é um objeto com CA 20 e pontos de vida igual ao seu máximo de pontos de vida. Se ela cair a 0 pontos de vida, a magia termina. Ela tem Força 26 (+8) e Destreza 10 (+0). A mão não preenche o espaço dela. Quando você conjura essa magia você pode, com uma ação bônus, nos seus turnos subsequentes, mover a mão até 18 metros e então causar um dos seguintes efeitos com ela. Mão Esmagadora. A mão tenta agarrar uma criatura Enorme ou menor a 1,5 metro dela. Você usa o valor de Força da mão para determinar o agarrão. Se o alvo for Médio ou menor, você terá vantagem no teste.Enquanto a mão estiver agarrando o alvo, você pode usar uma ação bônus para fazer a mão esmaga-lo. Quando o fizer, o alvo sofre dano de concussão igual a 2d6 + seu modificador de habilidade de conjuração. Mão Interposta. A mão se interpõem entre você e uma criatura a sua escolha até você lhe dar um comando diferente. A mão se move para ficar entre você e o alvo, concedendo a você meia-cobertura contra o alvo. O alvo não pode se mover através do espaço da mão se o valor de Força dele for menor ou igual ao valor de Força da mão.Se o valor de Força dele for maior que o valor de Força da mão, o alvo pode se mover até você através do espaço da mão, mas aquele espaço será considerado terreno difícil para o alvo. Mão Poderosa. A mão tenta empurrar uma criatura a 1,5 metro dela em uma direção a sua escolha. Realize um teste com a Força da mão, resistido por um teste de Força (Atletismo) do alvo. Se o alvo for Médio ou menor, você tem vantagem no teste. Se você for bem sucedido, a mão empurra o alvo até 1,5 metro mais uma quantidade de metros igual ao modificador da sua habilidade de conjuração multiplicado por 1,5. A mão se move com o alvo, permanecendo a 1,5 metro dele. Punho Cerrado. A mão golpeia uma criatura ou objeto a 1,5 metro dela. Realize uma jogada de ataque corpo-a-corpo com magia para a mão usando suas estatísticas de jogo. Se atingir, o alvo sofre 4d8 de dano de energia. Em Níveis Superiores. Se você conjurar essa magia usando um espaço de magia de 6° nível ou superior, o dano da opção punho cerrado aumenta em 2d8 e o dano da mão esmagadora aumenta em 2d6 para cada nível do espaço acima do 5°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "uma casca de ovo e uma luva de couro de cobra."
   },
@@ -3720,7 +3720,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 10 minutos",
     "description": "Você cria uma esfera de nevoeiro venenoso de cor amarelo-esverdeado, com 6 metros de raio, centrado em um ponto, à sua escolha, dentro do alcance. O nevoeiro se espalha, dobrando esquinas. Ele permanece pela duração ou até um vento forte dispersar o nevoeiro, terminando a magia. Sua área é de escuridão densa. Quando uma criatura entra na área da magia pela primeira vez no turno dela ou começa seu turno lá, essa criatura deve realizar um teste de resistência de Constituição. A criatura sofre 5d8 de dano de veneno, ou metade desse dano, se passar no teste. As criaturas serão afetadas mesmo se prenderem a respiração ou não precisarem respirar. O nevoeiro se afasta 3 metros de você no começo de cada um dos seus turnos, deslizando pela superfície do solo. Os vapores são mais pesados que o ar, mantendo-se nos níveis mais baixos do terreno, até mesmo caindo em aberturas. Em Níveis Superiores. Se você conjurar essa magia usando um espaço de magia de 6° nível ou superior, o dano aumenta em 1d8 para cada nível do espaço acima do 5°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3762,7 +3762,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 10 minutos",
     "description": "Um enxame voraz de gafanhotos preenche uma esfera de 6 metros de raio, centrada no ponto que você escolher, dentro do alcance. A esfera se espalha dobrando esquinas.A esfera permanece pela duração e sua área é de escuridão leve. A área da esfera é de terreno difícil. Quando a área aparece, cada criatura dentro dela deve realizar um teste de resistência de Constituição. Uma criatura sofre 4d10 de dano perfurante se falhar na resistência ou metade desse dano se passar. Uma criatura deve, também, realizar um teste de resistência quando entrar na área da magia pela primeira vez num turno ou terminar seu turno nela. Em Níveis Superiores. Quando você conjurar essa magia usando um espaço de magia de 6° nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 5°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "alguns grãos de açúcar, alguns miolos de grão e uma mancha de gordura."
   },
@@ -3888,7 +3888,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 minuto",
     "description": "Pela duração da magia, seus olhos tornam-se manchas vazias imbuídas com poder terrível. Uma criatura, à sua escolha, a até de 18 metros de você que você puder ver, deve ser bem sucedida num teste de resistência de Sabedoria ou será afetada por um dos efeitos a seguir, à sua escolha, pela duração. A cada um dos seus turnos, até a magia acabar, você pode usar sua ação para afetar outra criatura, mas não pode afetar uma criatura novamente se ela tiver sido bem sucedida no teste de resistência contra essa conjuração de ataque visual. Adormecer. O alvo cai inconsciente. Ele acorda se sofrer qualquer dano ou se outra criatura usar sua ação para sacudir o adormecido até acordá-lo. Apavorar. O alvo está amedrontado. Em cada um dos turnos dele, a criatura amedrontada deve realizar a ação de Disparada e se mover para longe de você pela rota segura mais curta disponível, a não ser que não haja lugar para se mover. Se o alvo se mover para um local a, pelo menos, 18 metros de distância de você onde ela não possa mais te ver, esse efeito termina. Adoecer. O alvo tem desvantagem nas jogadas de ataque e testes de habilidade. No final de cada um dos turnos dele, ele pode realizar outro teste de resistência de Sabedoria. Se for bem sucedido, o efeito termina.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3916,7 +3916,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 10 minutos",
     "description": "Você cria uma muralha vertical de lâminas giratórias, afiadas como navalhas, feitas de energia mágica. A muralha aparece dentro do alcance e permanece pela duração. Você pode fazer uma muralha reta de até 30 metros de comprimento por 6 metros de altura e 1,5 metro de largura ou uma muralha anelar com até 18 metros de diâmetro, 6 metros de altura e 1,5 metro de largura. A muralha confere três-quartos de cobertura a criaturas atrás dela e seu espaço é terreno difícil. Quando uma criatura entrar a área da muralha pela primeira vez em um turno, ou começar seu turno nela, a criatura deve realizar um teste de resistência de Destreza. Se falhar, a criatura sofrerá 6d10 de dano cortante. Em um sucesso, a criatura sofre metade desse dano.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -3972,7 +3972,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 1 hora",
     "description": "Você invoca uma criatura feérica de nível de desafio 6 ou inferior ou um espírito feérico que assume a forma de uma besta de nível de desafio 6 ou inferior. Ela aparece num espaço desocupado, que você possa ver dentro do alcance. A criatura feérica desaparece se cair a 0 pontos de vida ou quando a magia acabar. A criatura feérica é amigável a você e a seus companheiros pela duração. Role a iniciativa para a criatura, que age no seu próprio turno. Ela obedece a quaisquer comandos verbais que você emitir (não requer uma ação sua), contanto que não violem sua tendência. Se você não emitir nenhum comando a ela, ela se defenderá de criaturas hostis, mas no mais, não realizará nenhuma ação. Se sua concentração for interrompida, a criatura feérica não desaparece. Ao invés disso, você perde o controle sobre o elemental e ele se torna hostil a você e aos seus companheiros, e irá atacar. Uma criatura feérica fora de controle não pode ser dispensada e desaparece 1 hora depois de você ter a invocado. O Mestre possui as estatísticas da criatura feérica. Em Níveis Superiores. Quando você conjurar essa magia usando um espaço de magia de 7° nível ou superior, o nível de desafio aumenta em 1 para cada nível do espaço acima do 6°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -4042,7 +4042,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V",
     "duration": "até 1 minuto",
     "description": "Escolha uma criatura que você possa ver, dentro do alcance. O alvo começa a dançar comicamente no lugar: rodopiando, batendo os pés e saltitando pela duração. As criaturas que não podem ser enfeitiçadas são imunes a essa magia. Uma criatura dançando deve usar todo o seu movimento para dançar sem abandonar seu espaço e tem desvantagem nos testes de resistência de Destreza e nas jogadas de ataque. Enquanto o alvo estiver sob efeito dessa magia, as outras criaturas terão vantagem nas jogadas de ataque contra ele. Com uma ação, uma criatura dançando pode realizar um teste de resistência de Sabedoria para recuperar controle sobre si mesmo.Num sucesso na resistência, a magia acaba.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -4084,7 +4084,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 dia",
     "description": "Essa magia permite que você encontre a rota física mais curta e direta para um local especifico estático, que você seja familiar, no mesmo plano de existência. Se você denominar um destino em outro plano de existência, um local que se mova (como uma fortaleza andante) ou um destino que não seja especifico (como “o covil do dragão verde”), a magia falha. Pela duração, contanto que você esteja no mesmo plano de existência do destino, você saberá o quão longe ele está e em que direção ele se encontra. Enquanto estiver viajando, sempre que você se deparar com uma escolha de trajetória no caminho, você automaticamente determina qual trajetória tem a rota mais curta e direta (mas não necessariamente a rota mais segura) para o destino.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um conjunto de ferramentas de adivinhação, como ossos, bastões de marfim, dentes ou runas esculpidas, no valor de 100 po e um objeto do lugar que você deseja encontrar"
   },
@@ -4112,7 +4112,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Uma barreira imóvel, levemente cintilante, surge do nada num raio de 3 metros centrado em você e permanece pela duração. Qualquer magia de 5° nível ou inferior conjurada de fora da barreira não poderá afetar as criaturas ou objetos dentro dela, mesmo que a magia seja conjurada usando um espaço de magia de nível superior. Tais magias podem ter como alvo criaturas e objetos dentro da barreira, mas a magia não produz nenhum efeito neles. Similarmente, a área dentro da barreira é excluída das áreas afetadas por tais magias. Em Níveis Superiores. Quando você conjurar essa magia usando um espaço de magia de 7° nível ou superior, a barreira bloqueia magias de um nível superior para cada nível do espaço acima do 6°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "uma perola de vidro ou cristal que se despedaça quando a magia termina."
   },
@@ -4154,7 +4154,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 2 horas",
     "description": "Escolha uma área de terreno não maior que 12 metros de lado, dentro do alcance. Você pode remodelar terra, areia ou barro na área da maneira que quiser, pera duração.Você pode erguer ou abaixar a elevação da área, criar ou preencher valas, levantar ou deitar um muro ou formar uma coluna. A extensão de tais mudanças não pode exceder metade da maior dimensão da área. Portanto, se você afetar um quadrado de 12 metros, você poderá criar um pilar de até 6 metros de altura, erguer ou abaixar a elevação do quadrado em até 6 metros ou cavar uma vala de até 6 metros de profundidade e assim por diante. Leva 10 minutos para completar essas modificações. Ao final de cada 10 minutos que você gastar se concentrando nessa magia, você pode escolher uma nova área de terreno para afetar. Devido às transformações no terreno ocorrerem lentamente, as criaturas na área normalmente não podem ficar presas ou sofrer dano pela movimentação do solo. Essa magia pode manipular rocha natural ou construções de pedra. Pedra e estruturas deslocam-se para acomodar o novo terreno. Se a forma pela qual você modela o terreno poderia tornar uma estrutura instável, ela poderá desmoronar. Similarmente, essa magia não afeta diretamente o crescimento da vegetação. A terra movida carrega quaisquer plantas no caminho junto com ela.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "uma lâmina de ferro e uma pequena sacola contendo uma mistura de solos, argila, barro e areia."
   },
@@ -4182,7 +4182,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 10 minutos",
     "description": "Você cria uma muralha de gelo numa superfície sólida dentro do alcance. Você pode molda-la em uma cúpula hemisférica ou uma esfera com um raio de até dez painéis de 3 metros por 3 metros. Cada painel deve ser contíguo com outro painel. Em qualquer formato, a muralha terá 0,6 centímetros de espessura. Ela permanece pela duração. Se a muralha passar pelo espaço ocupado por uma criatura quando ela surgir, a criatura na área será empurrada para um dos lados da muralha (você escolhe qual lado) e deve realizar um teste de resistência de Destreza. Se falhar na resistência, a criatura sofrerá 10d6 de dano de frio ou metade desse dano se passar na resistência. A muralha é um objeto que pode ser danificado e então, partido. Ela tem CA 12, 30 pontos de vida por seção de 3 metros e é vulnerável a dano de fogo. Reduzir os pontos de vida de uma seção de 3 metros da muralha a 0 destruirá essa seção, deixando para trás uma camada de ar gelado no espaço ocupado pela muralha. Uma criatura que atravesse a camada de ar gelado pela primeira vez num turno, deve realizar um teste deresistência de Constituição. Essa criatura sofrerá 5d6 de dano de frio se fracassar na resistência, ou metade desse dano se obtiver sucesso. Em Níveis Superiores. Quando você conjurar essa magia usando um espaço de magia de 7° nível ou superior, o dano causado quando ela aparece aumenta em 2d6 e o dano por atravessar através da camada de ar gelado aumenta em 1d6 para cada nível do espaço acima do 6°.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "um pequeno pedaço de quartzo."
   },
@@ -4210,7 +4210,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S",
     "duration": "até 10 minutos",
     "description": "Você cria portais de teletransporte conectados que permanecem abertos pela duração. Escolha dois pontos no solo que você possa ver, um ponto a até 3 metros de você e outro a até 150 metros de você. Um portal circular, com 3 metros de diâmetro, se abre em cada ponto. Se o portal se abriria num local ocupado por uma criatura, a magia falha e a conjuração é perdida. Os portais são dois anéis dimensionais brilhantes cheios de névoa, flutuando a centímetros do chão, perpendicular a ele no ponto escolhido. Um anel é visível apenas de um lado (à sua escolha), que é o lado que funciona como portal. Qualquer criatura ou objeto que adentrar o portal, sairá pelo outro portal, como se ambos estivessem adjacentes um ao outro; atravessar um portal do lado que não é um portal não tem efeito. A névoa que preenche cada portal é opaca e bloqueia a visão através dele. No seu turno, você pode girar os anéis, com uma ação bônus, fazendo o lado ativo ficar em uma direção diferente.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": null
   },
@@ -4252,7 +4252,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "até 1 minuto",
     "description": "Um raio de luz brilhante surge da sua mão em uma linha de 18 metros de comprimento por 1,5 metro de largura.Cada criatura na linha deve realizar um teste de resistência de Constituição. Se falhar na resistência, uma criatura sofrerá 6d8 de dano radiante e ficará cega até seu próximo turno. Se passar na resistência, ela sofrerá metade desse dano e não ficará cega pela magia. Mortos-vivos e limos tem desvantagem nos seus testes de resistência. Você pode criar uma linha de radiação com sua ação em qualquer turno, até a magia acabar. Pela duração, uma fagulha de radiação luminosa brilha na sua mão. Ela emite luz plena num raio de 9 metros e penumbra por 9 metros adicionais. Essa luz é luz do sol.",
-    "requires_concentration": false,
+    "requires_concentration": true,
     "is_ritual": false,
     "material": "uma lente de aumento."
   },
@@ -4462,7 +4462,7 @@ export const jMagias: MagiasProps[] = [
     "components": "V, S, M",
     "duration": "1 hora",
     "description": "Uma prisão em formato cúbico, imóvel e invisível, composta de energia mágica brota do nada, em volta de uma área, à sua escolha, dentro do alcance. A prisão pode ser uma cela ou uma caixa sólida, à sua escolha. Uma prisão em formato de cela pode ter até 6 metros quadrados e é feita de barras com 1,5 centímetro de diâmetro espaçadas a 1,5 centímetro umas das outras. Uma prisão em formato de caixa pode ter até 3 metros quadrados, criando uma barreira sólida que impede qualquer matéria de atravessa-la e bloqueia qualquer magia conjurada de entrar ou sair da área. Quando você conjura a magia, qualquer criatura que estiver completamente dentro da área da prisão ficará presa. As criaturas que estiverem apenas parcialmente na área, ou as grandes demais para caber dentro da área, são empurradas do centro da área, até estarem completamente fora dela. Uma criatura dentro da prisão não pode sair dela por meios não-mágicos. Se a criatura tentar usar teletransporte ou viagem entre planos para abandonar a prisão, ela deve, primeiro, realizar um teste de resistência de Carisma. Se obtiver sucesso, a criatura pode usar a magia e sair da prisão. Se falhar, a criatura não pode sair da prisão e desperdiça o uso da magia ou efeito. A prisão também se estende ao Plano Etéreo, bloqueando viagem etérea. Essa magia não pode ser dissipada por dissipar magia.",
-    "requires_concentration": true,
+    "requires_concentration": false,
     "is_ritual": false,
     "material": "pó de rubi no valor de 1.500 po."
   },
